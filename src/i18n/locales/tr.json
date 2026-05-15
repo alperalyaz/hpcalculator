@@ -1,0 +1,450 @@
+{
+  "app": {
+    "name": "Hydraulic & Pneumatic Calculator",
+    "company": "Hidroteknik A.Ş.",
+    "tagline": "Endüstriyel Hesaplama Araçları"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "hydraulicSystem": "Hidrolik Sistem",
+    "bucklingShaft": "Burkulma & Mil Çapı",
+    "gearPump": "Dişli Pompa Seçimi",
+    "pipeRodWeight": "Boru & Mil Ağırlığı",
+    "pneumaticCylinder": "Pnömatik Silindir",
+    "hydraulicMotor": "Hidrolik Motor",
+    "threadPitch": "Vida & Diş Standartları",
+    "pipeConverter": "Boru Birim Dönüştürücü",
+    "about": "Hakkımızda",
+    "privacy": "Gizlilik",
+    "terms": "Kullanım Şartları",
+    "contact": "İletişim",
+    "reportBug": "Bug Rapor Et"
+  },
+  "home": {
+    "welcome": "Hoş Geldiniz",
+    "selectModule": "Hesaplama modülü seçin",
+    "modules": "Modüller",
+    "shortTitles": {
+      "pipeRodWeight": "Boru & Mil Ağırlık"
+    }
+  },
+  "modules": {
+    "hydraulicSystem": {
+      "title": "Hidrolik Sistem Hesaplayıcı",
+      "description": "Basınç, debi, güç ve verimlilik hesaplamaları",
+      "category": "Hidrolik"
+    },
+    "bucklingShaft": {
+      "title": "Burkulma & Mil Çapı",
+      "description": "Kritik yük ve minimum mil çapı hesaplamaları",
+      "category": "Mekanik"
+    },
+    "gearPump": {
+      "title": "Dişli Pompa Seçim Kılavuzu",
+      "description": "Debi, basınç ve motor gücüne göre pompa seçimi",
+      "category": "Pompa"
+    },
+    "pipeRodWeight": {
+      "title": "Boru & Mil Ağırlık Hesaplayıcı",
+      "description": "Birim uzunluk başına ağırlık hesaplamaları",
+      "category": "Malzeme"
+    },
+    "pneumaticCylinder": {
+      "title": "Pnömatik Silindir",
+      "description": "Hava tüketimi ve güç hesaplamaları",
+      "category": "Pnömatik"
+    },
+    "hydraulicMotor": {
+      "title": "Hidrolik Motor",
+      "description": "Tork ve devir sayısı hesaplamaları",
+      "category": "Motor"
+    },
+    "threadPitch": {
+      "title": "Vida & Diş Standartları",
+      "description": "Metrik, BSP ve diğer diş standartları",
+      "category": "Standart"
+    },
+    "pipeConverter": {
+      "title": "Boru Birim Dönüştürücü",
+      "description": "DN, inç, mm dönüşümleri ve boru tablosu",
+      "category": "Dönüştürücü"
+    }
+  },
+  "common": {
+    "calculate": "Hesapla",
+    "reset": "Sıfırla",
+    "result": "Sonuç",
+    "inputs": "Girişler",
+    "outputs": "Çıktılar",
+    "formula": "Formül",
+    "unit": "Birim",
+    "value": "Değer",
+    "required": "zorunlu",
+    "optional": "isteğe bağlı",
+    "copy": "Kopyala",
+    "share": "Paylaş",
+    "info": "Bilgi",
+    "back": "Geri",
+    "language": "Dil",
+    "settings": "Ayarlar",
+    "comingSoon": "Yakında",
+    "comingSoonBody": "Bu modülün formülleri bir sonraki adımda eklenecek.",
+    "copied": "Sonuç panoya kopyalandı."
+  },
+  "drawer": {
+    "infoSection": "Bilgi",
+    "switchToEnglish": "Türkçe → English",
+    "switchToTurkish": "English → Türkçe"
+  },
+  "units": {
+    "bar": "bar",
+    "mpa": "MPa",
+    "psi": "psi",
+    "lpm": "L/dak",
+    "m3h": "m³/s",
+    "kw": "kW",
+    "hp": "HP",
+    "nm": "N·m",
+    "rpm": "d/dak",
+    "mm": "mm",
+    "inch": "inç",
+    "kg": "kg",
+    "kgm": "kg/m",
+    "n": "N",
+    "kn": "kN",
+    "cm2": "cm²",
+    "mm2": "mm²"
+  },
+  "hydraulicCalculator": {
+    "title": "Hidrolik Sistem Hesaplayıcı",
+    "resultTitle": "Canlı Sonuçlar",
+    "live": "GUNCEL",
+    "pumpDisplacement": "Pompa Deplasmanı (cc/devir)",
+    "motorRpm": "Motor Devri (dev/dak)",
+    "pressure": "Basınç (bar)",
+    "bore": "Silindir İç Çapı (mm)",
+    "rod": "Mil Çapı (mm)",
+    "stroke": "Toplam Strok (cm)",
+    "optional": "Opsiyonel",
+    "placeholder": "Lütfen pompa deplasmanı, motor devri ve basıncı giriniz. Diğer alanlar opsiyoneldir.",
+    "sections": {
+      "pump": "Pompa Bilgileri",
+      "cylinder": "Silindir Bilgileri",
+      "speed": "Hız Bilgileri",
+      "time": "Zaman Bilgileri"
+    },
+    "results": {
+      "theoreticalFlow": "Teorik Pompa Debi:",
+      "actualFlow": "Gerçek Pompa Debi (%93 verimle):",
+      "motorPower": "Motor Gücü (teorik debiye göre):",
+      "pistonArea": "Piston Alanı:",
+      "rodArea": "Mil Alanı:",
+      "effectiveArea": "Etkin İtme Alanı:",
+      "extForce": "İtme Kuvveti:",
+      "retForce": "Çekme Kuvveti:",
+      "extVolume": "İtme Yağ Hacmi:",
+      "retVolume": "Çekme Yağ Hacmi:",
+      "extSpeed": "İtme Hızı:",
+      "retSpeed": "Çekme Hızı:",
+      "extTime": "İtme Süresi:",
+      "retTime": "Çekme Süresi:",
+      "cycleTime": "Toplam Çevrim Süresi:"
+    },
+    "units": {
+      "flow": "L/dak",
+      "power": "kW"
+    },
+    "disclaimer": "Bu hesaplama aracı, Hidroteknik A.Ş. tarafından geliştirilmiştir. Sadece bilgi verme amacı taşır; yapılan hesaplamaların doğruluğu garanti edilmez. Lütfen teknik kararlar almadan önce sonuçları kontrol ediniz."
+  },
+  "bucklingCalculator": {
+    "title": "Flambaj Mil Kalınlık Saptama Hesabı",
+    "mass": "Taşınacak Maksimum Kütle (m) - kg",
+    "safetyFactor": "Emniyet Katsayısı (Sbk) - Kat",
+    "length": "Mil Boyu (L) - mm",
+    "coefficient": "Kritik Boy Katsayısı",
+    "material": "Malzeme (Elastisite Modülü)",
+    "calculate": "HESAPLA",
+    "result": "Gerekli Minimum Mil Çapı:",
+    "note": "Not: Bu hesap yalnızca Euler burkulma teorisine göre, sadece eksensel basma yükü altında ve malzeme ideal şekilde davranıyor varsayımıyla Hidroteknik mühendislerince oluşturulmuştur. Malzeme değerleri yaklaşıktır. Kritik uygulamalarda üretici verilerini kullanın ve Hidroteknik'ten teknik destek isteyin.",
+    "coefficients": {
+      "fixedFree": "Bir uç sabit, diğer serbest",
+      "pinnedPinned": "İki uç pimli",
+      "fixedPinned": "Bir uç sabit, diğer pimli",
+      "fixedFixed": "İki uç sabit"
+    },
+    "materials": {
+      "steel": "Çelik (210,000 MPa)",
+      "titanium": "Titanyum (110,000 MPa)",
+      "brass": "Pirinç (100,000 MPa)",
+      "aluminum": "Alüminyum (69,000 MPa)",
+      "wood": "Ahşap (12,000 MPa)"
+    }
+  },
+  "gearPumpGuide": {
+    "title": "Dişli Pompa Seçim Kılavuzu",
+    "searchCode": "HEMA Kodu",
+    "searchPlaceholder": "Pompa kodu ara...",
+    "minCC": "Min CC/Dev",
+    "maxCC": "Max CC/Dev",
+    "minPower": "Min Motor Gücü (kW)",
+    "maxPower": "Max Motor Gücü (kW)",
+    "filter": "Filtrele",
+    "reset": "Temizle",
+    "exportCsv": "Excel'e Aktar",
+    "scrollHint": "Sağa kaydır",
+    "count": "{{count}} / {{total}} kayıt gösteriliyor",
+    "columns": {
+      "code": "HEMA KODU",
+      "cc": "Pompa bir devirde kaç CC yağ sevk ediyor (cc/dev)",
+      "flow": "1500 dev. elektrik motoru takılınca kaç litre yağ sevk ediyor (l/dk)",
+      "tank": "Tavsiye Edilen Tank Hacmi (L)",
+      "power": "160 Bar Basınç için Minimum Elektrik Motor Gücü (kW)"
+    },
+    "promo": {
+      "title": "Kampanyalı Stok Kodları",
+      "body": "Aşağıdaki kodlar Hidroteknik stoklarında kampanyalı fiyatlarla sunulmaktadır:"
+    },
+    "assumptions": {
+      "title": "Açıklama",
+      "flow1500": "* Debi sütunu, pompanın 1500 dev/dak motor ile çalıştığı varsayımıyla verilmiştir.",
+      "power160": "* Motor gücü sütunu, 160 bar basınç koşulundaki minimum gücü ifade eder."
+    },
+    "export": {
+      "dialogTitle": "CSV dosyasını paylaş",
+      "emptyTitle": "Kayıt bulunamadı",
+      "emptyBody": "Dışa aktarmak için önce filtre sonucu olmalı.",
+      "unavailableTitle": "Paylaşım desteklenmiyor",
+      "unavailableBody": "Bu cihazda dosya paylaşımı kullanılamıyor."
+    }
+  },
+  "pipeWeightCalculator": {
+    "title": "Boru & Mil Ağırlık Hesaplayıcı",
+    "typePipe": "Boru",
+    "typeRod": "Mil",
+    "modes": {
+      "inner-outer": "İç Çap x Dış Çap",
+      "inner-thickness": "İç Çap x Et Kalınlığı",
+      "outer-thickness": "Dış Çap x Et Kalınlığı"
+    },
+    "outerDiameter": "Dış Çap (mm)",
+    "innerDiameter": "İç Çap (mm)",
+    "thickness": "Et Kalınlığı (mm)",
+    "length": "Uzunluk",
+    "material": "Malzeme",
+    "customDensity": "Özgül Ağırlık (g/cm3)",
+    "calculate": "HESAPLA",
+    "result": "Sonuç",
+    "weight": "Ağırlık",
+    "density": "Malzeme Yoğunluğu",
+    "crossSectionArea": "Kesit Alanı",
+    "volume": "Hacim",
+    "materials": {
+      "steel": "Çelik (7.85 g/cm3)",
+      "aluminum": "Alüminyum (2.70 g/cm3)",
+      "copper": "Bakır (8.96 g/cm3)",
+      "brass": "Pirinç (7.20 g/cm3)",
+      "custom": "Özel Değer"
+    },
+    "disclaimer1": "Bu hesaplama aracı Hidroteknik A.Ş. mühendislerince geliştirilmiş olup işlem kolaylığı sağlamak amacıyla paylaşılmıştır.",
+    "disclaimer2": "Hesaplama sonuçları teorik değerler olup, üretim toleransları ve malzeme farklılıkları nedeniyle gerçek değerlerden sapmalar gösterebilir.",
+    "disclaimer3": "Kritik uygulamalarda mutlaka fiziksel ölçüm yapınız. Hidroteknik A.Ş. bu hesaplamalardan doğabilecek hatalardan sorumlu tutulamaz."
+  },
+  "pneumaticCalculator": {
+    "title": "Pnömatik Silindir",
+    "pistonCap": "Silindir Piston Çapı (mm)",
+    "milCap": "Silindir Piston Mil Çapı (mm)",
+    "strok": "Silindir Strok Uzunluğu (mm)",
+    "basinc": "Çalışma Basıncı (bar)",
+    "calculate": "Hesapla",
+    "airConsumption": "Hava Tüketimi",
+    "forceAtPressure": "Üretilen Kuvvet ({{pressure}} bar)",
+    "pushForce": "İtme Kuvveti",
+    "pullForce": "Çekme Kuvveti"
+  },
+  "hydraulicMotorCalc": {
+    "title": "Hidromotor Tork & Hız Hesabı",
+    "tabs": {
+      "torque": "Tork Hesaplama",
+      "speed": "Hız Hesaplama"
+    },
+    "inputs": {
+      "displacement": "Motor Deplasmanı (cc/devir)",
+      "pressure": "Basınç (bar)",
+      "pumpDisplacement": "Pompa Deplasmanı (cc/devir)",
+      "pumpSpeed": "Pompa Devri (d/d)",
+      "motorDisplacement": "Motor Deplasmanı (cc/devir)"
+    },
+    "actions": {
+      "calcTorque": "TORK HESAPLA",
+      "calcSpeed": "HIZ HESAPLA"
+    },
+    "results": {
+      "torque": "Tork",
+      "speed": "Motor Devri"
+    },
+    "placeholders": {
+      "torque": "Sonuçlar burada görünecek.",
+      "speed": "Sonuçlar burada görünecek."
+    },
+    "examples": {
+      "torqueTitle": "Hidroteknik Mühendislerince Gündelik Hayattan Karşılıklar:",
+      "torque1": "1 kgf·m (9.81 Nm): 10 cm'lik musluk koluna 10 kg kuvvet uygulamak.",
+      "torque2": "5 kgf·m (49 Nm): Çalışmayan bir araba direksiyonunu park halinde sertçe çevirmek.",
+      "speedTitle": "Pratik Örnekler:",
+      "speed1": "1000 d/d: Standart elektrik motoru hızı (küçük hidrolik sistemler).",
+      "speed2": "200-500 d/d: Vinç veya ekskavatör hidromotor hızı.",
+      "speed3": "50-150 d/d: Ağır yükler için düşük devirli motorlar."
+    },
+    "dynamic": {
+      "heavyEquipment": "{{kgfm}} kgf·m ({{nm}} Nm): Ağır inşaat ekipmanlarında (kepçe, vinç) kullanılan hidrolik motor torku.",
+      "wrench": "{{kgfm}} kgf·m ({{nm}} Nm): 50 cm'lik bijon anahtarına {{force}} kg kuvvet uygulamak (ayağınızla üstüne çıkmak gibi).",
+      "steering": "{{kgfm}} kgf·m ({{nm}} Nm): Araba direksiyonunu park halinde sertçe çevirmek veya el matkabıyla zorlu delme işlemi.",
+      "lightWork": "{{kgfm}} kgf·m ({{nm}} Nm): Kavanoz kapağı açmak veya musluk sıkmak gibi hafif işler için yeterli tork."
+    },
+    "disclaimer": "Bu hesaplama tablosu yalnızca bilgi vermesi için oluşturulmuştur. Kesin bir bağlayıcılığı bulunmaz. Hidroteknik mühendislerince tork kavramının somut şekilde anlaşılması ve hidromotor seçiminde yardım sağlaması amacı ile oluşturulmuştur."
+  },
+  "threadPitchCalc": {
+    "title": "Paso Tanıma Aracı",
+    "tabs": {
+      "external": "Dış Paso",
+      "internal": "İç Paso"
+    },
+    "labels": {
+      "measuredDiameter": "Ölçülen Çap (mm)",
+      "measuredHoleDiameter": "Ölçülen Delik Çapı (mm)",
+      "pitchOptional": "Diş Adımı (opsiyonel)",
+      "threadType": "Diş Tipi"
+    },
+    "placeholders": {
+      "measured": "Örn: 16.25",
+      "pitch": "Bilmiyorsanız boş bırakın"
+    },
+    "filters": {
+      "all": "Hepsini Tara (Önerilen)",
+      "metric": "Metrik",
+      "bspp": "BSPP",
+      "npt": "NPT",
+      "unf": "UNF",
+      "unc": "UNC"
+    },
+    "identify": "PASOYU TANIMLA",
+    "result": {
+      "errorTitle": "HATA",
+      "bestMatch": "PASONUZ BÜYÜK İHTİMALLE:",
+      "diameter": "Çap",
+      "holeDiameter": "Delik Çapı",
+      "diff": "Ölçülen Değerle Fark",
+      "pitch": "Diş Adımı",
+      "score": "Eşleşme Puanı",
+      "alternatives": "DİĞER OLASILIKLAR"
+    },
+    "errors": {
+      "invalidDiameter": "Lütfen geçerli bir çap değeri giriniz.",
+      "invalidRange": "Lütfen 1 mm ile 100 mm arasında bir değer giriniz (Girilen: {{measured}} mm).",
+      "notFound": "{{measured}} mm çap için uygun paso bulunamadı (Minimum eşleşme puanı: %80)."
+    }
+  },
+  "pipeConverterCalc": {
+    "title": "Boru Ölçü Birim Dönüştürücü",
+    "inputLabel": "Değer Girin",
+    "inputPlaceholder": "Örnek: 100 veya 4",
+    "typeLabel": "Dönüşüm Türü",
+    "types": {
+      "dnToInch": "DN → İnç",
+      "inchToDn": "İnç → DN",
+      "inchToMm": "İnç → Milimetre",
+      "mmToInch": "Milimetre → İnç"
+    },
+    "convert": "Dönüştür",
+    "resultTitle": "Sonuç",
+    "results": {
+      "dnToInchMatch": "DN{{input}} = {{result}} inç'e eşdeğerdir.",
+      "dnToInchMissing": "DN{{input}} için standart bir inç karşılığı bulunamadı.",
+      "inchToDnMatch": "{{input}}\" inç = {{result}} değerine eşdeğerdir.",
+      "inchToDnMissing": "{{input}} inç için standart bir DN karşılığı bulunamadı.",
+      "inchToMm": "{{input}}\" inç = {{result}} mm'dir.",
+      "mmToInch": "{{input}} mm = {{result}}\" inç'tir."
+    },
+    "errors": {
+      "invalidNumber": "Lütfen geçerli bir sayı girin."
+    },
+    "table": {
+      "title": "Yaygın Boru Ölçüleri Tablosu",
+      "dn": "DN (Nominal Çap)",
+      "inch": "İnç",
+      "mm": "Milimetre (Ortalama Dış Çap)"
+    },
+    "note": "Not: DN (Nominal Çap) değerleri borunun tam iç/dış çapını değil, standartlaştırılmış ölçüsünü temsil eder. Gerçek çaplar boru malzemesine ve basınç sınıfına göre değişiklik gösterebilir."
+  },
+  "legal": {
+    "about": {
+      "title": "Uygulama Hakkında",
+      "body": "Hydraulic & Pneumatic Calculator, Hidroteknik A.Ş.'nin 40 yılı aşkın saha tecrübesinin dijital bir çıktısıdır.\n\n1984 yılından bu yana hidrolik ve pnömatik sistemler, otomasyon çözümleri, imalat ve mühendislik alanlarında faaliyet gösteren Hidroteknik; yalnızca ekipman tedarik eden bir firma değil, aynı zamanda sahada çalışan, proje üreten ve sistem kuran bir mühendislik organizasyonudur.\n\nBu uygulama, yıllar boyunca edinilmiş pratik hesaplama ihtiyaçlarının bir sonucu olarak geliştirilmiştir. Sahada çalışan mühendislerin, teknikerlerin ve makina imalatçılarının günlük olarak ihtiyaç duyduğu;\n\n- basınç, debi ve güç hesapları\n- silindir ve motor seçimleri\n- mekanik dayanım ve boyutlandırma\n- hızlı ve hatasız ön hesaplamalar\n\ntek bir yerde, hızlı ve erişilebilir şekilde sunulmak üzere tasarlanmıştır.\n\nHidroteknik'in yaklaşımı basittir: teori ile pratiği birleştirmek. Sadece formül değil, sahada karşılığı olan hesaplar üretmek.\n\nBugün bu uygulama, endüstriyel otomasyon ve akışkan gücü sistemleriyle çalışan herkes için pratik bir yardımcı olmayı hedefler. Çünkü gerçek dünyada doğru hesap, zaman ve maliyet demektir."
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "body": "Gizliliğinize önem veriyoruz. Hydraulic & Pneumatic Calculator uygulaması temel olarak hesaplamaları cihaz üzerinde çalıştırır ve kişisel verilerinizi zorunlu olarak toplamaz.\n\nUygulama içinde girdiğiniz hesaplama değerleri varsayılan olarak üçüncü taraflarla paylaşılmaz. Hata bildirimi gibi kullanıcı tarafından başlatılan işlemlerde yalnızca sizin açıkça paylaştığınız bilgiler iletilir.\n\nUygulamanın güvenliğini ve performansını geliştirmek amacıyla gelecekte anonim teknik veriler kullanılabilir. Böyle bir değişiklik olması durumunda bu politika güncellenir ve kullanıcıya açık şekilde bildirilir.\n\nBu uygulamayı kullanarak, gizlilik politikasında yapılan güncellemeleri periyodik olarak kontrol etmeyi kabul etmiş olursunuz. Sorularınız için bizimle hidroteknik.com.tr üzerinden iletişime geçebilirsiniz."
+    },
+    "terms": {
+      "title": "Kullanım Şartları",
+      "body": "Hydraulic & Pneumatic Calculator, 1984 yılından bu yana hidrolik ve pnömatik sistemlerde 40 yılı aşkın saha deneyimine sahip Hidroteknik A.Ş. tarafından geliştirilmekte ve sürdürülmektedir. Bu uygulama, küresel mühendislik topluluğuna katkımızdır — ücretsiz, erişilebilir ve tedarik ettiğimiz her sistemde uyguladığımız aynı hassasiyetle hazırlanmıştır.\n\nYasal Uyarı: Bu uygulamada sunulan hesaplamalar yalnızca genel referans ve ön mühendislik tahminleri içindir. Sonuçlar, kritik tasarım kararları için tek başına esas alınmamalıdır. Hidroteknik A.Ş., uygulamanın kullanımından doğabilecek hata, eksiklik veya sonuçlardan sorumlu tutulamaz.\n\nBununla birlikte, hesaplarınız sizi karmaşık bir mühendislik problemine götürürse, mühendislerimiz memnuniyetle destek olur. Muhtemelen benzer pek çok vakayı daha önce çözdük. Bize hidroteknik.com.tr üzerinden ulaşabilirsiniz.\n\n© 2026 Hidroteknik A.Ş. — Denizli, Türkiye\nDünya genelinde hidrolik ve pnömatik mühendisliğinin gelişimine adanmıştır."
+    },
+    "contact": {
+      "title": "İletişim",
+      "company": "Hidroteknik A.Ş. - Denizli",
+      "addressLabel": "Adres",
+      "address": "Sümer 2296 No:21 Alyaz İş Merkezi No:1, Posta Kodu: 20175 Merkezefendi - Denizli, Türkiye",
+      "phoneLabel": "Telefon / WhatsApp",
+      "phone": "+90-2582514060 (PBX)",
+      "whatsapp": "WhatsApp: +90-2582514060",
+      "emailLabel": "E-posta",
+      "email": "info@hidroteknik.com.tr",
+      "hoursLabel": "Çalışma Saatleri",
+      "weekday": "Hafta içi: 08:00 / 18:00",
+      "saturday": "Cumartesi: 09:00 / 13:00",
+      "holidayNote": "Resmi tatillerde çalışma saatlerimiz için bilgi alınız.",
+      "gpsLabel": "GPS Koordinatları",
+      "gps": "37.793376, 29.098947",
+      "openMap": "Haritada Aç"
+    },
+    "reportBug": {
+      "title": "Bug Rapor Et",
+      "body": "Hata bildirirken cihaz modeli, işletim sistemi sürümü, uygulama sürümü, tekrar adımları ve mümkünse ekran görüntüsü paylaşın. Bu bilgiler sorunu daha hızlı tespit edip çözmemize yardımcı olur."
+    },
+    "reportBugForm": {
+      "formTitle": "Hata Bildirim Formu",
+      "name": "Ad Soyad (isteğe bağlı)",
+      "email": "E-posta (isteğe bağlı)",
+      "title": "Kısa Başlık",
+      "steps": "Tekrar Adımları",
+      "expected": "Beklenen Sonuç",
+      "actual": "Gerçekleşen Sonuç",
+      "namePlaceholder": "Örn: Ahmet Yılmaz",
+      "emailPlaceholder": "Örn: ahmet@firma.com",
+      "titlePlaceholder": "Örn: Android'de menü açılmıyor",
+      "stepsPlaceholder": "1) Uygulamayı aç\n2) ...\n3) ...",
+      "expectedPlaceholder": "Ne olmasını bekliyordunuz?",
+      "actualPlaceholder": "Şu an ne oluyor?",
+      "screenshot": "Ekran Görüntüsü (isteğe bağlı)",
+      "attachScreenshot": "Screenshot Ekle",
+      "changeScreenshot": "Screenshot Değiştir",
+      "selected": "Seçilen dosya",
+      "submit": "Raporu Gönder",
+      "validationTitle": "Eksik alanlar",
+      "validationBody": "Lütfen Kısa Başlık, Tekrar Adımları ve Gerçekleşen Sonuç alanlarını doldurun.",
+      "emailReporter": "Bildiren",
+      "emailAddress": "E-posta",
+      "emailPlatform": "Platform",
+      "emailAppVersion": "Uygulama Sürümü",
+      "emailStepsHeader": "Tekrar adımları",
+      "emailExpectedHeader": "Beklenen sonuç",
+      "emailActualHeader": "Gerçekleşen sonuç",
+      "successTitle": "Rapor gönderildi",
+      "successBody": "E-posta başarıyla gönderildi.",
+      "permissionTitle": "İzin gerekiyor",
+      "permissionBody": "Screenshot seçebilmek için galeri izni vermeniz gerekiyor.",
+      "errorTitle": "Gönderim başlatılamadı",
+      "errorBody": "Bu cihazda e-posta uygulaması açılamadı. Lütfen bir e-posta uygulaması ayarlayın."
+    }
+  }
+}

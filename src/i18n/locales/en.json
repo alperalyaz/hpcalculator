@@ -1,0 +1,450 @@
+{
+  "app": {
+    "name": "Hydraulic & Pneumatic Calculator",
+    "company": "Hidroteknik A.Ş.",
+    "tagline": "Industrial Calculation Tools"
+  },
+  "nav": {
+    "home": "Home",
+    "hydraulicSystem": "Hydraulic System",
+    "bucklingShaft": "Buckling & Shaft",
+    "gearPump": "Gear Pump Guide",
+    "pipeRodWeight": "Pipe & Rod Weight",
+    "pneumaticCylinder": "Pneumatic Cylinder",
+    "hydraulicMotor": "Hydraulic Motor",
+    "threadPitch": "Thread & Pitch",
+    "pipeConverter": "Pipe Converter",
+    "about": "About",
+    "privacy": "Privacy",
+    "terms": "Terms of Use",
+    "contact": "Contact",
+    "reportBug": "Report a Bug"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "selectModule": "Select a calculation module",
+    "modules": "Modules",
+    "shortTitles": {
+      "pipeRodWeight": "Pipe & Rod Weight"
+    }
+  },
+  "modules": {
+    "hydraulicSystem": {
+      "title": "Hydraulic System Calculator",
+      "description": "Pressure, flow rate, power and efficiency calculations",
+      "category": "Hydraulic"
+    },
+    "bucklingShaft": {
+      "title": "Buckling & Shaft Diameter",
+      "description": "Critical load and minimum shaft diameter calculations",
+      "category": "Mechanical"
+    },
+    "gearPump": {
+      "title": "Gear Pump Selection Guide",
+      "description": "Pump selection by flow, pressure and motor power",
+      "category": "Pump"
+    },
+    "pipeRodWeight": {
+      "title": "Pipe & Rod Weight Calculator",
+      "description": "Weight per unit length calculations",
+      "category": "Material"
+    },
+    "pneumaticCylinder": {
+      "title": "Pneumatic Cylinder",
+      "description": "Air consumption and power calculations",
+      "category": "Pneumatic"
+    },
+    "hydraulicMotor": {
+      "title": "Hydraulic Motor",
+      "description": "Torque and speed calculations",
+      "category": "Motor"
+    },
+    "threadPitch": {
+      "title": "Thread & Pitch Standards",
+      "description": "Metric, BSP and other thread standards",
+      "category": "Standard"
+    },
+    "pipeConverter": {
+      "title": "Pipe Unit Converter",
+      "description": "DN, inch, mm conversions and pipe table",
+      "category": "Converter"
+    }
+  },
+  "common": {
+    "calculate": "Calculate",
+    "reset": "Reset",
+    "result": "Result",
+    "inputs": "Inputs",
+    "outputs": "Outputs",
+    "formula": "Formula",
+    "unit": "Unit",
+    "value": "Value",
+    "required": "required",
+    "optional": "optional",
+    "copy": "Copy",
+    "share": "Share",
+    "info": "Info",
+    "back": "Back",
+    "language": "Language",
+    "settings": "Settings",
+    "comingSoon": "Coming Soon",
+    "comingSoonBody": "This module's formulas will be added in a future update.",
+    "copied": "Result copied to clipboard."
+  },
+  "drawer": {
+    "infoSection": "Info",
+    "switchToEnglish": "Türkçe → English",
+    "switchToTurkish": "English → Türkçe"
+  },
+  "units": {
+    "bar": "bar",
+    "mpa": "MPa",
+    "psi": "psi",
+    "lpm": "L/min",
+    "m3h": "m³/s",
+    "kw": "kW",
+    "hp": "HP",
+    "nm": "N·m",
+    "rpm": "RPM",
+    "mm": "mm",
+    "inch": "in",
+    "kg": "kg",
+    "kgm": "kg/m",
+    "n": "N",
+    "kn": "kN",
+    "cm2": "cm²",
+    "mm2": "mm²"
+  },
+  "hydraulicCalculator": {
+    "title": "Hydraulic System Calculator",
+    "resultTitle": "Live Results",
+    "live": "UPDATED",
+    "pumpDisplacement": "Pump Displacement (cc/rev)",
+    "motorRpm": "Motor Speed (rpm)",
+    "pressure": "Pressure (bar)",
+    "bore": "Cylinder Bore (mm)",
+    "rod": "Rod Diameter (mm)",
+    "stroke": "Total Stroke (cm)",
+    "optional": "Optional",
+    "placeholder": "Please enter pump displacement, motor speed, and pressure. Other fields are optional.",
+    "sections": {
+      "pump": "Pump Data",
+      "cylinder": "Cylinder Data",
+      "speed": "Speed Data",
+      "time": "Time Data"
+    },
+    "results": {
+      "theoreticalFlow": "Theoretical Pump Flow:",
+      "actualFlow": "Actual Pump Flow (93% efficiency):",
+      "motorPower": "Motor Power (based on theoretical flow):",
+      "pistonArea": "Piston Area:",
+      "rodArea": "Rod Area:",
+      "effectiveArea": "Effective Push Area:",
+      "extForce": "Extension Force:",
+      "retForce": "Retraction Force:",
+      "extVolume": "Extension Oil Volume:",
+      "retVolume": "Retraction Oil Volume:",
+      "extSpeed": "Extension Speed:",
+      "retSpeed": "Retraction Speed:",
+      "extTime": "Extension Time:",
+      "retTime": "Retraction Time:",
+      "cycleTime": "Total Cycle Time:"
+    },
+    "units": {
+      "flow": "L/min",
+      "power": "kW"
+    },
+    "disclaimer": "This calculation tool was developed by Hidroteknik A.Ş. It is provided for informational purposes only; calculation accuracy is not guaranteed. Please verify results before making technical decisions."
+  },
+  "bucklingCalculator": {
+    "title": "Buckling Shaft Thickness Calculation",
+    "mass": "Maximum Carried Mass (m) - kg",
+    "safetyFactor": "Safety Factor (Sbk) - x",
+    "length": "Shaft Length (L) - mm",
+    "coefficient": "Critical Length Coefficient",
+    "material": "Material (Elasticity Modulus)",
+    "calculate": "CALCULATE",
+    "result": "Required Minimum Shaft Diameter:",
+    "note": "Note: This calculation is prepared by Hidroteknik engineers based only on Euler buckling theory, under axial compressive load and ideal material behavior assumptions. Material values are approximate. Use manufacturer data for critical applications and request technical support from Hidroteknik.",
+    "coefficients": {
+      "fixedFree": "One end fixed, other free",
+      "pinnedPinned": "Both ends pinned",
+      "fixedPinned": "One end fixed, other pinned",
+      "fixedFixed": "Both ends fixed"
+    },
+    "materials": {
+      "steel": "Steel (210,000 MPa)",
+      "titanium": "Titanium (110,000 MPa)",
+      "brass": "Brass (100,000 MPa)",
+      "aluminum": "Aluminum (69,000 MPa)",
+      "wood": "Wood (12,000 MPa)"
+    }
+  },
+  "gearPumpGuide": {
+    "title": "Gear Pump Guide",
+    "searchCode": "HEMA Code",
+    "searchPlaceholder": "Search pump code...",
+    "minCC": "Min CC/Rev",
+    "maxCC": "Max CC/Rev",
+    "minPower": "Min Motor Power (kW)",
+    "maxPower": "Max Motor Power (kW)",
+    "filter": "Filter",
+    "reset": "Reset",
+    "exportCsv": "Export CSV",
+    "scrollHint": "Scroll right",
+    "count": "Showing {{count}} / {{total}} records",
+    "columns": {
+      "code": "HEMA CODE",
+      "cc": "Pump displacement per revolution (cc/rev)",
+      "flow": "Delivered flow with 1500 rpm electric motor (L/min)",
+      "tank": "Recommended Tank Volume (L)",
+      "power": "Minimum Electric Motor Power for 160 bar (kW)"
+    },
+    "promo": {
+      "title": "Campaign Stock Codes",
+      "body": "The following codes are available in Hidroteknik stocks with campaign pricing:"
+    },
+    "assumptions": {
+      "title": "Notes",
+      "flow1500": "* Flow column is based on a 1500 rpm motor assumption.",
+      "power160": "* Motor power column indicates minimum required power at 160 bar."
+    },
+    "export": {
+      "dialogTitle": "Share CSV file",
+      "emptyTitle": "No records found",
+      "emptyBody": "There must be filtered rows to export.",
+      "unavailableTitle": "Sharing unavailable",
+      "unavailableBody": "File sharing is not available on this device."
+    }
+  },
+  "pipeWeightCalculator": {
+    "title": "Pipe & Rod Weight Calculator",
+    "typePipe": "Pipe",
+    "typeRod": "Rod",
+    "modes": {
+      "inner-outer": "Inner Diameter x Outer Diameter",
+      "inner-thickness": "Inner Diameter x Wall Thickness",
+      "outer-thickness": "Outer Diameter x Wall Thickness"
+    },
+    "outerDiameter": "Outer Diameter (mm)",
+    "innerDiameter": "Inner Diameter (mm)",
+    "thickness": "Wall Thickness (mm)",
+    "length": "Length",
+    "material": "Material",
+    "customDensity": "Density (g/cm3)",
+    "calculate": "CALCULATE",
+    "result": "Result",
+    "weight": "Weight",
+    "density": "Material Density",
+    "crossSectionArea": "Cross Section Area",
+    "volume": "Volume",
+    "materials": {
+      "steel": "Steel (7.85 g/cm3)",
+      "aluminum": "Aluminum (2.70 g/cm3)",
+      "copper": "Copper (8.96 g/cm3)",
+      "brass": "Brass (7.20 g/cm3)",
+      "custom": "Custom Value"
+    },
+    "disclaimer1": "This calculation tool was developed by Hidroteknik A.Ş. engineers and shared to simplify practical calculations.",
+    "disclaimer2": "Results are theoretical and may differ from real values due to production tolerances and material variations.",
+    "disclaimer3": "For critical applications, always perform physical measurement. Hidroteknik A.Ş. cannot be held responsible for errors arising from these calculations."
+  },
+  "pneumaticCalculator": {
+    "title": "Pneumatic Cylinder",
+    "pistonCap": "Cylinder Piston Diameter (mm)",
+    "milCap": "Cylinder Rod Diameter (mm)",
+    "strok": "Cylinder Stroke Length (mm)",
+    "basinc": "Working Pressure (bar)",
+    "calculate": "Calculate",
+    "airConsumption": "Air Consumption",
+    "forceAtPressure": "Generated Force ({{pressure}} bar)",
+    "pushForce": "Push Force",
+    "pullForce": "Pull Force"
+  },
+  "hydraulicMotorCalc": {
+    "title": "Hydraulic Motor Torque & Speed",
+    "tabs": {
+      "torque": "Torque Calculation",
+      "speed": "Speed Calculation"
+    },
+    "inputs": {
+      "displacement": "Motor Displacement (cc/rev)",
+      "pressure": "Pressure (bar)",
+      "pumpDisplacement": "Pump Displacement (cc/rev)",
+      "pumpSpeed": "Pump Speed (rpm)",
+      "motorDisplacement": "Motor Displacement (cc/rev)"
+    },
+    "actions": {
+      "calcTorque": "CALCULATE TORQUE",
+      "calcSpeed": "CALCULATE SPEED"
+    },
+    "results": {
+      "torque": "Torque",
+      "speed": "Motor Speed"
+    },
+    "placeholders": {
+      "torque": "Results will appear here.",
+      "speed": "Results will appear here."
+    },
+    "examples": {
+      "torqueTitle": "Everyday Equivalents from Hidroteknik Engineers:",
+      "torque1": "1 kgf·m (9.81 Nm): Applying 10 kg force to a 10 cm faucet handle.",
+      "torque2": "5 kgf·m (49 Nm): Turning a parked car steering wheel with no assist.",
+      "speedTitle": "Practical Examples:",
+      "speed1": "1000 rpm: Standard electric motor speed (small hydraulic systems).",
+      "speed2": "200-500 rpm: Crane or excavator hydraulic motor speed range.",
+      "speed3": "50-150 rpm: Low-speed motors for heavy loads."
+    },
+    "dynamic": {
+      "heavyEquipment": "{{kgfm}} kgf·m ({{nm}} Nm): Typical hydraulic motor torque used in heavy construction equipment (crane, bucket systems).",
+      "wrench": "{{kgfm}} kgf·m ({{nm}} Nm): Equivalent to applying about {{force}} kg force on a 50 cm wheel wrench.",
+      "steering": "{{kgfm}} kgf·m ({{nm}} Nm): Similar to turning a parked car steering wheel firmly or heavy-duty hand drilling.",
+      "lightWork": "{{kgfm}} kgf·m ({{nm}} Nm): Enough torque for light tasks like opening jar lids or tightening faucets."
+    },
+    "disclaimer": "This calculation tool is provided for informational purposes only and has no binding authority. It was prepared by Hidroteknik engineers to help users understand torque and speed in practical hydraulic motor selection."
+  },
+  "threadPitchCalc": {
+    "title": "Thread Identification Tool",
+    "tabs": {
+      "external": "External Thread",
+      "internal": "Internal Thread"
+    },
+    "labels": {
+      "measuredDiameter": "Measured Diameter (mm)",
+      "measuredHoleDiameter": "Measured Hole Diameter (mm)",
+      "pitchOptional": "Thread Pitch (optional)",
+      "threadType": "Thread Type"
+    },
+    "placeholders": {
+      "measured": "Ex: 16.25",
+      "pitch": "Leave empty if unknown"
+    },
+    "filters": {
+      "all": "Scan All (Recommended)",
+      "metric": "Metric",
+      "bspp": "BSPP",
+      "npt": "NPT",
+      "unf": "UNF",
+      "unc": "UNC"
+    },
+    "identify": "IDENTIFY THREAD",
+    "result": {
+      "errorTitle": "ERROR",
+      "bestMatch": "MOST LIKELY MATCH:",
+      "diameter": "Diameter",
+      "holeDiameter": "Hole Diameter",
+      "diff": "Difference from Measurement",
+      "pitch": "Thread Pitch",
+      "score": "Match Score",
+      "alternatives": "OTHER POSSIBILITIES"
+    },
+    "errors": {
+      "invalidDiameter": "Please enter a valid diameter value.",
+      "invalidRange": "Please enter a value between 1 mm and 100 mm (Entered: {{measured}} mm).",
+      "notFound": "No suitable thread found for {{measured}} mm (Minimum match score: 80%)."
+    }
+  },
+  "pipeConverterCalc": {
+    "title": "Pipe Unit Converter",
+    "inputLabel": "Enter Value",
+    "inputPlaceholder": "Example: 100 or 4",
+    "typeLabel": "Conversion Type",
+    "types": {
+      "dnToInch": "DN → Inch",
+      "inchToDn": "Inch → DN",
+      "inchToMm": "Inch → Millimeter",
+      "mmToInch": "Millimeter → Inch"
+    },
+    "convert": "Convert",
+    "resultTitle": "Result",
+    "results": {
+      "dnToInchMatch": "DN{{input}} equals {{result}} inch.",
+      "dnToInchMissing": "No standard inch equivalent found for DN{{input}}.",
+      "inchToDnMatch": "{{input}}\" inch equals {{result}}.",
+      "inchToDnMissing": "No standard DN equivalent found for {{input}} inch.",
+      "inchToMm": "{{input}}\" inch = {{result}} mm.",
+      "mmToInch": "{{input}} mm = {{result}}\" inch."
+    },
+    "errors": {
+      "invalidNumber": "Please enter a valid number."
+    },
+    "table": {
+      "title": "Common Pipe Size Table",
+      "dn": "DN (Nominal Diameter)",
+      "inch": "Inch",
+      "mm": "Millimeter (Average Outer Diameter)"
+    },
+    "note": "Note: DN (Nominal Diameter) values represent standardized pipe sizes rather than exact inner/outer diameters. Real diameters may vary by pipe material and pressure class."
+  },
+  "legal": {
+    "about": {
+      "title": "About this app",
+      "body": "Hydraulic & Pneumatic Calculator is the digital outcome of Hidroteknik A.Ş.'s more than 40 years of field experience.\n\nSince 1984, Hidroteknik has been active in hydraulic and pneumatic systems, automation solutions, manufacturing, and engineering. We are not only an equipment supplier, but also an engineering organization that works on-site, develops projects, and builds complete systems.\n\nThis application was created as a result of practical calculation needs identified over many years. It is designed to provide, in one fast and accessible place, the daily essentials used by engineers, technicians, and machine manufacturers:\n\n- pressure, flow, and power calculations\n- cylinder and motor selection support\n- mechanical strength and sizing checks\n- fast and reliable preliminary calculations\n\nHidroteknik's approach is simple: combine theory with practice. Not only formulas, but calculations that deliver real value in the field.\n\nToday, this app aims to be a practical assistant for everyone working with industrial automation and fluid power systems. Because in the real world, accurate calculations mean time and cost efficiency."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "body": "We value your privacy. Hydraulic & Pneumatic Calculator primarily performs calculations on-device and does not require mandatory collection of personal data.\n\nCalculation inputs entered in the app are not shared with third parties by default. In user-initiated actions such as bug reporting, only the information you explicitly choose to share is transmitted.\n\nTo improve app security and performance, anonymous technical data may be used in future versions. If such a change is introduced, this policy will be updated and communicated clearly.\n\nBy using this app, you agree to review this privacy policy periodically for updates. For any privacy-related questions, please contact us via hidroteknik.com.tr."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "body": "Hydraulic & Pneumatic Calculator is developed and maintained by Hidroteknik A.Ş., a company with over 40 years of hands-on experience in hydraulic and pneumatic systems since 1984. This application is our contribution to the global engineering community — free, accessible, and built with the same precision we apply to every system we supply.\n\nDisclaimer: The calculations provided in this application are intended for general reference and preliminary engineering estimates only. Results should not be used as the sole basis for critical design decisions. Hidroteknik A.Ş. assumes no liability for errors, omissions, or outcomes arising from the use of this application.\n\nThat said — if your calculations lead you to a complex challenge, our engineers would be glad to help. We have seen most problems before. Reach us at hidroteknik.com.tr\n\n© 2026 Hidroteknik A.Ş. — Denizli, Turkiye\nDedicated to the advancement of hydraulic and pneumatic engineering worldwide."
+    },
+    "contact": {
+      "title": "Contact",
+      "company": "Hidroteknik Inc. - Denizli",
+      "addressLabel": "Address",
+      "address": "Sumer 2296 No:21 Alyaz Business Center No:1, ZIP: 20175 Merkezefendi - Denizli, Turkiye",
+      "phoneLabel": "Phone / WhatsApp",
+      "phone": "+90-2582514060 (PBX)",
+      "whatsapp": "WhatsApp: +90-2582514060",
+      "emailLabel": "Email",
+      "email": "info@hidroteknik.com.tr",
+      "hoursLabel": "Working Hours",
+      "weekday": "Weekdays: 08:00 / 18:00",
+      "saturday": "Saturday: 09:00 / 13:00",
+      "holidayNote": "Please ask for holiday working hours on official holidays.",
+      "gpsLabel": "GPS Coordinates",
+      "gps": "37.793376, 29.098947",
+      "openMap": "Open in Maps"
+    },
+    "reportBug": {
+      "title": "Report a Bug",
+      "body": "When reporting an issue, include device model, OS version, app version, steps to reproduce, and screenshots if possible. This helps us identify and fix problems much faster."
+    },
+    "reportBugForm": {
+      "formTitle": "Bug Report Form",
+      "name": "Full Name (optional)",
+      "email": "Email (optional)",
+      "title": "Short Title",
+      "steps": "Steps to Reproduce",
+      "expected": "Expected Result",
+      "actual": "Actual Result",
+      "namePlaceholder": "e.g. Jane Doe",
+      "emailPlaceholder": "e.g. jane@company.com",
+      "titlePlaceholder": "e.g. Drawer does not open on Android",
+      "stepsPlaceholder": "1) Open app\n2) ...\n3) ...",
+      "expectedPlaceholder": "What did you expect to happen?",
+      "actualPlaceholder": "What actually happened?",
+      "screenshot": "Screenshot (optional)",
+      "attachScreenshot": "Attach Screenshot",
+      "changeScreenshot": "Change Screenshot",
+      "selected": "Selected file",
+      "submit": "Send Report",
+      "validationTitle": "Missing fields",
+      "validationBody": "Please fill in Short Title, Steps to Reproduce, and Actual Result.",
+      "emailReporter": "Reporter",
+      "emailAddress": "Email",
+      "emailPlatform": "Platform",
+      "emailAppVersion": "App Version",
+      "emailStepsHeader": "Steps to reproduce",
+      "emailExpectedHeader": "Expected result",
+      "emailActualHeader": "Actual result",
+      "successTitle": "Report sent",
+      "successBody": "Email was sent successfully.",
+      "permissionTitle": "Permission required",
+      "permissionBody": "Please allow photo library access to attach a screenshot.",
+      "errorTitle": "Could not start sending",
+      "errorBody": "No email app could be opened on this device. Please configure an email client."
+    }
+  }
+}
