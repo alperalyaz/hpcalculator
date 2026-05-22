@@ -10,9 +10,10 @@ import {
   View,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
-import { Callouts, Colors } from '../theme';
+import { Callouts, Colors, Spacing } from '../theme';
 
 type ConversionType = 'dnToInch' | 'inchToDn' | 'inchToMm' | 'mmToInch';
 
@@ -67,6 +68,7 @@ const PIPE_TABLE = [
 
 export const PipeConverterScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const [inputValue, setInputValue] = useState('');
   const [conversionType, setConversionType] = useState<ConversionType>('dnToInch');
   const [result, setResult] = useState<string | null>(null);
@@ -119,7 +121,7 @@ export const PipeConverterScreen: React.FC = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenHeader
         title={t('pipeConverterCalc.title')}
@@ -127,7 +129,7 @@ export const PipeConverterScreen: React.FC = () => {
         category={t('modules.pipeConverter.category')}
       />
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.card}>

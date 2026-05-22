@@ -12,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
@@ -27,6 +28,7 @@ const parseNum = (value: string): number => {
 
 export const HydraulicSystemScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const [pumpDisplacement, setPumpDisplacement] = useState('');
   const [motorRPM, setMotorRPM] = useState('');
   const [pressure, setPressure] = useState('');
@@ -254,7 +256,7 @@ export const HydraulicSystemScreen: React.FC = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenHeader
         title={t('hydraulicCalculator.title')}
@@ -262,7 +264,7 @@ export const HydraulicSystemScreen: React.FC = () => {
         category={t('modules.hydraulicSystem.category')}
       />
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >

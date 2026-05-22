@@ -1,16 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 export const TermsScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
 
   return (
     <View style={styles.container}>
       <ScreenHeader title={t('nav.terms')} />
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Spacing.md + insets.bottom }]} showsVerticalScrollIndicator={false}>
         <View style={styles.card}>
           <Text style={styles.title}>{t('legal.terms.title')}</Text>
           <Text style={styles.text}>{t('legal.terms.body')}</Text>

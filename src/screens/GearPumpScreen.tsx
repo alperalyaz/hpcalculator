@@ -11,6 +11,7 @@ import {
   Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 import { GEAR_PUMP_DATA, GearPumpItem } from '../data/gearPumpData';
@@ -26,6 +27,7 @@ const parseNum = (value: string): number => {
 
 export const GearPumpScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const [searchCode, setSearchCode] = useState('');
   const [minCC, setMinCC] = useState('');
   const [maxCC, setMaxCC] = useState('');
@@ -118,7 +120,7 @@ export const GearPumpScreen: React.FC = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenHeader
         title={t('gearPumpGuide.title')}
@@ -126,7 +128,7 @@ export const GearPumpScreen: React.FC = () => {
         category={t('modules.gearPump.category')}
       />
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >

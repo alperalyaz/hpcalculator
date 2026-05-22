@@ -10,10 +10,11 @@ import {
   View,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { THREAD_DATABASE, ThreadSide, ThreadStandard, ThreadSpec } from '../data/threadDatabase';
-import { Callouts, Colors } from '../theme';
+import { Callouts, Colors, Spacing } from '../theme';
 
 type FilterType = 'all' | ThreadStandard;
 
@@ -33,6 +34,7 @@ const FILTER_OPTIONS: Array<{ value: FilterType; labelKey: string }> = [
 
 export const ThreadPitchScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const [threadSide, setThreadSide] = useState<ThreadSide>('external');
   const [measured, setMeasured] = useState('');
   const [pitch, setPitch] = useState('');
@@ -124,14 +126,14 @@ export const ThreadPitchScreen: React.FC = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenHeader
         title={t('threadPitchCalc.title')}
         subtitle={t('modules.threadPitch.description')}
         category={t('modules.threadPitch.category')}
       />
-      <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]} keyboardShouldPersistTaps="handled">
         <View style={styles.tabs}>
           <TouchableOpacity
             style={[styles.tab, threadSide === 'external' && styles.tabActive]}

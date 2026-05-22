@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Colors, Typography, Spacing, Radius } from '../theme';
@@ -27,6 +28,7 @@ const parseNum = (value: string): number => {
 
 export const PipeRodWeightScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const [calcType, setCalcType] = useState<CalcType>('pipe');
   const [inputMode, setInputMode] = useState<PipeInputMode>('inner-outer');
   const [outerDiameter, setOuterDiameter] = useState('90');
@@ -152,7 +154,7 @@ export const PipeRodWeightScreen: React.FC = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenHeader
         title={t('pipeWeightCalculator.title')}
@@ -160,7 +162,7 @@ export const PipeRodWeightScreen: React.FC = () => {
         category={t('modules.pipeRodWeight.category')}
       />
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >

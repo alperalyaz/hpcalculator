@@ -66,7 +66,7 @@ export const HomeScreen: React.FC = () => {
 
       <ScrollView
         style={styles.scroll}
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={[styles.scrollContent, { paddingBottom: Spacing.xxl + insets.bottom }]}
         showsVerticalScrollIndicator={false}
       >
         <View style={[styles.headerWrap, { paddingTop: insets.top }]}>
@@ -145,7 +145,6 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: Spacing.md,
-    paddingBottom: Spacing.xxl,
   },
   headerWrap: {
     marginHorizontal: -Spacing.md,

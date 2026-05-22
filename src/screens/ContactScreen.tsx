@@ -1,16 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 export const ContactScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
 
   return (
     <View style={styles.container}>
       <ScreenHeader title={t('nav.contact')} />
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Spacing.md + insets.bottom }]} showsVerticalScrollIndicator={false}>
         <View style={styles.card}>
           <Text style={styles.title}>{t('legal.contact.title')}</Text>
           <Text style={styles.text}>{t('legal.contact.company')}</Text>

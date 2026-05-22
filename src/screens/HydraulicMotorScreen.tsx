@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { Colors, Typography, Spacing, Radius } from '../theme';
@@ -24,6 +25,7 @@ const parseNum = (value: string): number => {
 
 export const HydraulicMotorScreen: React.FC = () => {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const [activeTab, setActiveTab] = useState<ActiveTab>('torque');
 
   const [displacement, setDisplacement] = useState('');
@@ -111,7 +113,7 @@ export const HydraulicMotorScreen: React.FC = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenHeader
         title={t('hydraulicMotorCalc.title')}
@@ -119,7 +121,7 @@ export const HydraulicMotorScreen: React.FC = () => {
         category={t('modules.hydraulicMotor.category')}
       />
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >

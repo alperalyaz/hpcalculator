@@ -13,6 +13,7 @@ import {
 } from '@react-navigation/drawer';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 import { APP_VERSION_LABEL } from '../constants/appVersion';
 
@@ -100,6 +101,7 @@ const INFO_ITEMS: DrawerItem[] = [
 
 export const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props) => {
   const { t, i18n } = useTranslation();
+  const insets = useSafeAreaInsets();
   const currentRoute = props.state.routes[props.state.index]?.name;
 
   const toggleLanguage = () => {
@@ -111,7 +113,7 @@ export const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props
     <View style={styles.container}>
       {/* Drawer Header */}
       <TouchableOpacity
-        style={styles.drawerHeader}
+        style={[styles.drawerHeader, { paddingTop: Math.max(insets.top, Spacing.md) + Spacing.sm }]}
         activeOpacity={0.8}
         onPress={() => props.navigation.navigate('Home')}
       >
@@ -201,7 +203,7 @@ export const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props
       </DrawerContentScrollView>
 
       {/* Footer: Language Toggle */}
-      <View style={styles.footer}>
+      <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, Spacing.md) }]}>
         <View style={styles.divider} />
         <TouchableOpacity style={styles.langToggle} onPress={toggleLanguage}>
           <Ionicons name="globe-outline" size={18} color={Colors.textMuted} />
@@ -224,7 +226,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: Spacing.md,
-    paddingTop: 56,
     paddingBottom: Spacing.md,
     gap: Spacing.md,
   },
@@ -327,7 +328,7 @@ const styles = StyleSheet.create({
     right: 8,
   },
   footer: {
-    paddingBottom: 28,
+    paddingBottom: 0,
   },
   langToggle: {
     flexDirection: 'row',
