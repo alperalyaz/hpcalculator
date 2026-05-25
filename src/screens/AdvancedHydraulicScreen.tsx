@@ -18,6 +18,8 @@ import { AnimatedNumber } from '../components/AnimatedNumber';
 import { InfoTooltip } from '../components/InfoTooltip';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_advanced.jpg');
+
 const MAX_STAGES = 6;
 const OVERALL_EFFICIENCY = 0.85;
 
@@ -168,8 +170,8 @@ export const AdvancedHydraulicScreen: React.FC = () => {
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScreenHeader
         title={t('advancedHydraulic.title')}
-        subtitle={t('modules.advancedHydraulic.description')}
         category={t('modules.advancedHydraulic.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
