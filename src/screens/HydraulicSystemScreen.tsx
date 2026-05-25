@@ -17,6 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { InfoTooltip } from '../components/InfoTooltip';
+import { AnimatedNumber } from '../components/AnimatedNumber';
 import { CylinderDiagram } from '../components/diagrams/CylinderDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
@@ -24,19 +25,27 @@ type CylDim = 'bore' | 'rod' | 'stroke' | null;
 
 const HeroStat: React.FC<{
   icon: keyof typeof Ionicons.glyphMap;
-  value: string;
+  value: number;
+  decimals: number;
   unit: string;
   label: string;
-}> = ({ icon, value, unit, label }) => (
-  <View style={styles.heroCard}>
-    <View style={styles.heroIconWrap}>
-      <Ionicons name={icon} size={18} color={Colors.accent} />
+  primary?: boolean;
+}> = ({ icon, value, decimals, unit, label, primary = false }) => (
+  <View style={[styles.heroCard, primary && styles.heroCardPrimary]}>
+    <View style={styles.heroTopRow}>
+      <View style={[styles.heroIconWrap, primary && styles.heroIconWrapPrimary]}>
+        <Ionicons name={icon} size={16} color={primary ? Colors.background : Colors.accent} />
+      </View>
+      <Text style={[styles.heroLabel, primary && styles.heroLabelPrimary]} numberOfLines={2}>{label}</Text>
     </View>
     <View style={styles.heroValueRow}>
-      <Text style={styles.heroValue}>{value}</Text>
-      <Text style={styles.heroUnit}>{unit}</Text>
+      <AnimatedNumber
+        value={value}
+        decimals={decimals}
+        style={[styles.heroValue, primary && styles.heroValuePrimary]}
+      />
+      <Text style={[styles.heroUnit, primary && styles.heroUnitPrimary]}>{unit}</Text>
     </View>
-    <Text style={styles.heroLabel} numberOfLines={2}>{label}</Text>
   </View>
 );
 
@@ -229,15 +238,18 @@ export const HydraulicSystemScreen: React.FC = () => {
         <View style={styles.heroRow}>
           <HeroStat
             icon="water"
-            value={result.actualFlowRate.toFixed(1)}
+            value={result.actualFlowRate}
+            decimals={1}
             unit={t('hydraulicCalculator.units.flow')}
-            label={t('hydraulicCalculator.results.actualFlow').replace(':', '')}
+            label={t('hydraulicCalculator.heroLabels.actualFlow')}
           />
           <HeroStat
             icon="flash"
-            value={result.motorPower.toFixed(2)}
+            primary
+            value={result.motorPower}
+            decimals={2}
             unit={t('hydraulicCalculator.units.power')}
-            label={t('hydraulicCalculator.sections.pump')}
+            label={t('hydraulicCalculator.heroLabels.motorPower')}
           />
         </View>
 
@@ -245,16 +257,19 @@ export const HydraulicSystemScreen: React.FC = () => {
           <View style={styles.heroRow}>
             <HeroStat
               icon="arrow-forward-circle"
-              value={cyl.extForce.toFixed(0)}
+              primary
+              value={cyl.extForce}
+              decimals={0}
               unit="kgf"
-              label={t('hydraulicCalculator.results.extForce').replace(':', '')}
+              label={t('hydraulicCalculator.heroLabels.extForce')}
             />
             {cyl.hasRod && (
               <HeroStat
                 icon="arrow-back-circle"
-                value={cyl.retForce.toFixed(0)}
+                value={cyl.retForce}
+                decimals={0}
                 unit="kgf"
-                label={t('hydraulicCalculator.results.retForce').replace(':', '')}
+                label={t('hydraulicCalculator.heroLabels.retForce')}
               />
             )}
           </View>
@@ -373,7 +388,16 @@ export const HydraulicSystemScreen: React.FC = () => {
             <Text style={styles.optional}>({t('hydraulicCalculator.optional')})</Text>
           </View>
 
-          <CylinderDiagram highlight={focusedDim} />
+          <CylinderDiagram
+            highlight={focusedDim}
+            boreLabel={t('hydraulicCalculator.diagram.bore')}
+            rodLabel={t('hydraulicCalculator.diagram.rod')}
+            strokeLabel={t('hydraulicCalculator.diagram.stroke')}
+          />
+          <View style={styles.diagramHint}>
+            <Ionicons name="information-circle-outline" size={13} color={Colors.textMuted} />
+            <Text style={styles.diagramHintText}>{t('hydraulicCalculator.diagram.hint')}</Text>
+          </View>
 
           <View style={styles.labelRow}>
             <Text style={styles.label}>{t('hydraulicCalculator.bore')}</Text>
@@ -528,16 +552,30 @@ const styles = StyleSheet.create({
     borderRadius: Radius.md,
     borderWidth: 1,
     borderColor: Colors.borderAccent,
-    padding: Spacing.sm,
-    gap: 4,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 10,
+    gap: 8,
+    justifyContent: 'space-between',
+  },
+  heroCardPrimary: {
+    backgroundColor: Colors.accent,
+    borderColor: Colors.accent,
+  },
+  heroTopRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
   },
   heroIconWrap: {
-    width: 30,
-    height: 30,
+    width: 26,
+    height: 26,
     borderRadius: Radius.sm,
     backgroundColor: Colors.borderAccent,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  heroIconWrapPrimary: {
+    backgroundColor: '#00000022',
   },
   heroValueRow: {
     flexDirection: 'row',
@@ -545,27 +583,59 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   heroValue: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: '800',
     color: Colors.accent,
     fontVariant: ['tabular-nums'],
+    letterSpacing: -0.5,
+  },
+  heroValuePrimary: {
+    color: Colors.background,
   },
   heroUnit: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '700',
     color: Colors.textMuted,
-    marginBottom: 4,
+    marginBottom: 5,
+  },
+  heroUnitPrimary: {
+    color: '#000000AA',
   },
   heroLabel: {
+    flex: 1,
     fontSize: 11,
+    fontWeight: '600',
     color: Colors.textSecondary,
-    lineHeight: 14,
+    lineHeight: 13,
+  },
+  heroLabelPrimary: {
+    color: '#000000CC',
+  },
+  diagramHint: {
+    flexDirection: 'row',
+    gap: 6,
+    alignItems: 'flex-start',
+    backgroundColor: Colors.surfaceElevated,
+    borderRadius: Radius.sm,
+    borderLeftWidth: 3,
+    borderLeftColor: Colors.accent,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 8,
+    marginBottom: Spacing.xs,
+  },
+  diagramHintText: {
+    flex: 1,
+    fontSize: 11,
+    lineHeight: 15,
+    color: Colors.textSecondary,
   },
   detailCard: {
     backgroundColor: Colors.surfaceElevated,
     borderRadius: Radius.md,
     borderWidth: 1,
     borderColor: Colors.border,
+    borderLeftWidth: 3,
+    borderLeftColor: Colors.borderAccent,
     paddingHorizontal: Spacing.sm,
     paddingVertical: Spacing.xs,
     marginBottom: Spacing.sm,
@@ -601,14 +671,18 @@ const styles = StyleSheet.create({
   },
   detailValue: {
     ...Typography.bodyBold,
-    fontSize: 13,
-    color: Colors.textPrimary,
+    fontSize: 13.5,
+    fontWeight: '700',
+    color: Colors.accent,
+    fontVariant: ['tabular-nums'],
   },
   resultCard: {
-    backgroundColor: Colors.surface,
+    backgroundColor: Colors.surfaceElevated,
     borderRadius: Radius.md,
     borderWidth: 1,
     borderColor: Colors.borderAccent,
+    borderTopWidth: 3,
+    borderTopColor: Colors.accent,
     padding: Spacing.md,
   },
   resultHeaderRow: {

@@ -180,7 +180,19 @@
       "rod": "Diameter of the piston rod. Used to find the pull-side (annulus) area for retraction.",
       "stroke": "Total travel of the piston from fully retracted to fully extended position."
     },
-    "disclaimer": "This calculation tool was developed by Hidroteknik A.Ş. It is provided for informational purposes only; calculation accuracy is not guaranteed. Please verify results before making technical decisions."
+    "disclaimer": "This calculation tool was developed by Hidroteknik A.Ş. It is provided for informational purposes only; calculation accuracy is not guaranteed. Please verify results before making technical decisions.",
+    "diagram": {
+      "bore": "Bore (D)",
+      "rod": "Rod (d)",
+      "stroke": "Stroke (L)",
+      "hint": "Stroke = the piston travel inside the barrel. The part of the rod that stays outside even when fully retracted (dead length) is NOT part of the stroke."
+    },
+    "heroLabels": {
+      "actualFlow": "Actual Flow",
+      "motorPower": "Motor Power",
+      "extForce": "Push Force",
+      "retForce": "Pull Force"
+    }
   },
   "bucklingCalculator": {
     "title": "Buckling Shaft Thickness Calculation",

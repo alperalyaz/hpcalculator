@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Animated, Easing, StyleSheet, Text, TextStyle } from 'react-native';
+import { Animated, Easing, StyleProp, StyleSheet, Text, TextStyle } from 'react-native';
 
 interface AnimatedNumberProps {
   value: number;
   decimals?: number;
-  style?: TextStyle | TextStyle[];
+  style?: StyleProp<TextStyle>;
   suffix?: string;
   duration?: number;
 }

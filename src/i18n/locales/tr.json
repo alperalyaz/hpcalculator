@@ -180,7 +180,19 @@
       "rod": "Piston mili çapı. Çekme tarafı (halka) alanını bulmak için kullanılır.",
       "stroke": "Pistonun tam içeri konumdan tam dışarı konuma kadar aldığı toplam yol."
     },
-    "disclaimer": "Bu hesaplama aracı, Hidroteknik A.Ş. tarafından geliştirilmiştir. Sadece bilgi verme amacı taşır; yapılan hesaplamaların doğruluğu garanti edilmez. Lütfen teknik kararlar almadan önce sonuçları kontrol ediniz."
+    "disclaimer": "Bu hesaplama aracı, Hidroteknik A.Ş. tarafından geliştirilmiştir. Sadece bilgi verme amacı taşır; yapılan hesaplamaların doğruluğu garanti edilmez. Lütfen teknik kararlar almadan önce sonuçları kontrol ediniz.",
+    "diagram": {
+      "bore": "Çap (D)",
+      "rod": "Mil (d)",
+      "stroke": "Strok (L)",
+      "hint": "Strok = pistonun gömlek içindeki gidiş yolu. Mil tam içerideyken bile dışarıda kalan kısım (ölü boy) stroka dahil DEĞİLDİR."
+    },
+    "heroLabels": {
+      "actualFlow": "Gerçek Debi",
+      "motorPower": "Motor Gücü",
+      "extForce": "İtme Kuvveti",
+      "retForce": "Çekme Kuvveti"
+    }
   },
   "bucklingCalculator": {
     "title": "Flambaj Mil Kalınlık Saptama Hesabı",
