@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, HeroRow, HeroStat } from '../components/Result';
+import { PipeFlowDiagram } from '../components/diagrams/PipeFlowDiagram';
 import { Callouts, Colors, Typography, Spacing, Radius } from '../theme';
 
 type CalcMode = 'diameterFromFlow' | 'velocityFromDiameter';
@@ -94,6 +95,7 @@ export const FlowVelocityScreen: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.card}>
+          <PipeFlowDiagram />
           {/* Mode selector */}
           <Text style={styles.label}>{t('flowVelocity.modeLabel')}</Text>
           <View style={styles.modeWrap}>

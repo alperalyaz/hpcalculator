@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
+import { ThreadProfileDiagram } from '../components/diagrams/ThreadProfileDiagram';
 import { THREAD_DATABASE, ThreadSide, ThreadStandard, ThreadSpec } from '../data/threadDatabase';
 import { Callouts, Colors, Spacing } from '../theme';
 
@@ -149,6 +150,7 @@ export const ThreadPitchScreen: React.FC = () => {
         </View>
 
         <View style={styles.card}>
+          <ThreadProfileDiagram side={threadSide} />
           <Text style={styles.label}>
             {threadSide === 'external'
               ? t('threadPitchCalc.labels.measuredDiameter')

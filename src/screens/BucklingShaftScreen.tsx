@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, HeroRow, HeroStat } from '../components/Result';
+import { BucklingDiagram } from '../components/diagrams/BucklingDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 const parseNum = (value: string): number => {
@@ -104,6 +105,7 @@ export const BucklingShaftScreen: React.FC = () => {
           <TextInput style={styles.input} value={length} onChangeText={setLength} keyboardType="decimal-pad" />
 
           <Text style={styles.label}>{t('bucklingCalculator.coefficient')}</Text>
+          <BucklingDiagram kValue={coefficient} />
           <View style={styles.optionWrap}>
             {coefficientOptions.map((opt) => (
               <TouchableOpacity

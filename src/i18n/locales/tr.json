@@ -465,7 +465,14 @@
     "resultVolume": "Toplam Akümülatör Hacmi",
     "precharge": "N₂ Ön Şarj (manometrik)",
     "usefulRatio": "Kullanılabilir Hacim Oranı",
-    "note": "Hesaplama Boyle Yasası'na (izotermik) göre yapılmıştır. Gerçek seçimde %25–30 emniyet payı ekleyin. Ön şarj basıncı genellikle minimum çalışma basıncının %90'ına ayarlanır."
+    "note": "Hesaplama Boyle Yasası'na (izotermik) göre yapılmıştır. Gerçek seçimde %25–30 emniyet payı ekleyin. Ön şarj basıncı genellikle minimum çalışma basıncının %90'ına ayarlanır.",
+    "diagram": {
+      "gas": "N₂ Gaz",
+      "oil": "Yağ",
+      "precharge": "Ön Şarj",
+      "min": "Min",
+      "max": "Max"
+    }
   },
   "legal": {
     "about": {

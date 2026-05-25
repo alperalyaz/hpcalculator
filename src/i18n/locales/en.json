@@ -465,7 +465,14 @@
     "resultVolume": "Total Accumulator Volume",
     "precharge": "N₂ Pre-charge (gauge)",
     "usefulRatio": "Useful Volume Ratio",
-    "note": "Calculation based on Boyle's Law (isothermal). Add 25–30% safety margin for actual selection. Pre-charge pressure is typically set to 90% of minimum working pressure."
+    "note": "Calculation based on Boyle's Law (isothermal). Add 25–30% safety margin for actual selection. Pre-charge pressure is typically set to 90% of minimum working pressure.",
+    "diagram": {
+      "gas": "N₂ Gas",
+      "oil": "Oil",
+      "precharge": "Pre-charge",
+      "min": "Min",
+      "max": "Max"
+    }
   },
   "legal": {
     "about": {

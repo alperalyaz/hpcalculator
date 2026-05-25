@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
+import { AccumulatorDiagram } from '../components/diagrams/AccumulatorDiagram';
 import { Callouts, Colors, Typography, Spacing, Radius } from '../theme';
 
 const parseNum = (v: string) => {
@@ -83,6 +84,13 @@ export const AccumulatorScreen: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.card}>
+          <AccumulatorDiagram
+            gasLabel={t('accumulator.diagram.gas')}
+            oilLabel={t('accumulator.diagram.oil')}
+            prechargeLabel={t('accumulator.diagram.precharge')}
+            minLabel={t('accumulator.diagram.min')}
+            maxLabel={t('accumulator.diagram.max')}
+          />
           <Text style={styles.label}>{t('accumulator.usableVolume')} (L)</Text>
           <TextInput
             style={styles.input}

@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
+import { PipeCrossSectionDiagram } from '../components/diagrams/PipeCrossSectionDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 type CalcType = 'pipe' | 'rod';
@@ -182,6 +183,8 @@ export const PipeRodWeightScreen: React.FC = () => {
               <Text style={[styles.segmentText, calcType === 'rod' && styles.segmentTextActive]}>{t('pipeWeightCalculator.typeRod')}</Text>
             </TouchableOpacity>
           </View>
+
+          <PipeCrossSectionDiagram mode={calcType} />
 
           {calcType === 'pipe' && (
             <View style={styles.modeWrap}>

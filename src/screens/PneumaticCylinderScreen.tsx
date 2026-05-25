@@ -14,7 +14,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
+import { CylinderDiagram } from '../components/diagrams/CylinderDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
+
+type CylDim = 'bore' | 'rod' | 'stroke' | null;
 
 const parseNum = (value: string): number => {
   const normalized = value.trim().replace(',', '.');
@@ -30,6 +33,7 @@ export const PneumaticCylinderScreen: React.FC = () => {
   const [strok, setStrok] = useState('');
   const [basinc, setBasinc] = useState('');
   const [cycleRate, setCycleRate] = useState('');
+  const [focusedDim, setFocusedDim] = useState<CylDim>(null);
   const [result, setResult] = useState<null | {
     geomCycle: number;
     fadCycle: number | null;
@@ -142,14 +146,33 @@ export const PneumaticCylinderScreen: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.formCard}>
+          <CylinderDiagram
+            highlight={focusedDim}
+            boreLabel={t('hydraulicCalculator.diagram.bore')}
+            rodLabel={t('hydraulicCalculator.diagram.rod')}
+            strokeLabel={t('hydraulicCalculator.diagram.stroke')}
+          />
+
           <Text style={styles.label}>{t('pneumaticCalculator.pistonCap')}</Text>
-          <TextInput style={styles.input} value={pistonCap} onChangeText={setPistonCap} keyboardType="decimal-pad" />
+          <TextInput
+            style={[styles.input, focusedDim === 'bore' && styles.inputActive]}
+            value={pistonCap} onChangeText={setPistonCap} keyboardType="decimal-pad"
+            onFocus={() => setFocusedDim('bore')} onBlur={() => setFocusedDim(null)}
+          />
 
           <Text style={styles.label}>{t('pneumaticCalculator.milCap')}</Text>
-          <TextInput style={styles.input} value={milCap} onChangeText={setMilCap} keyboardType="decimal-pad" />
+          <TextInput
+            style={[styles.input, focusedDim === 'rod' && styles.inputActive]}
+            value={milCap} onChangeText={setMilCap} keyboardType="decimal-pad"
+            onFocus={() => setFocusedDim('rod')} onBlur={() => setFocusedDim(null)}
+          />
 
           <Text style={styles.label}>{t('pneumaticCalculator.strok')}</Text>
-          <TextInput style={styles.input} value={strok} onChangeText={setStrok} keyboardType="decimal-pad" />
+          <TextInput
+            style={[styles.input, focusedDim === 'stroke' && styles.inputActive]}
+            value={strok} onChangeText={setStrok} keyboardType="decimal-pad"
+            onFocus={() => setFocusedDim('stroke')} onBlur={() => setFocusedDim(null)}
+          />
 
           <Text style={styles.label}>{t('pneumaticCalculator.basinc')}</Text>
           <TextInput style={styles.input} value={basinc} onChangeText={setBasinc} keyboardType="decimal-pad" />
@@ -290,6 +313,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.sm,
     paddingVertical: 10,
     fontSize: 14,
+  },
+  inputActive: {
+    borderColor: Colors.accent,
   },
   calcButton: {
     marginTop: Spacing.sm,
