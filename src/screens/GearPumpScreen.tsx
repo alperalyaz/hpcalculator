@@ -330,10 +330,10 @@ const styles = StyleSheet.create({
   },
   table: {
     borderWidth: 1,
-    borderColor: Colors.border,
+    borderColor: '#00000026',
     borderRadius: Radius.md,
     overflow: 'hidden',
-    backgroundColor: Colors.surface,
+    backgroundColor: 'transparent',
   },
   tableWrap: {
     position: 'relative',
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
     top: 36,
     bottom: 0,
     width: 24,
-    backgroundColor: '#11111199',
+    backgroundColor: '#00000022',
   },
   headerRow: {
     flexDirection: 'row',

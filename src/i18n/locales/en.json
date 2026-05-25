@@ -260,7 +260,7 @@
       "unavailableTitle": "Sharing unavailable",
       "unavailableBody": "File sharing is not available on this device."
     },
-    "matchCount": "{{count}} pump{{count, plural, one {} other {s}}} match your filters"
+    "matchCount": "{{count}} pumps match your filters"
   },
   "pipeWeightCalculator": {
     "title": "Pipe & Rod Weight Calculator",
