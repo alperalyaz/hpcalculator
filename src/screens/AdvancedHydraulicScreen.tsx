@@ -15,6 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { AnimatedNumber } from '../components/AnimatedNumber';
+import { InfoTooltip } from '../components/InfoTooltip';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 const MAX_STAGES = 6;
@@ -229,11 +230,31 @@ export const AdvancedHydraulicScreen: React.FC = () => {
             </View>
 
             <View style={styles.inputGrid}>
-              <Field label={t('advancedHydraulic.bore')} value={c.bore} onChange={(v) => update(c.id, { bore: v })} />
-              <Field label={t('advancedHydraulic.rod')} value={c.rod} onChange={(v) => update(c.id, { rod: v })} optional />
-              <Field label={t('advancedHydraulic.stroke')} value={c.stroke} onChange={(v) => update(c.id, { stroke: v })} optional />
-              <Field label={t('advancedHydraulic.speed')} value={c.speed} onChange={(v) => update(c.id, { speed: v })} />
-              <Field label={t('advancedHydraulic.pressure')} value={c.pressure} onChange={(v) => update(c.id, { pressure: v })} />
+              <Field
+                label={t('advancedHydraulic.bore')}
+                value={c.bore} onChange={(v) => update(c.id, { bore: v })}
+                tooltipTitle={t('advancedHydraulic.bore')} tooltipBody={t('advancedHydraulic.info.bore')}
+              />
+              <Field
+                label={t('advancedHydraulic.rod')}
+                value={c.rod} onChange={(v) => update(c.id, { rod: v })} optional
+                tooltipTitle={t('advancedHydraulic.rod')} tooltipBody={t('advancedHydraulic.info.rod')}
+              />
+              <Field
+                label={t('advancedHydraulic.stroke')}
+                value={c.stroke} onChange={(v) => update(c.id, { stroke: v })} optional
+                tooltipTitle={t('advancedHydraulic.stroke')} tooltipBody={t('advancedHydraulic.info.stroke')}
+              />
+              <Field
+                label={t('advancedHydraulic.speed')}
+                value={c.speed} onChange={(v) => update(c.id, { speed: v })}
+                tooltipTitle={t('advancedHydraulic.speed')} tooltipBody={t('advancedHydraulic.info.speed')}
+              />
+              <Field
+                label={t('advancedHydraulic.pressure')}
+                value={c.pressure} onChange={(v) => update(c.id, { pressure: v })}
+                tooltipTitle={t('advancedHydraulic.pressure')} tooltipBody={t('advancedHydraulic.info.pressure')}
+              />
             </View>
           </View>
         ))}
@@ -303,17 +324,23 @@ export const AdvancedHydraulicScreen: React.FC = () => {
   );
 };
 
-const Field: React.FC<{ label: string; value: string; onChange: (v: string) => void; optional?: boolean }> = ({
-  label,
-  value,
-  onChange,
-  optional,
-}) => (
+const Field: React.FC<{
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  optional?: boolean;
+  tooltipTitle?: string;
+  tooltipBody?: string;
+}> = ({ label, value, onChange, optional, tooltipTitle, tooltipBody }) => (
   <View style={styles.field}>
-    <Text style={styles.fieldLabel} numberOfLines={1}>
-      {label}
-      {optional ? ' *' : ''}
-    </Text>
+    <View style={styles.fieldLabelRow}>
+      <Text style={styles.fieldLabel} numberOfLines={2}>
+        {label}{optional ? ' *' : ''}
+      </Text>
+      {tooltipTitle && tooltipBody ? (
+        <InfoTooltip title={tooltipTitle} body={tooltipBody} />
+      ) : null}
+    </View>
     <TextInput
       style={styles.fieldInput}
       value={value}
@@ -426,7 +453,8 @@ const styles = StyleSheet.create({
   stageChipTextActive: { color: Colors.background },
   inputGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.sm },
   field: { width: '47%', flexGrow: 1 },
-  fieldLabel: { ...Typography.caption, color: Colors.textSecondary, marginBottom: 4 },
+  fieldLabelRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 4, gap: 2 },
+  fieldLabel: { ...Typography.caption, color: Colors.textSecondary, flex: 1, lineHeight: 15 },
   fieldInput: {
     backgroundColor: Colors.inputBackground,
     borderColor: Colors.border,

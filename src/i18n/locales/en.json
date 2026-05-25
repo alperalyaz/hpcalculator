@@ -546,11 +546,11 @@
     "cylinder": "Cylinder",
     "cylinderShort": "cyl.",
     "stage": "Stage",
-    "bore": "Bore (mm)",
-    "rod": "Rod (mm)",
-    "stroke": "Stroke (mm)",
-    "speed": "Target Speed (mm/s)",
-    "pressure": "Pressure (bar)",
+    "bore": "Cylinder Bore (mm)",
+    "rod": "Rod Diameter (mm)",
+    "stroke": "Stroke / Length (mm)",
+    "speed": "Target Extend Speed (mm/s)",
+    "pressure": "Working Pressure (bar)",
     "resultTitle": "System Result",
     "placeholder": "Enter bore, speed and pressure for at least one cylinder.",
     "hero": {
@@ -577,6 +577,13 @@
       "pressure": "bar",
       "volume": "L",
       "disp": "cc/rev"
+    },
+    "info": {
+      "bore": "The INNER diameter of the cylinder barrel (= piston diameter). Listed as \"bore\" or \"Ø\" in catalogs.\n\nCommon bore sizes: 25 · 32 · 40 · 50 · 63 · 80 · 100 · 125 · 160 · 200 mm.",
+      "rod": "The diameter of the piston rod extending outside the barrel. Optional — if omitted, retraction (annulus side) is not calculated.\n\nExample: 63/36 cylinder → 63 mm bore, 36 mm rod.",
+      "stroke": "The full travel of the piston from retracted to extended. Optional — omitting stroke does not affect flow or force, only cycle time.",
+      "speed": "Target extend speed of the piston.\n\nTypical values:\n• Heavy press / stamping: 5–20 mm/s\n• General manufacturing: 20–100 mm/s\n• Agricultural / tractor: 50–150 mm/s\n• Excavator / mobile: 80–250 mm/s\n• Platform / elevator: 10–50 mm/s\n\nLower speed → smaller pump, higher speed → larger pump.",
+      "pressure": "Working (gauge) pressure for this cylinder.\n\nReference:\n• Low-pressure circuits: 50–100 bar\n• Industrial machinery: 100–200 bar\n• High-force presses: 200–350 bar\n\nEach cylinder can have a different pressure; system pressure is the maximum entered."
     }
   }
 }

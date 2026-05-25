@@ -546,11 +546,11 @@
     "cylinder": "Silindir",
     "cylinderShort": "silindir",
     "stage": "Aşama",
-    "bore": "Çap (mm)",
-    "rod": "Mil (mm)",
-    "stroke": "Strok (mm)",
-    "speed": "İstenen Hız (mm/s)",
-    "pressure": "Basınç (bar)",
+    "bore": "Gömlek İç Çapı (mm)",
+    "rod": "Piston Kolu Çapı (mm)",
+    "stroke": "Strok / Uzunluk (mm)",
+    "speed": "İstenen İtme Hızı (mm/s)",
+    "pressure": "Çalışma Basıncı (bar)",
     "resultTitle": "Sistem Sonucu",
     "placeholder": "En az bir silindire çap, hız ve basınç girin.",
     "hero": {
@@ -577,6 +577,13 @@
       "pressure": "bar",
       "volume": "L",
       "disp": "cc/dev"
+    },
+    "info": {
+      "bore": "Silindir gömleğinin İÇ çapı (= piston çapı). Kataloglarda \"bore\" veya \"Ø\" olarak gösterilir.\n\nStandart çaplar: 25 · 32 · 40 · 50 · 63 · 80 · 100 · 125 · 160 · 200 mm.",
+      "rod": "Pistondan dışarıya uzanan çelik milin çapı. İsteğe bağlıdır; girilmezse geri hareket (halka tarafı) hesaplanmaz.\n\nÖrn: 63/36 silindir → gömlek iç çapı 63 mm, mil çapı 36 mm.",
+      "stroke": "Pistonun tam geri konumdan tam ileri konuma kadar gidiş yolu. İsteğe bağlıdır — strok girilmezse debi ve kuvvet hesabı etkilenmez; yalnızca hareket süresi hesaplanamaz.",
+      "speed": "Pistonun uzama yönündeki istenen hız.\n\nTipik değerler:\n• Ağır pres / zımba: 5–20 mm/s\n• Genel imalat makinesi: 20–100 mm/s\n• Traktör / tarım: 50–150 mm/s\n• İş makinesi kolu: 80–250 mm/s\n• Asansör / platform: 10–50 mm/s\n\nDüşük hız → küçük pompa, yüksek hız → büyük pompa gerektirir.",
+      "pressure": "Sistemin veya bu silindirin çalışma basıncı (gauge).\n\nReferans değerler:\n• Düşük basınç sistemler: 50–100 bar\n• Endüstriyel makineler: 100–200 bar\n• Yüksek güçlü presler: 200–350 bar\n\nFarklı silindirlere farklı basınç girebilirsiniz; hesap her silindiri kendi basıncıyla kullanır, sistem basıncı en yüksek girilen değerdir."
     }
   }
 }
