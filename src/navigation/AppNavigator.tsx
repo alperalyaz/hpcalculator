@@ -6,6 +6,7 @@ import { CustomDrawerContent } from './CustomDrawerContent';
 
 import { HomeScreen } from '../screens/HomeScreen';
 import { HydraulicSystemScreen } from '../screens/HydraulicSystemScreen';
+import { AdvancedHydraulicScreen } from '../screens/AdvancedHydraulicScreen';
 import { BucklingShaftScreen } from '../screens/BucklingShaftScreen';
 import { GearPumpScreen } from '../screens/GearPumpScreen';
 import { PipeRodWeightScreen } from '../screens/PipeRodWeightScreen';
@@ -40,6 +41,7 @@ export const AppNavigator: React.FC = () => {
     >
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="HydraulicSystem" component={HydraulicSystemScreen} />
+      <Drawer.Screen name="AdvancedHydraulic" component={AdvancedHydraulicScreen} />
       <Drawer.Screen name="BucklingShaft" component={BucklingShaftScreen} />
       <Drawer.Screen name="GearPump" component={GearPumpScreen} />
       <Drawer.Screen name="PipeRodWeight" component={PipeRodWeightScreen} />

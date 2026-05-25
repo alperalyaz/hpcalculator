@@ -21,7 +21,8 @@
     "privacy": "Privacy",
     "terms": "Terms of Use",
     "contact": "Contact",
-    "reportBug": "Report a Bug"
+    "reportBug": "Report a Bug",
+    "advancedHydraulic": "Advanced System"
   },
   "home": {
     "welcome": "Welcome",
@@ -85,6 +86,11 @@
     "accumulator": {
       "title": "Accumulator Sizing",
       "description": "Hydraulic accumulator volume calculation (Boyle's Law)",
+      "category": "Hydraulic"
+    },
+    "advancedHydraulic": {
+      "title": "Advanced Hydraulic System",
+      "description": "Multi-cylinder system: stages, pump, motor and tank sizing",
       "category": "Hydraulic"
     }
   },
@@ -529,6 +535,48 @@
       "permissionBody": "Please allow photo library access to attach a screenshot.",
       "errorTitle": "Could not start sending",
       "errorBody": "No email app could be opened on this device. Please configure an email client."
+    }
+  },
+  "advancedHydraulic": {
+    "title": "Advanced Hydraulic System",
+    "intro": "Group multiple cylinders into stages. Cylinders in the same stage run SIMULTANEOUSLY (flows add up); different stages run SEQUENTIALLY. The pump is sized for the highest-flow stage.",
+    "motorRpm": "Motor Speed (rpm)",
+    "motorRpmInfo": "Speed of the electric motor driving the pump. Standard AC motors run at ~1450 rpm. The suggested pump displacement is based on this value.",
+    "addCylinder": "Add Cylinder",
+    "cylinder": "Cylinder",
+    "cylinderShort": "cyl.",
+    "stage": "Stage",
+    "bore": "Bore (mm)",
+    "rod": "Rod (mm)",
+    "stroke": "Stroke (mm)",
+    "speed": "Target Speed (mm/s)",
+    "pressure": "Pressure (bar)",
+    "resultTitle": "System Result",
+    "placeholder": "Enter bore, speed and pressure for at least one cylinder.",
+    "hero": {
+      "flow": "Required Pump Flow",
+      "power": "Motor Power",
+      "pressure": "System Pressure",
+      "tank": "Tank Volume"
+    },
+    "sections": {
+      "pumpMotor": "Pump / Motor",
+      "stages": "Stage Breakdown"
+    },
+    "pumpDisplacement": "Suggested Pump Displacement",
+    "requiredFlow": "Required Pump Flow",
+    "hydPower": "Hydraulic Power",
+    "motorPower": "Motor Power (≈85% eff.)",
+    "governingStage": "Governing Stage",
+    "tankNote": "Suggested Tank Volume",
+    "tankRule": "3× flow rule",
+    "disclaimer": "Results are for preliminary sizing. Verify pressure drop, simultaneity factor and efficiency for the final selection.",
+    "units": {
+      "flow": "L/min",
+      "power": "kW",
+      "pressure": "bar",
+      "volume": "L",
+      "disp": "cc/rev"
     }
   }
 }

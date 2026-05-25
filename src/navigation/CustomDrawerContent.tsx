@@ -35,6 +35,11 @@ const PRIMARY_ITEMS: DrawerItem[] = [
     i18nKey: 'nav.hydraulicSystem',
   },
   {
+    route: 'AdvancedHydraulic',
+    icon: 'layers-outline',
+    i18nKey: 'nav.advancedHydraulic',
+  },
+  {
     route: 'BucklingShaft',
     icon: 'git-branch-outline',
     i18nKey: 'nav.bucklingShaft',

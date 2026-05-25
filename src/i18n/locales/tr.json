@@ -21,7 +21,8 @@
     "privacy": "Gizlilik",
     "terms": "Kullanım Şartları",
     "contact": "İletişim",
-    "reportBug": "Bug Rapor Et"
+    "reportBug": "Bug Rapor Et",
+    "advancedHydraulic": "Gelişmiş Sistem"
   },
   "home": {
     "welcome": "Hoş Geldiniz",
@@ -85,6 +86,11 @@
     "accumulator": {
       "title": "Akümülatör Boyutlandırma",
       "description": "Hidrolik akümülatör hacim hesabı (Boyle Yasası)",
+      "category": "Hidrolik"
+    },
+    "advancedHydraulic": {
+      "title": "Gelişmiş Hidrolik Sistem",
+      "description": "Çok silindirli sistem: aşamalar, pompa, motor ve tank seçimi",
       "category": "Hidrolik"
     }
   },
@@ -529,6 +535,48 @@
       "permissionBody": "Screenshot seçebilmek için galeri izni vermeniz gerekiyor.",
       "errorTitle": "Gönderim başlatılamadı",
       "errorBody": "Bu cihazda e-posta uygulaması açılamadı. Lütfen bir e-posta uygulaması ayarlayın."
+    }
+  },
+  "advancedHydraulic": {
+    "title": "Gelişmiş Hidrolik Sistem",
+    "intro": "Birden fazla silindiri aşamalara ayırın. Aynı aşamadaki silindirler EŞ ZAMANLI çalışır (debiler toplanır), farklı aşamalar SIRAYLA çalışır. Pompa, en yüksek debili aşamaya göre seçilir.",
+    "motorRpm": "Motor Devri (dev/dak)",
+    "motorRpmInfo": "Pompayı tahrik eden elektrik motorunun devri. Standart AC motorlar ~1450 dev/dak döner. Pompa deplasmanı önerisi bu değere göre hesaplanır.",
+    "addCylinder": "Silindir Ekle",
+    "cylinder": "Silindir",
+    "cylinderShort": "silindir",
+    "stage": "Aşama",
+    "bore": "Çap (mm)",
+    "rod": "Mil (mm)",
+    "stroke": "Strok (mm)",
+    "speed": "İstenen Hız (mm/s)",
+    "pressure": "Basınç (bar)",
+    "resultTitle": "Sistem Sonucu",
+    "placeholder": "En az bir silindire çap, hız ve basınç girin.",
+    "hero": {
+      "flow": "Gerekli Pompa Debisi",
+      "power": "Motor Gücü",
+      "pressure": "Sistem Basıncı",
+      "tank": "Tank Hacmi"
+    },
+    "sections": {
+      "pumpMotor": "Pompa / Motor",
+      "stages": "Aşama Dağılımı"
+    },
+    "pumpDisplacement": "Önerilen Pompa Deplasmanı",
+    "requiredFlow": "Gerekli Pompa Debisi",
+    "hydPower": "Hidrolik Güç",
+    "motorPower": "Motor Gücü (≈%85 verim)",
+    "governingStage": "Belirleyici Aşama",
+    "tankNote": "Önerilen Tank Hacmi",
+    "tankRule": "debinin 3 katı kuralı",
+    "disclaimer": "Sonuçlar ön tasarım amaçlıdır. Gerçek seçimde basınç düşümü, eş zamanlılık faktörü ve verim değerlerini doğrulayın.",
+    "units": {
+      "flow": "L/dak",
+      "power": "kW",
+      "pressure": "bar",
+      "volume": "L",
+      "disp": "cc/dev"
     }
   }
 }

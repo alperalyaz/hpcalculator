@@ -34,7 +34,7 @@ const HeroStat: React.FC<{
   <View style={[styles.heroCard, primary && styles.heroCardPrimary]}>
     <View style={styles.heroTopRow}>
       <View style={[styles.heroIconWrap, primary && styles.heroIconWrapPrimary]}>
-        <Ionicons name={icon} size={16} color={primary ? Colors.background : Colors.accent} />
+        <Ionicons name={icon} size={16} color={Colors.accent} />
       </View>
       <Text style={[styles.heroLabel, primary && styles.heroLabelPrimary]} numberOfLines={2}>{label}</Text>
     </View>
@@ -218,7 +218,7 @@ export const HydraulicSystemScreen: React.FC = () => {
   }> = ({ icon, title, children }) => (
     <View style={styles.detailCard}>
       <View style={styles.detailHeader}>
-        <Ionicons name={icon} size={15} color={Colors.accent} />
+        <Ionicons name={icon} size={15} color={Colors.background} />
         <Text style={styles.detailTitle}>{title}</Text>
       </View>
       {children}
@@ -447,10 +447,10 @@ export const HydraulicSystemScreen: React.FC = () => {
           >
             <Text style={styles.resultHeaderTitle}>{t('hydraulicCalculator.resultTitle')}</Text>
             <View style={styles.resultHeaderRight}>
-              <Ionicons name="expand-outline" size={17} color={Colors.textMuted} />
+              <Ionicons name="expand-outline" size={17} color={Colors.background} />
               {result ? (
                 <View style={styles.liveBadge}>
-                  <Ionicons name="flash-outline" size={12} color={Colors.accent} />
+                  <Ionicons name="flash" size={12} color={Colors.background} />
                   <Text style={styles.liveBadgeText}>{t('hydraulicCalculator.live')}</Text>
                 </View>
               ) : null}
@@ -546,20 +546,23 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
     marginBottom: Spacing.sm,
   },
+  // Result section is inverted (yellow card). Non-primary heroes are
+  // dark cards floating on yellow; primary heroes are deep-black cards
+  // with white labels — maximum punch against the yellow.
   heroCard: {
     flex: 1,
-    backgroundColor: Colors.surfaceElevated,
+    backgroundColor: '#1A1A1AEE',
     borderRadius: Radius.md,
     borderWidth: 1,
-    borderColor: Colors.borderAccent,
+    borderColor: '#00000033',
     paddingHorizontal: Spacing.sm,
     paddingVertical: 10,
     gap: 8,
     justifyContent: 'space-between',
   },
   heroCardPrimary: {
-    backgroundColor: Colors.accent,
-    borderColor: Colors.accent,
+    backgroundColor: Colors.background,
+    borderColor: '#000000',
   },
   heroTopRow: {
     flexDirection: 'row',
@@ -575,7 +578,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   heroIconWrapPrimary: {
-    backgroundColor: '#00000022',
+    backgroundColor: Colors.borderAccent,
   },
   heroValueRow: {
     flexDirection: 'row',
@@ -590,26 +593,26 @@ const styles = StyleSheet.create({
     letterSpacing: -0.5,
   },
   heroValuePrimary: {
-    color: Colors.background,
+    color: Colors.accent,
   },
   heroUnit: {
     fontSize: 12,
     fontWeight: '700',
-    color: Colors.textMuted,
+    color: '#FFFFFF99',
     marginBottom: 5,
   },
   heroUnitPrimary: {
-    color: '#000000AA',
+    color: '#FFFFFF99',
   },
   heroLabel: {
     flex: 1,
     fontSize: 11,
     fontWeight: '600',
-    color: Colors.textSecondary,
+    color: '#FFFFFFDD',
     lineHeight: 13,
   },
   heroLabelPrimary: {
-    color: '#000000CC',
+    color: '#FFFFFFEE',
   },
   diagramHint: {
     flexDirection: 'row',
@@ -630,12 +633,12 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
   },
   detailCard: {
-    backgroundColor: Colors.surfaceElevated,
+    backgroundColor: '#00000018',
     borderRadius: Radius.md,
     borderWidth: 1,
-    borderColor: Colors.border,
+    borderColor: '#00000026',
     borderLeftWidth: 3,
-    borderLeftColor: Colors.borderAccent,
+    borderLeftColor: '#000000',
     paddingHorizontal: Spacing.sm,
     paddingVertical: Spacing.xs,
     marginBottom: Spacing.sm,
@@ -648,7 +651,7 @@ const styles = StyleSheet.create({
   },
   detailTitle: {
     ...Typography.caption,
-    color: Colors.accent,
+    color: '#1A1A1A',
     fontWeight: '800',
     letterSpacing: 0.5,
     textTransform: 'uppercase',
@@ -660,29 +663,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 6,
     borderTopWidth: 1,
-    borderTopColor: Colors.border,
+    borderTopColor: '#00000022',
   },
   detailLabel: {
     ...Typography.body,
     fontSize: 13,
-    color: Colors.textSecondary,
+    color: '#000000B0',
     flex: 1,
     paddingRight: Spacing.sm,
   },
   detailValue: {
     ...Typography.bodyBold,
-    fontSize: 13.5,
-    fontWeight: '700',
-    color: Colors.accent,
+    fontSize: 14,
+    fontWeight: '800',
+    color: '#000000',
     fontVariant: ['tabular-nums'],
   },
   resultCard: {
-    backgroundColor: Colors.surfaceElevated,
+    backgroundColor: Colors.accent,
     borderRadius: Radius.md,
     borderWidth: 1,
-    borderColor: Colors.borderAccent,
-    borderTopWidth: 3,
-    borderTopColor: Colors.accent,
+    borderColor: Colors.accentDark,
     padding: Spacing.md,
   },
   resultHeaderRow: {
@@ -698,12 +699,13 @@ const styles = StyleSheet.create({
   },
   resultHeaderTitle: {
     ...Typography.bodyBold,
-    color: Colors.textPrimary,
+    color: '#000000',
+    fontWeight: '800',
   },
   liveBadge: {
-    backgroundColor: '#F5C40022',
+    backgroundColor: '#0000001A',
     borderWidth: 1,
-    borderColor: Colors.borderAccent,
+    borderColor: '#00000033',
     borderRadius: Radius.full,
     paddingHorizontal: 10,
     paddingVertical: 3,
@@ -713,22 +715,22 @@ const styles = StyleSheet.create({
   },
   liveBadgeText: {
     ...Typography.caption,
-    color: Colors.accent,
-    fontWeight: '700',
+    color: '#000000',
+    fontWeight: '800',
     letterSpacing: 0.4,
   },
   placeholder: {
     ...Typography.body,
-    color: Colors.textMuted,
+    color: '#000000AA',
     textAlign: 'center',
   },
   footerNote: {
     ...Typography.caption,
-    color: Colors.textMuted,
+    color: '#00000099',
     lineHeight: 18,
     textAlign: 'center',
     borderTopWidth: 1,
-    borderTopColor: Colors.border,
+    borderTopColor: '#00000022',
     paddingTop: Spacing.sm,
   },
   modalContainer: {
@@ -761,10 +763,10 @@ const styles = StyleSheet.create({
     padding: Spacing.md,
   },
   modalCard: {
-    backgroundColor: Colors.surface,
+    backgroundColor: Colors.accent,
     borderRadius: Radius.md,
     borderWidth: 1,
-    borderColor: Colors.borderAccent,
+    borderColor: Colors.accentDark,
     padding: Spacing.md,
   },
 });

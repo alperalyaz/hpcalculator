@@ -25,6 +25,7 @@ interface ModuleCard {
 
 const MODULES: ModuleCard[] = [
   { key: 'HydraulicSystem', icon: 'water-outline' },
+  { key: 'AdvancedHydraulic', icon: 'layers-outline' },
   { key: 'BucklingShaft', icon: 'git-branch-outline' },
   { key: 'GearPump', icon: 'construct-outline' },
   { key: 'PipeRodWeight', icon: 'reorder-four-outline' },
@@ -39,6 +40,7 @@ const MODULES: ModuleCard[] = [
 
 type ModuleRoute =
   | 'HydraulicSystem'
+  | 'AdvancedHydraulic'
   | 'BucklingShaft'
   | 'GearPump'
   | 'PipeRodWeight'
@@ -52,6 +54,7 @@ type ModuleRoute =
 
 const NAV_KEY_MAP: Record<ModuleRoute, string> = {
   HydraulicSystem: 'hydraulicSystem',
+  AdvancedHydraulic: 'advancedHydraulic',
   BucklingShaft: 'bucklingShaft',
   GearPump: 'gearPump',
   PipeRodWeight: 'pipeRodWeight',

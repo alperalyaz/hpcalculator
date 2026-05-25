@@ -1,6 +1,7 @@
 export type DrawerParamList = {
   Home: undefined;
   HydraulicSystem: undefined;
+  AdvancedHydraulic: undefined;
   BucklingShaft: undefined;
   GearPump: undefined;
   PipeRodWeight: undefined;
