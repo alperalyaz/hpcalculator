@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: 'hidden',
   },
-  tableHeaderRow: { flexDirection: 'row', backgroundColor: '#27303a' },
+  tableHeaderRow: { flexDirection: 'row', backgroundColor: Colors.background },
   tableRow: { flexDirection: 'row', backgroundColor: Colors.surface },
   tableRowAlt: { backgroundColor: Colors.inputBackground },
   th: { color: '#fff', fontWeight: '800', paddingVertical: 10, paddingHorizontal: 8, fontSize: 12 },

@@ -259,7 +259,8 @@
       "emptyBody": "Dışa aktarmak için önce filtre sonucu olmalı.",
       "unavailableTitle": "Paylaşım desteklenmiyor",
       "unavailableBody": "Bu cihazda dosya paylaşımı kullanılamıyor."
-    }
+    },
+    "matchCount": "{{count}} pompa seçiminize uyuyor"
   },
   "pipeWeightCalculator": {
     "title": "Boru & Mil Ağırlık Hesaplayıcı",

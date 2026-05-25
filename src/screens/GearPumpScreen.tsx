@@ -178,70 +178,61 @@ export const GearPumpScreen: React.FC = () => {
           </View>
         </View>
 
-        <ResultCard
-          title={t('gearPumpGuide.title')}
-          footerNote={t('gearPumpGuide.count', { count: filteredData.length, total: GEAR_PUMP_DATA.length })}
-        >
+        <ResultCard title={t('gearPumpGuide.title')}>
           <HeroRow>
             <HeroStat
               icon="search"
               primary
               value={filteredData.length}
               decimals={0}
-              label={t('gearPumpGuide.title')}
-            />
-            <HeroStat
-              icon="server"
-              value={GEAR_PUMP_DATA.length}
-              decimals={0}
-              label={t('gearPumpGuide.columns.code')}
+              label={t('gearPumpGuide.matchCount', { count: filteredData.length })}
             />
           </HeroRow>
-        </ResultCard>
 
-        <View style={styles.tableWrap}>
-          {showHorizontalHint ? (
-            <View style={styles.scrollHint}>
-              <Text style={styles.scrollHintText}>{t('gearPumpGuide.scrollHint')}</Text>
-              <Ionicons name="arrow-forward" size={14} color={Colors.accent} />
-            </View>
-          ) : null}
+          <View style={styles.tableWrap}>
+            {showHorizontalHint ? (
+              <View style={styles.scrollHint}>
+                <Text style={styles.scrollHintText}>{t('gearPumpGuide.scrollHint')}</Text>
+                <Ionicons name="arrow-forward" size={14} color={Colors.background} />
+              </View>
+            ) : null}
 
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator
-            onScroll={(e) => {
-              const x = e.nativeEvent.contentOffset.x;
-              const vw = e.nativeEvent.layoutMeasurement.width;
-              const cw = e.nativeEvent.contentSize.width;
-              const canScroll = cw > vw + 8;
-              const atEnd = x + vw >= cw - 12;
-              setShowHorizontalHint(canScroll && !atEnd);
-            }}
-            scrollEventThrottle={16}
-          >
-            <View style={styles.table}>
-              <View style={styles.headerRow}>
-                {columns.map((c) => (
-                  <Text key={c} style={[styles.cell, styles.headerCell]}>
-                    {c}
-                  </Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator
+              onScroll={(e) => {
+                const x = e.nativeEvent.contentOffset.x;
+                const vw = e.nativeEvent.layoutMeasurement.width;
+                const cw = e.nativeEvent.contentSize.width;
+                const canScroll = cw > vw + 8;
+                const atEnd = x + vw >= cw - 12;
+                setShowHorizontalHint(canScroll && !atEnd);
+              }}
+              scrollEventThrottle={16}
+            >
+              <View style={styles.table}>
+                <View style={styles.headerRow}>
+                  {columns.map((c) => (
+                    <Text key={c} style={[styles.cell, styles.headerCell]}>
+                      {c}
+                    </Text>
+                  ))}
+                </View>
+
+                {filteredData.map((item, idx) => (
+                  <View key={`${item.code}-${idx}`} style={[styles.dataRow, idx % 2 === 1 && styles.altRow]}>
+                    <Text style={styles.cell}>{item.code}</Text>
+                    <Text style={styles.cell}>{item.cc}</Text>
+                    <Text style={styles.cell}>{item.flow.toFixed(4)}</Text>
+                    <Text style={styles.cell}>{Math.floor(item.tank)}</Text>
+                    <Text style={styles.cell}>{item.power}</Text>
+                  </View>
                 ))}
               </View>
-
-              {filteredData.map((item, idx) => (
-                <View key={`${item.code}-${idx}`} style={[styles.dataRow, idx % 2 === 1 && styles.altRow]}>
-                  <Text style={styles.cell}>{item.code}</Text>
-                  <Text style={styles.cell}>{item.cc}</Text>
-                  <Text style={styles.cell}>{item.flow.toFixed(4)}</Text>
-                  <Text style={styles.cell}>{Math.floor(item.tank)}</Text>
-                  <Text style={styles.cell}>{item.power}</Text>
-                </View>
-              ))}
-            </View>
-          </ScrollView>
-          {showHorizontalHint ? <View pointerEvents="none" style={styles.rightFade} /> : null}
-        </View>
+            </ScrollView>
+            {showHorizontalHint ? <View pointerEvents="none" style={styles.rightFade} /> : null}
+          </View>
+        </ResultCard>
 
         <View style={styles.promoCard}>
           <Text style={styles.promoTitle}>{t('gearPumpGuide.promo.title')}</Text>
@@ -357,12 +348,12 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: Radius.full,
     borderWidth: 1,
-    borderColor: Colors.borderAccent,
-    backgroundColor: '#F5C40011',
+    borderColor: '#00000033',
+    backgroundColor: '#00000014',
   },
   scrollHintText: {
     ...Typography.caption,
-    color: Colors.accent,
+    color: Colors.background,
     fontWeight: '700',
   },
   rightFade: {
@@ -375,25 +366,25 @@ const styles = StyleSheet.create({
   },
   headerRow: {
     flexDirection: 'row',
-    backgroundColor: '#2E6FA1',
+    backgroundColor: Colors.background,
   },
   dataRow: {
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderTopColor: Colors.border,
+    borderTopColor: '#00000018',
   },
   altRow: {
-    backgroundColor: Colors.surfaceElevated,
+    backgroundColor: '#00000012',
   },
   cell: {
     width: 190,
     paddingHorizontal: Spacing.sm,
     paddingVertical: 10,
-    color: Colors.textSecondary,
+    color: '#000000CC',
     fontSize: 12,
   },
   headerCell: {
-    color: '#FFFFFF',
+    color: Colors.accent,
     fontWeight: '700',
   },
   promoCard: {

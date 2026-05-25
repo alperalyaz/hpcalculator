@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.inputBackground,
   },
   tabBtnActive: {
-    backgroundColor: '#2E6FA1',
+    backgroundColor: Colors.accent,
   },
   tabText: {
     ...Typography.body,
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   tabTextActive: {
-    color: '#FFFFFF',
+    color: Colors.background,
     fontWeight: '700',
   },
   card: {
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
   },
   calcButton: {
     marginTop: Spacing.sm,
-    backgroundColor: '#2E6FA1',
+    backgroundColor: Colors.accent,
     borderRadius: Radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
@@ -321,13 +321,13 @@ const styles = StyleSheet.create({
   },
   calcButtonText: {
     ...Typography.bodyBold,
-    color: '#FFFFFF',
+    color: Colors.background,
   },
   exampleBox: {
     marginTop: Spacing.sm,
     backgroundColor: Colors.inputBackground,
     borderLeftWidth: 3,
-    borderLeftColor: '#2E6FA1',
+    borderLeftColor: Colors.accent,
     borderRadius: Radius.sm,
     padding: Spacing.sm,
     gap: 6,

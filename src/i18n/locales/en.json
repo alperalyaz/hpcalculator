@@ -259,7 +259,8 @@
       "emptyBody": "There must be filtered rows to export.",
       "unavailableTitle": "Sharing unavailable",
       "unavailableBody": "File sharing is not available on this device."
-    }
+    },
+    "matchCount": "{{count}} pump{{count, plural, one {} other {s}}} match your filters"
   },
   "pipeWeightCalculator": {
     "title": "Pipe & Rod Weight Calculator",
