@@ -172,6 +172,14 @@
       "flow": "L/dak",
       "power": "kW"
     },
+    "info": {
+      "pumpDisplacement": "Pompanın bir devirde sevk ettiği yağ hacmi. Pompa etiketinde yazar, örn. 10 cc/devir.",
+      "motorRpm": "Pompayı tahrik eden elektrik motorunun devir sayısı. Standart AC motorlar ~1450 dev/dak döner.",
+      "pressure": "Sistem çalışma basıncı. Endüstriyel hidrolik sistemler genelde 100–250 bar arasında çalışır.",
+      "bore": "Silindir gömleğinin iç çapı (piston çapı). İtme kuvvetini belirler.",
+      "rod": "Piston mili çapı. Çekme tarafı (halka) alanını bulmak için kullanılır.",
+      "stroke": "Pistonun tam içeri konumdan tam dışarı konuma kadar aldığı toplam yol."
+    },
     "disclaimer": "Bu hesaplama aracı, Hidroteknik A.Ş. tarafından geliştirilmiştir. Sadece bilgi verme amacı taşır; yapılan hesaplamaların doğruluğu garanti edilmez. Lütfen teknik kararlar almadan önce sonuçları kontrol ediniz."
   },
   "bucklingCalculator": {

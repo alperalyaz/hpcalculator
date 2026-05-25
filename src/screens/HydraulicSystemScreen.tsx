@@ -16,7 +16,29 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { InfoTooltip } from '../components/InfoTooltip';
+import { CylinderDiagram } from '../components/diagrams/CylinderDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
+
+type CylDim = 'bore' | 'rod' | 'stroke' | null;
+
+const HeroStat: React.FC<{
+  icon: keyof typeof Ionicons.glyphMap;
+  value: string;
+  unit: string;
+  label: string;
+}> = ({ icon, value, unit, label }) => (
+  <View style={styles.heroCard}>
+    <View style={styles.heroIconWrap}>
+      <Ionicons name={icon} size={18} color={Colors.accent} />
+    </View>
+    <View style={styles.heroValueRow}>
+      <Text style={styles.heroValue}>{value}</Text>
+      <Text style={styles.heroUnit}>{unit}</Text>
+    </View>
+    <Text style={styles.heroLabel} numberOfLines={2}>{label}</Text>
+  </View>
+);
 
 const EFFICIENCY = 0.93;
 
@@ -36,6 +58,7 @@ export const HydraulicSystemScreen: React.FC = () => {
   const [rod, setRod] = useState('');
   const [stroke, setStroke] = useState('');
   const [isResultFullscreen, setIsResultFullscreen] = useState(false);
+  const [focusedDim, setFocusedDim] = useState<CylDim>(null);
   const glowAnim = useRef(new Animated.Value(0)).current;
 
   const result = useMemo(() => {
@@ -172,81 +195,119 @@ export const HydraulicSystemScreen: React.FC = () => {
     outputRange: ['#F5C40033', '#F5C400AA'],
   });
 
+  const DetailRow: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+    <View style={styles.detailRow}>
+      <Text style={styles.detailLabel}>{label}</Text>
+      <Text style={styles.detailValue}>{value}</Text>
+    </View>
+  );
+
+  const SectionCard: React.FC<{
+    icon: keyof typeof Ionicons.glyphMap;
+    title: string;
+    children: React.ReactNode;
+  }> = ({ icon, title, children }) => (
+    <View style={styles.detailCard}>
+      <View style={styles.detailHeader}>
+        <Ionicons name={icon} size={15} color={Colors.accent} />
+        <Text style={styles.detailTitle}>{title}</Text>
+      </View>
+      {children}
+    </View>
+  );
+
   const renderResultContent = (showDisclaimer: boolean) => {
     if (!result) {
       return <Text style={styles.placeholder}>{t('hydraulicCalculator.placeholder')}</Text>;
     }
 
+    const cyl = result.cylinder;
+
     return (
       <>
-        <Text style={styles.sectionTitle}>{t('hydraulicCalculator.sections.pump')}</Text>
-        <Text style={styles.resultLine}>
-          {t('hydraulicCalculator.results.theoreticalFlow')} <Text style={styles.value}>{result.theoreticalFlowRate.toFixed(2)} {t('hydraulicCalculator.units.flow')}</Text>
-        </Text>
-        <Text style={styles.resultLine}>
-          {t('hydraulicCalculator.results.actualFlow')} <Text style={styles.value}>{result.actualFlowRate.toFixed(2)} {t('hydraulicCalculator.units.flow')}</Text>
-        </Text>
-        <Text style={styles.resultLine}>
-          {t('hydraulicCalculator.results.motorPower')} <Text style={styles.value}>{result.motorPower.toFixed(2)} {t('hydraulicCalculator.units.power')}</Text>
-        </Text>
+        {/* Hero stats */}
+        <View style={styles.heroRow}>
+          <HeroStat
+            icon="water"
+            value={result.actualFlowRate.toFixed(1)}
+            unit={t('hydraulicCalculator.units.flow')}
+            label={t('hydraulicCalculator.results.actualFlow').replace(':', '')}
+          />
+          <HeroStat
+            icon="flash"
+            value={result.motorPower.toFixed(2)}
+            unit={t('hydraulicCalculator.units.power')}
+            label={t('hydraulicCalculator.sections.pump')}
+          />
+        </View>
 
-        {result.cylinder && (
+        {cyl && (
+          <View style={styles.heroRow}>
+            <HeroStat
+              icon="arrow-forward-circle"
+              value={cyl.extForce.toFixed(0)}
+              unit="kgf"
+              label={t('hydraulicCalculator.results.extForce').replace(':', '')}
+            />
+            {cyl.hasRod && (
+              <HeroStat
+                icon="arrow-back-circle"
+                value={cyl.retForce.toFixed(0)}
+                unit="kgf"
+                label={t('hydraulicCalculator.results.retForce').replace(':', '')}
+              />
+            )}
+          </View>
+        )}
+
+        {/* Pump detail */}
+        <SectionCard icon="cog" title={t('hydraulicCalculator.sections.pump')}>
+          <DetailRow
+            label={t('hydraulicCalculator.results.theoreticalFlow')}
+            value={`${result.theoreticalFlowRate.toFixed(2)} ${t('hydraulicCalculator.units.flow')}`}
+          />
+          <DetailRow
+            label={t('hydraulicCalculator.results.actualFlow')}
+            value={`${result.actualFlowRate.toFixed(2)} ${t('hydraulicCalculator.units.flow')}`}
+          />
+          <DetailRow
+            label={t('hydraulicCalculator.results.motorPower')}
+            value={`${result.motorPower.toFixed(2)} ${t('hydraulicCalculator.units.power')}`}
+          />
+        </SectionCard>
+
+        {cyl && (
           <>
-            <Text style={styles.sectionTitle}>{t('hydraulicCalculator.sections.cylinder')}</Text>
-            <Text style={styles.resultLine}>
-              {t('hydraulicCalculator.results.pistonArea')} <Text style={styles.value}>{result.cylinder.pistonArea.toFixed(2)} cm²</Text>
-            </Text>
-            {result.cylinder.hasRod && (
-              <>
-                <Text style={styles.resultLine}>
-                  {t('hydraulicCalculator.results.rodArea')} <Text style={styles.value}>{result.cylinder.rodArea.toFixed(2)} cm²</Text>
-                </Text>
-                <Text style={styles.resultLine}>
-                  {t('hydraulicCalculator.results.effectiveArea')} <Text style={styles.value}>{result.cylinder.effectiveArea.toFixed(2)} cm²</Text>
-                </Text>
-              </>
-            )}
-            <Text style={styles.resultLine}>
-              {t('hydraulicCalculator.results.extForce')} <Text style={styles.value}>{result.cylinder.extForce.toFixed(2)} kg</Text>
-            </Text>
-            {result.cylinder.hasRod && (
-              <Text style={styles.resultLine}>
-                {t('hydraulicCalculator.results.retForce')} <Text style={styles.value}>{result.cylinder.retForce.toFixed(2)} kg</Text>
-              </Text>
-            )}
-            <Text style={styles.resultLine}>
-              {t('hydraulicCalculator.results.extVolume')} <Text style={styles.value}>{result.cylinder.extVolume.toFixed(3)} L</Text>
-            </Text>
-            {result.cylinder.hasRod && (
-              <Text style={styles.resultLine}>
-                {t('hydraulicCalculator.results.retVolume')} <Text style={styles.value}>{result.cylinder.retVolume.toFixed(3)} L</Text>
-              </Text>
-            )}
+            <SectionCard icon="ellipse-outline" title={t('hydraulicCalculator.sections.cylinder')}>
+              <DetailRow label={t('hydraulicCalculator.results.pistonArea')} value={`${cyl.pistonArea.toFixed(2)} cm²`} />
+              {cyl.hasRod && (
+                <>
+                  <DetailRow label={t('hydraulicCalculator.results.rodArea')} value={`${cyl.rodArea.toFixed(2)} cm²`} />
+                  <DetailRow label={t('hydraulicCalculator.results.effectiveArea')} value={`${cyl.effectiveArea.toFixed(2)} cm²`} />
+                </>
+              )}
+              <DetailRow label={t('hydraulicCalculator.results.extVolume')} value={`${cyl.extVolume.toFixed(3)} L`} />
+              {cyl.hasRod && (
+                <DetailRow label={t('hydraulicCalculator.results.retVolume')} value={`${cyl.retVolume.toFixed(3)} L`} />
+              )}
+            </SectionCard>
 
-            <Text style={styles.sectionTitle}>{t('hydraulicCalculator.sections.speed')}</Text>
-            <Text style={styles.resultLine}>
-              {t('hydraulicCalculator.results.extSpeed')} <Text style={styles.value}>{result.cylinder.extSpeedMm.toFixed(2)} mm/s</Text>
-            </Text>
-            {result.cylinder.hasRod && (
-              <Text style={styles.resultLine}>
-                {t('hydraulicCalculator.results.retSpeed')} <Text style={styles.value}>{result.cylinder.retSpeedMm.toFixed(2)} mm/s</Text>
-              </Text>
-            )}
+            <SectionCard icon="speedometer" title={t('hydraulicCalculator.sections.speed')}>
+              <DetailRow label={t('hydraulicCalculator.results.extSpeed')} value={`${cyl.extSpeedMm.toFixed(2)} mm/s`} />
+              {cyl.hasRod && (
+                <DetailRow label={t('hydraulicCalculator.results.retSpeed')} value={`${cyl.retSpeedMm.toFixed(2)} mm/s`} />
+              )}
+            </SectionCard>
 
-            <Text style={styles.sectionTitle}>{t('hydraulicCalculator.sections.time')}</Text>
-            <Text style={styles.resultLine}>
-              {t('hydraulicCalculator.results.extTime')} <Text style={styles.value}>{result.cylinder.extTime.toFixed(3)} s</Text>
-            </Text>
-            {result.cylinder.hasRod && (
-              <>
-                <Text style={styles.resultLine}>
-                  {t('hydraulicCalculator.results.retTime')} <Text style={styles.value}>{result.cylinder.retTime.toFixed(3)} s</Text>
-                </Text>
-                <Text style={styles.resultLine}>
-                  {t('hydraulicCalculator.results.cycleTime')} <Text style={styles.value}>{result.cylinder.cycleTime.toFixed(3)} s</Text>
-                </Text>
-              </>
-            )}
+            <SectionCard icon="time" title={t('hydraulicCalculator.sections.time')}>
+              <DetailRow label={t('hydraulicCalculator.results.extTime')} value={`${cyl.extTime.toFixed(3)} s`} />
+              {cyl.hasRod && (
+                <>
+                  <DetailRow label={t('hydraulicCalculator.results.retTime')} value={`${cyl.retTime.toFixed(3)} s`} />
+                  <DetailRow label={t('hydraulicCalculator.results.cycleTime')} value={`${cyl.cycleTime.toFixed(3)} s`} />
+                </>
+              )}
+            </SectionCard>
           </>
         )}
         {showDisclaimer ? <Text style={styles.footerNote}>{t('hydraulicCalculator.disclaimer')}</Text> : null}
@@ -270,7 +331,10 @@ export const HydraulicSystemScreen: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.formCard}>
-          <Text style={styles.label}>{t('hydraulicCalculator.pumpDisplacement')}</Text>
+          <View style={styles.labelRow}>
+            <Text style={styles.label}>{t('hydraulicCalculator.pumpDisplacement')}</Text>
+            <InfoTooltip title={t('hydraulicCalculator.pumpDisplacement')} body={t('hydraulicCalculator.info.pumpDisplacement')} />
+          </View>
           <TextInput
             style={styles.input}
             value={pumpDisplacement}
@@ -278,7 +342,10 @@ export const HydraulicSystemScreen: React.FC = () => {
             keyboardType="decimal-pad"
           />
 
-          <Text style={styles.label}>{t('hydraulicCalculator.motorRpm')}</Text>
+          <View style={styles.labelRow}>
+            <Text style={styles.label}>{t('hydraulicCalculator.motorRpm')}</Text>
+            <InfoTooltip title={t('hydraulicCalculator.motorRpm')} body={t('hydraulicCalculator.info.motorRpm')} />
+          </View>
           <TextInput
             style={styles.input}
             value={motorRPM}
@@ -286,28 +353,66 @@ export const HydraulicSystemScreen: React.FC = () => {
             keyboardType="decimal-pad"
           />
 
-          <Text style={styles.label}>{t('hydraulicCalculator.pressure')}</Text>
+          <View style={styles.labelRow}>
+            <Text style={styles.label}>{t('hydraulicCalculator.pressure')}</Text>
+            <InfoTooltip title={t('hydraulicCalculator.pressure')} body={t('hydraulicCalculator.info.pressure')} />
+          </View>
           <TextInput
             style={styles.input}
             value={pressure}
             onChangeText={setPressure}
             keyboardType="decimal-pad"
           />
+        </View>
 
-          <Text style={styles.label}>
-            {t('hydraulicCalculator.bore')} <Text style={styles.optional}>({t('hydraulicCalculator.optional')})</Text>
-          </Text>
-          <TextInput style={styles.input} value={bore} onChangeText={setBore} keyboardType="decimal-pad" />
+        {/* Cylinder inputs with diagram */}
+        <View style={styles.formCard}>
+          <View style={styles.cylHeader}>
+            <Ionicons name="construct-outline" size={16} color={Colors.accent} />
+            <Text style={styles.cylHeaderText}>{t('hydraulicCalculator.sections.cylinder')}</Text>
+            <Text style={styles.optional}>({t('hydraulicCalculator.optional')})</Text>
+          </View>
 
-          <Text style={styles.label}>
-            {t('hydraulicCalculator.rod')} <Text style={styles.optional}>({t('hydraulicCalculator.optional')})</Text>
-          </Text>
-          <TextInput style={styles.input} value={rod} onChangeText={setRod} keyboardType="decimal-pad" />
+          <CylinderDiagram highlight={focusedDim} />
 
-          <Text style={styles.label}>
-            {t('hydraulicCalculator.stroke')} <Text style={styles.optional}>({t('hydraulicCalculator.optional')})</Text>
-          </Text>
-          <TextInput style={styles.input} value={stroke} onChangeText={setStroke} keyboardType="decimal-pad" />
+          <View style={styles.labelRow}>
+            <Text style={styles.label}>{t('hydraulicCalculator.bore')}</Text>
+            <InfoTooltip title={t('hydraulicCalculator.bore')} body={t('hydraulicCalculator.info.bore')} />
+          </View>
+          <TextInput
+            style={[styles.input, focusedDim === 'bore' && styles.inputActive]}
+            value={bore}
+            onChangeText={setBore}
+            onFocus={() => setFocusedDim('bore')}
+            onBlur={() => setFocusedDim(null)}
+            keyboardType="decimal-pad"
+          />
+
+          <View style={styles.labelRow}>
+            <Text style={styles.label}>{t('hydraulicCalculator.rod')}</Text>
+            <InfoTooltip title={t('hydraulicCalculator.rod')} body={t('hydraulicCalculator.info.rod')} />
+          </View>
+          <TextInput
+            style={[styles.input, focusedDim === 'rod' && styles.inputActive]}
+            value={rod}
+            onChangeText={setRod}
+            onFocus={() => setFocusedDim('rod')}
+            onBlur={() => setFocusedDim(null)}
+            keyboardType="decimal-pad"
+          />
+
+          <View style={styles.labelRow}>
+            <Text style={styles.label}>{t('hydraulicCalculator.stroke')}</Text>
+            <InfoTooltip title={t('hydraulicCalculator.stroke')} body={t('hydraulicCalculator.info.stroke')} />
+          </View>
+          <TextInput
+            style={[styles.input, focusedDim === 'stroke' && styles.inputActive]}
+            value={stroke}
+            onChangeText={setStroke}
+            onFocus={() => setFocusedDim('stroke')}
+            onBlur={() => setFocusedDim(null)}
+            keyboardType="decimal-pad"
+          />
         </View>
 
         <Animated.View style={[styles.resultCard, { borderColor: result ? resultBorderColor : Colors.border }]}>
@@ -381,6 +486,10 @@ const styles = StyleSheet.create({
     marginTop: Spacing.sm,
     color: Colors.textPrimary,
   },
+  labelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   optional: {
     ...Typography.caption,
     color: Colors.textMuted,
@@ -394,6 +503,106 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.sm,
     paddingVertical: 10,
     fontSize: 14,
+  },
+  inputActive: {
+    borderColor: Colors.accent,
+  },
+  cylHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.xs,
+    marginBottom: Spacing.xs,
+  },
+  cylHeaderText: {
+    ...Typography.bodyBold,
+    color: Colors.textPrimary,
+  },
+  heroRow: {
+    flexDirection: 'row',
+    gap: Spacing.sm,
+    marginBottom: Spacing.sm,
+  },
+  heroCard: {
+    flex: 1,
+    backgroundColor: Colors.surfaceElevated,
+    borderRadius: Radius.md,
+    borderWidth: 1,
+    borderColor: Colors.borderAccent,
+    padding: Spacing.sm,
+    gap: 4,
+  },
+  heroIconWrap: {
+    width: 30,
+    height: 30,
+    borderRadius: Radius.sm,
+    backgroundColor: Colors.borderAccent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heroValueRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: 4,
+  },
+  heroValue: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: Colors.accent,
+    fontVariant: ['tabular-nums'],
+  },
+  heroUnit: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: Colors.textMuted,
+    marginBottom: 4,
+  },
+  heroLabel: {
+    fontSize: 11,
+    color: Colors.textSecondary,
+    lineHeight: 14,
+  },
+  detailCard: {
+    backgroundColor: Colors.surfaceElevated,
+    borderRadius: Radius.md,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: Spacing.xs,
+    marginBottom: Spacing.sm,
+  },
+  detailHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingVertical: 6,
+  },
+  detailTitle: {
+    ...Typography.caption,
+    color: Colors.accent,
+    fontWeight: '800',
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+    fontSize: 11,
+  },
+  detailRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 6,
+    borderTopWidth: 1,
+    borderTopColor: Colors.border,
+  },
+  detailLabel: {
+    ...Typography.body,
+    fontSize: 13,
+    color: Colors.textSecondary,
+    flex: 1,
+    paddingRight: Spacing.sm,
+  },
+  detailValue: {
+    ...Typography.bodyBold,
+    fontSize: 13,
+    color: Colors.textPrimary,
   },
   resultCard: {
     backgroundColor: Colors.surface,
@@ -438,21 +647,6 @@ const styles = StyleSheet.create({
     ...Typography.body,
     color: Colors.textMuted,
     textAlign: 'center',
-  },
-  sectionTitle: {
-    ...Typography.bodyBold,
-    color: Colors.accent,
-    marginTop: Spacing.sm,
-    marginBottom: 6,
-  },
-  resultLine: {
-    ...Typography.body,
-    color: Colors.textSecondary,
-    marginBottom: 6,
-  },
-  value: {
-    color: Colors.textPrimary,
-    fontWeight: '700',
   },
   footerNote: {
     ...Typography.caption,

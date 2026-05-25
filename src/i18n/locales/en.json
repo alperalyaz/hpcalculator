@@ -172,6 +172,14 @@
       "flow": "L/min",
       "power": "kW"
     },
+    "info": {
+      "pumpDisplacement": "Volume of oil the pump delivers per revolution. Found on the pump nameplate, e.g. 10 cc/rev.",
+      "motorRpm": "Rotational speed of the electric motor driving the pump. Standard AC motors run at ~1450 rpm.",
+      "pressure": "System working pressure. Industrial hydraulic systems commonly operate at 100–250 bar.",
+      "bore": "Inner diameter of the cylinder barrel (the piston diameter). It determines the push force.",
+      "rod": "Diameter of the piston rod. Used to find the pull-side (annulus) area for retraction.",
+      "stroke": "Total travel of the piston from fully retracted to fully extended position."
+    },
     "disclaimer": "This calculation tool was developed by Hidroteknik A.Ş. It is provided for informational purposes only; calculation accuracy is not guaranteed. Please verify results before making technical decisions."
   },
   "bucklingCalculator": {
