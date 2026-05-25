@@ -27,7 +27,8 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
   if (bannerImage) {
     return (
       <View style={{ backgroundColor: Colors.background }}>
-        <View style={[styles.bannerImageWrap, { paddingTop: Math.max(insets.top, Spacing.sm) }]}>
+        <View style={{ height: Math.max(insets.top, Spacing.sm), backgroundColor: '#0d0d0d' }} />
+        <View style={styles.bannerImageWrap}>
           <Image source={bannerImage} style={styles.bannerImage} resizeMode="cover" />
           <LinearGradient
             colors={['transparent', 'rgba(0,0,0,0.72)']}
@@ -48,9 +49,6 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
               <View style={styles.titleBlock}>
                 {category ? <Text style={styles.bannerCategory}>{category}</Text> : null}
                 <Text style={styles.bannerTitle} numberOfLines={2}>{title}</Text>
-                {subtitle ? (
-                  <Text style={styles.bannerSubtitle} numberOfLines={2}>{subtitle}</Text>
-                ) : null}
               </View>
             </View>
           </View>
@@ -137,7 +135,7 @@ const styles = StyleSheet.create({
   // Banner variant
   bannerImageWrap: {
     width: '100%',
-    height: 180,
+    height: 150,
     overflow: 'hidden',
     justifyContent: 'flex-end',
   },
