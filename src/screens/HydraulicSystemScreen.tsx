@@ -21,6 +21,8 @@ import { AnimatedNumber } from '../components/AnimatedNumber';
 import { CylinderDiagram } from '../components/diagrams/CylinderDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_hydraulic.jpg');
+
 type CylDim = 'bore' | 'rod' | 'stroke' | null;
 
 const HeroStat: React.FC<{
@@ -339,6 +341,7 @@ export const HydraulicSystemScreen: React.FC = () => {
         title={t('hydraulicCalculator.title')}
         subtitle={t('modules.hydraulicSystem.description')}
         category={t('modules.hydraulicSystem.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
