@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
 import { THREAD_DATABASE, ThreadSide, ThreadStandard, ThreadSpec } from '../data/threadDatabase';
 import { Callouts, Colors, Spacing } from '../theme';
 
@@ -117,12 +118,6 @@ export const ThreadPitchScreen: React.FC = () => {
     return lines.join('\n');
   }, [top, threadSide, pitchValue, t]);
 
-  const getScoreStyle = (score: number) => {
-    if (score > 90) return styles.scoreHigh;
-    if (score > 75) return styles.scoreMedium;
-    return styles.scoreLow;
-  };
-
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -206,52 +201,55 @@ export const ThreadPitchScreen: React.FC = () => {
         ) : null}
 
         {top ? (
-          <View style={Callouts.result.container}>
-            <Text style={Callouts.result.title}>{t('threadPitchCalc.result.bestMatch')}</Text>
-            <View style={styles.matchCard}>
-              <Text style={styles.matchName}>{top.name}</Text>
-              <Text style={styles.matchLine}>
-                {threadSide === 'external'
-                  ? t('threadPitchCalc.result.diameter')
-                  : t('threadPitchCalc.result.holeDiameter')}
-                : {top.diameter.toFixed(3)} mm
-              </Text>
-              <Text style={styles.matchLine}>
-                {t('threadPitchCalc.result.diff')}: {top.diff.toFixed(2)} mm
-              </Text>
+          <ResultCard title={t('threadPitchCalc.result.bestMatch')}>
+            <HeroRow>
+              <HeroStat
+                icon="checkmark-circle"
+                primary
+                value={top.score}
+                decimals={0}
+                unit="%"
+                label={top.name}
+              />
+              <HeroStat
+                icon="resize"
+                value={top.diff}
+                decimals={2}
+                unit="mm"
+                label={t('threadPitchCalc.result.diff')}
+              />
+            </HeroRow>
+
+            <ResultSection icon="hardware-chip-outline" title={top.name}>
+              <DetailRow
+                label={
+                  threadSide === 'external'
+                    ? t('threadPitchCalc.result.diameter')
+                    : t('threadPitchCalc.result.holeDiameter')
+                }
+                value={`${top.diameter.toFixed(3)} mm`}
+                highlight
+              />
+              <DetailRow label={t('threadPitchCalc.result.diff')} value={`${top.diff.toFixed(2)} mm`} />
               {!Number.isNaN(pitchValue) ? (
-                <Text style={styles.matchLine}>
-                  {t('threadPitchCalc.result.pitch')}: {top.pitch.toFixed(3)} mm
-                </Text>
+                <DetailRow label={t('threadPitchCalc.result.pitch')} value={`${top.pitch.toFixed(3)} mm`} />
               ) : null}
-              <Text style={styles.matchLine}>
-                {t('threadPitchCalc.result.score')}:{' '}
-                <Text style={getScoreStyle(top.score)}>{Math.round(top.score)}%</Text>
-              </Text>
-            </View>
+              <DetailRow label={t('threadPitchCalc.result.score')} value={`${Math.round(top.score)}%`} />
+            </ResultSection>
 
             {alternatives.length > 0 ? (
-              <View style={styles.altWrap}>
-                <Text style={styles.altTitle}>{t('threadPitchCalc.result.alternatives')}</Text>
+              <ResultSection icon="list" title={t('threadPitchCalc.result.alternatives')}>
                 {alternatives.map((item) => (
-                  <View key={item.name} style={styles.altCard}>
-                    <Text style={styles.altName}>{item.name}</Text>
-                    <Text style={styles.altLine}>
-                      {t('threadPitchCalc.result.diameter')}: {item.diameter.toFixed(3)} mm
-                    </Text>
-                    <Text style={styles.altLine}>
-                      {t('threadPitchCalc.result.diff')}: {item.diff.toFixed(2)} mm
-                    </Text>
-                    <Text style={styles.altLine}>
-                      {t('threadPitchCalc.result.score')}:{' '}
-                      <Text style={getScoreStyle(item.score)}>{Math.round(item.score)}%</Text>
-                    </Text>
-                  </View>
+                  <DetailRow
+                    key={item.name}
+                    label={`${item.name} · ${item.diameter.toFixed(3)} mm`}
+                    value={`${Math.round(item.score)}% · Δ${item.diff.toFixed(2)} mm`}
+                  />
                 ))}
-              </View>
+              </ResultSection>
             ) : null}
             <CopyResultButton value={copyValue} />
-          </View>
+          </ResultCard>
         ) : null}
       </ScrollView>
     </KeyboardAvoidingView>
@@ -348,55 +346,5 @@ const styles = StyleSheet.create({
     color: '#111',
     fontWeight: '800',
     fontSize: 14,
-  },
-  matchCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: 10,
-    padding: 12,
-  },
-  matchName: {
-    color: Colors.textPrimary,
-    fontSize: 18,
-    fontWeight: '800',
-    marginBottom: 8,
-  },
-  matchLine: {
-    color: Colors.textSecondary,
-    marginBottom: 4,
-  },
-  altWrap: {
-    gap: 8,
-  },
-  altTitle: {
-    color: Colors.textPrimary,
-    fontWeight: '700',
-    fontSize: 15,
-  },
-  altCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: 10,
-    padding: 10,
-  },
-  altName: {
-    color: Colors.textPrimary,
-    fontWeight: '700',
-    marginBottom: 6,
-  },
-  altLine: {
-    color: Colors.textSecondary,
-    fontSize: 13,
-    marginBottom: 2,
-  },
-  scoreHigh: {
-    color: '#0d652d',
-    fontWeight: '800',
-  },
-  scoreMedium: {
-    color: '#f9ab00',
-    fontWeight: '800',
-  },
-  scoreLow: {
-    color: '#ea4335',
-    fontWeight: '800',
   },
 });

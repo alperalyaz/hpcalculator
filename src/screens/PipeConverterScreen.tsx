@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, ResultSection, DetailRow } from '../components/Result';
 import { Callouts, Colors, Spacing } from '../theme';
 
 type ConversionType = 'dnToInch' | 'inchToDn' | 'inchToMm' | 'mmToInch';
@@ -170,11 +171,19 @@ export const PipeConverterScreen: React.FC = () => {
         ) : null}
 
         {result ? (
-          <View style={Callouts.result.container}>
-            <Text style={Callouts.result.title}>{t('pipeConverterCalc.resultTitle')}</Text>
-            <Text style={Callouts.result.text}>{result}</Text>
+          <ResultCard title={t('pipeConverterCalc.resultTitle')}>
+            <ResultSection
+              icon="swap-horizontal"
+              title={conversionOptions.find((o) => o.key === conversionType)?.label ?? ''}
+            >
+              <DetailRow
+                label={conversionOptions.find((o) => o.key === conversionType)?.label ?? ''}
+                value={result}
+                highlight
+              />
+            </ResultSection>
             <CopyResultButton value={result} />
-          </View>
+          </ResultCard>
         ) : null}
 
         <Text style={styles.tableTitle}>{t('pipeConverterCalc.table.title')}</Text>

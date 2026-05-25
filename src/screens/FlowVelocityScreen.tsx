@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat } from '../components/Result';
 import { Callouts, Colors, Typography, Spacing, Radius } from '../theme';
 
 type CalcMode = 'diameterFromFlow' | 'velocityFromDiameter';
@@ -152,26 +153,45 @@ export const FlowVelocityScreen: React.FC = () => {
         </View>
 
         {result && (
-          <View style={styles.resultCard}>
+          <ResultCard
+            title={
+              result.type === 'diameter'
+                ? t('flowVelocity.requiredDiameter')
+                : t('flowVelocity.calculatedVelocity')
+            }
+            footerNote={
+              result.type === 'diameter'
+                ? t('flowVelocity.roundUpNote')
+                : velocityStatus === 'too-high'
+                  ? t('flowVelocity.velocityTooHigh')
+                  : undefined
+            }
+          >
             {result.type === 'diameter' ? (
-              <>
-                <Text style={styles.resultTitle}>{t('flowVelocity.requiredDiameter')}</Text>
-                <Text style={styles.bigValue}>{result.diamMm.toFixed(1)} mm</Text>
-                <Text style={styles.subNote}>{t('flowVelocity.roundUpNote')}</Text>
-              </>
+              <HeroRow>
+                <HeroStat
+                  icon="resize"
+                  primary
+                  value={result.diamMm}
+                  decimals={1}
+                  unit="mm"
+                  label={t('flowVelocity.requiredDiameter')}
+                />
+              </HeroRow>
             ) : (
-              <>
-                <Text style={styles.resultTitle}>{t('flowVelocity.calculatedVelocity')}</Text>
-                <Text style={[styles.bigValue, velocityStatus === 'too-high' && styles.bigValueWarning]}>
-                  {result.velMs.toFixed(2)} m/s
-                </Text>
-                {velocityStatus === 'too-high' && (
-                  <Text style={styles.warningText}>{t('flowVelocity.velocityTooHigh')}</Text>
-                )}
-              </>
+              <HeroRow>
+                <HeroStat
+                  icon="speedometer"
+                  primary
+                  value={result.velMs}
+                  decimals={2}
+                  unit="m/s"
+                  label={t('flowVelocity.calculatedVelocity')}
+                />
+              </HeroRow>
             )}
             <CopyResultButton value={copyValue} />
-          </View>
+          </ResultCard>
         )}
 
         {/* Recommendation table */}
@@ -242,20 +262,6 @@ const styles = StyleSheet.create({
   },
   modeText: { color: Colors.textSecondary, fontSize: 12, fontWeight: '700' },
   modeTextActive: { color: Colors.accent },
-  resultCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
-    borderWidth: 1,
-    borderColor: Colors.borderAccent,
-    padding: Spacing.md,
-    alignItems: 'center',
-    gap: 4,
-  },
-  resultTitle: { ...Typography.bodyBold, color: Colors.textPrimary },
-  bigValue: { fontSize: 32, fontWeight: '800', color: Colors.accent, marginVertical: 4 },
-  bigValueWarning: { color: '#E57373' },
-  subNote: { ...Typography.caption, color: Colors.textMuted, textAlign: 'center' },
-  warningText: { ...Typography.caption, color: '#E57373', textAlign: 'center' },
   tableTitle: {
     color: Colors.textPrimary,
     fontSize: 16,

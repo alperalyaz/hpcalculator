@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 type CalcType = 'pipe' | 'rod';
@@ -263,22 +264,61 @@ export const PipeRodWeightScreen: React.FC = () => {
         </View>
 
         {result && (
-          <View style={styles.resultCard}>
-            <Text style={styles.resultTitle}>{t('pipeWeightCalculator.result')}</Text>
-            <Text style={styles.resultWeight}>{t('pipeWeightCalculator.weight')}: {result.weightKg.toFixed(2)} kg</Text>
-            <Text style={styles.resultDetail}>- {t('pipeWeightCalculator.outerDiameter')}: {result.outerMm.toFixed(2)} mm</Text>
-            <Text style={styles.resultDetail}>- {t('pipeWeightCalculator.innerDiameter')}: {result.innerMm.toFixed(2)} mm</Text>
-            {result.thicknessMm !== null && (
-              <Text style={styles.resultDetail}>- {t('pipeWeightCalculator.thickness')}: {result.thicknessMm.toFixed(2)} mm</Text>
-            )}
-            <Text style={styles.resultDetail}>
-              - {t('pipeWeightCalculator.length')}: {result.lengthMm.toFixed(0)} mm ({(result.lengthMm / 1000).toFixed(2)} m)
-            </Text>
-            <Text style={styles.resultDetail}>- {t('pipeWeightCalculator.density')}: {result.density.toFixed(2)} g/cm3</Text>
-            <Text style={styles.resultDetail}>- {t('pipeWeightCalculator.crossSectionArea')}: {result.areaCm2.toFixed(2)} cm2</Text>
-            <Text style={styles.resultDetail}>- {t('pipeWeightCalculator.volume')}: {result.volumeCm3.toFixed(2)} cm3</Text>
+          <ResultCard title={t('pipeWeightCalculator.result')}>
+            <HeroRow>
+              <HeroStat
+                icon="barbell"
+                primary
+                value={result.weightKg}
+                decimals={2}
+                unit="kg"
+                label={t('pipeWeightCalculator.weight')}
+              />
+            </HeroRow>
+            <HeroRow>
+              <HeroStat
+                icon="scan"
+                value={result.areaCm2}
+                decimals={2}
+                unit="cm²"
+                label={t('pipeWeightCalculator.crossSectionArea')}
+              />
+              <HeroStat
+                icon="cube"
+                value={result.volumeCm3}
+                decimals={2}
+                unit="cm³"
+                label={t('pipeWeightCalculator.volume')}
+              />
+            </HeroRow>
+
+            <ResultSection icon="construct" title={t('pipeWeightCalculator.result')}>
+              <DetailRow
+                label={t('pipeWeightCalculator.outerDiameter')}
+                value={`${result.outerMm.toFixed(2)} mm`}
+              />
+              <DetailRow
+                label={t('pipeWeightCalculator.innerDiameter')}
+                value={`${result.innerMm.toFixed(2)} mm`}
+              />
+              {result.thicknessMm !== null && (
+                <DetailRow
+                  label={t('pipeWeightCalculator.thickness')}
+                  value={`${result.thicknessMm.toFixed(2)} mm`}
+                />
+              )}
+              <DetailRow
+                label={t('pipeWeightCalculator.length')}
+                value={`${result.lengthMm.toFixed(0)} mm (${(result.lengthMm / 1000).toFixed(2)} m)`}
+              />
+              <DetailRow
+                label={t('pipeWeightCalculator.density')}
+                value={`${result.density.toFixed(2)} g/cm3`}
+              />
+            </ResultSection>
+
             <CopyResultButton value={copyValue} />
-          </View>
+          </ResultCard>
         )}
 
         <View style={styles.disclaimerCard}>
@@ -423,29 +463,6 @@ const styles = StyleSheet.create({
   calcButtonText: {
     ...Typography.bodyBold,
     color: '#111111',
-  },
-  resultCard: {
-    backgroundColor: '#1D3A24',
-    borderWidth: 1,
-    borderColor: '#2E6A3F',
-    borderRadius: Radius.md,
-    padding: Spacing.md,
-    gap: 4,
-  },
-  resultTitle: {
-    ...Typography.bodyBold,
-    color: '#D3FFE0',
-    marginBottom: 4,
-  },
-  resultWeight: {
-    ...Typography.h3,
-    color: '#FFFFFF',
-    marginBottom: 4,
-  },
-  resultDetail: {
-    ...Typography.caption,
-    color: '#D6EEDA',
-    lineHeight: 18,
   },
   disclaimerCard: {
     borderTopWidth: 1,

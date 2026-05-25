@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat } from '../components/Result';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 const parseNum = (value: string): number => {
@@ -138,13 +139,19 @@ export const BucklingShaftScreen: React.FC = () => {
         </View>
 
         {diameter !== null ? (
-          <View style={styles.resultCard}>
-            <Text style={styles.resultText}>
-              {t('bucklingCalculator.result')} <Text style={styles.resultValue}>{diameter.toFixed(2)} mm</Text>
-            </Text>
-            <Text style={styles.note}>{t('bucklingCalculator.note')}</Text>
+          <ResultCard title={t('bucklingCalculator.result')} footerNote={t('bucklingCalculator.note')}>
+            <HeroRow>
+              <HeroStat
+                icon="resize"
+                primary
+                value={diameter}
+                decimals={2}
+                unit="mm"
+                label={t('bucklingCalculator.result')}
+              />
+            </HeroRow>
             <CopyResultButton value={copyValue} />
-          </View>
+          </ResultCard>
         ) : null}
       </ScrollView>
     </KeyboardAvoidingView>
@@ -223,28 +230,5 @@ const styles = StyleSheet.create({
   calcButtonText: {
     ...Typography.bodyBold,
     color: '#111111',
-  },
-  resultCard: {
-    backgroundColor: '#7A1E1E',
-    borderRadius: Radius.md,
-    padding: Spacing.md,
-    borderWidth: 1,
-    borderColor: '#B33636',
-  },
-  resultText: {
-    ...Typography.bodyBold,
-    color: '#FFFFFF',
-    textAlign: 'center',
-  },
-  resultValue: {
-    color: '#FFFFFF',
-    fontSize: 22,
-    fontWeight: '800',
-  },
-  note: {
-    ...Typography.caption,
-    color: '#F5D9D9',
-    marginTop: Spacing.sm,
-    lineHeight: 18,
   },
 });

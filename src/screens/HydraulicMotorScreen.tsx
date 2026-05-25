@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat } from '../components/Result';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 type ActiveTab = 'torque' | 'speed';
@@ -156,18 +157,34 @@ export const HydraulicMotorScreen: React.FC = () => {
               <Text style={styles.calcButtonText}>{t('hydraulicMotorCalc.actions.calcTorque')}</Text>
             </TouchableOpacity>
 
-            <View style={styles.resultBox}>
+            <ResultCard
+              title={t('hydraulicMotorCalc.results.torque')}
+              empty={!torqueResult}
+              emptyText={t('hydraulicMotorCalc.placeholders.torque')}
+            >
               {torqueResult ? (
                 <>
-                  <Text style={styles.resultTitle}>{t('hydraulicMotorCalc.results.torque')}</Text>
-                  <Text style={styles.resultLine}>{torqueResult.nm.toFixed(2)} Nm</Text>
-                  <Text style={styles.resultLine}>{torqueResult.kgfm.toFixed(2)} kgf·m</Text>
+                  <HeroRow>
+                    <HeroStat
+                      icon="sync-circle"
+                      primary
+                      value={torqueResult.nm}
+                      decimals={2}
+                      unit="Nm"
+                      label={t('hydraulicMotorCalc.results.torque')}
+                    />
+                    <HeroStat
+                      icon="barbell-outline"
+                      value={torqueResult.kgfm}
+                      decimals={2}
+                      unit="kgf·m"
+                      label={t('hydraulicMotorCalc.results.torque')}
+                    />
+                  </HeroRow>
                   <CopyResultButton value={torqueCopyValue} />
                 </>
-              ) : (
-                <Text style={styles.placeholder}>{t('hydraulicMotorCalc.placeholders.torque')}</Text>
-              )}
-            </View>
+              ) : null}
+            </ResultCard>
 
             <View style={styles.exampleBox}>
               <Text style={styles.exampleTitle}>{t('hydraulicMotorCalc.examples.torqueTitle')}</Text>
@@ -193,17 +210,27 @@ export const HydraulicMotorScreen: React.FC = () => {
               <Text style={styles.calcButtonText}>{t('hydraulicMotorCalc.actions.calcSpeed')}</Text>
             </TouchableOpacity>
 
-            <View style={styles.resultBox}>
+            <ResultCard
+              title={t('hydraulicMotorCalc.results.speed')}
+              empty={speedResult === null}
+              emptyText={t('hydraulicMotorCalc.placeholders.speed')}
+            >
               {speedResult !== null ? (
                 <>
-                  <Text style={styles.resultTitle}>{t('hydraulicMotorCalc.results.speed')}</Text>
-                  <Text style={styles.resultLine}>{speedResult.toFixed(0)} d/d</Text>
+                  <HeroRow>
+                    <HeroStat
+                      icon="speedometer"
+                      primary
+                      value={speedResult}
+                      decimals={0}
+                      unit="d/d"
+                      label={t('hydraulicMotorCalc.results.speed')}
+                    />
+                  </HeroRow>
                   <CopyResultButton value={speedCopyValue} />
                 </>
-              ) : (
-                <Text style={styles.placeholder}>{t('hydraulicMotorCalc.placeholders.speed')}</Text>
-              )}
-            </View>
+              ) : null}
+            </ResultCard>
 
             <View style={styles.exampleBox}>
               <Text style={styles.exampleTitle}>{t('hydraulicMotorCalc.examples.speedTitle')}</Text>
@@ -295,27 +322,6 @@ const styles = StyleSheet.create({
   calcButtonText: {
     ...Typography.bodyBold,
     color: '#FFFFFF',
-  },
-  resultBox: {
-    marginTop: Spacing.sm,
-    backgroundColor: '#1B2C3A',
-    borderWidth: 1,
-    borderColor: '#2E6FA1',
-    borderRadius: Radius.sm,
-    padding: Spacing.md,
-    gap: 6,
-  },
-  resultTitle: {
-    ...Typography.bodyBold,
-    color: Colors.textPrimary,
-  },
-  resultLine: {
-    ...Typography.body,
-    color: '#D9ECFF',
-  },
-  placeholder: {
-    ...Typography.body,
-    color: Colors.textMuted,
   },
   exampleBox: {
     marginTop: Spacing.sm,

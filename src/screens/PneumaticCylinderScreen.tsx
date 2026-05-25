@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 const parseNum = (value: string): number => {
@@ -162,50 +163,89 @@ export const PneumaticCylinderScreen: React.FC = () => {
         </View>
 
         {result && (
-          <View style={styles.resultCard}>
-            <Text style={styles.resultTitle}>{t('pneumaticCalculator.airConsumption')}</Text>
-            <Text style={styles.resultLine}>
-              <Text style={styles.resultLabel}>{t('pneumaticCalculator.geomPerCycle')}: </Text>
-              {result.geomCycle.toFixed(4)} L
-            </Text>
+          <ResultCard title={t('pneumaticCalculator.airConsumption')}>
+            <HeroRow>
+              <HeroStat
+                icon="cube-outline"
+                value={result.geomCycle}
+                decimals={4}
+                unit="L"
+                label={t('pneumaticCalculator.geomPerCycle')}
+                primary={result.power === null}
+              />
+              {result.power !== null && (
+                <HeroStat
+                  icon="flash"
+                  primary
+                  value={result.power}
+                  decimals={3}
+                  unit="kW"
+                  label={t('pneumaticCalculator.powerEstimate')}
+                />
+              )}
+            </HeroRow>
 
-            {result.fadCycle !== null && (
-              <Text style={styles.resultLine}>
-                <Text style={styles.resultLabel}>{t('pneumaticCalculator.fadPerCycle')}: </Text>
-                {result.fadCycle.toFixed(4)} NL
-              </Text>
+            {(result.pushKg !== null || result.fadPerMin !== null) && (
+              <HeroRow>
+                {result.pushKg !== null && (
+                  <HeroStat
+                    icon="arrow-forward-circle"
+                    primary
+                    value={result.pushKg}
+                    decimals={2}
+                    unit="kg"
+                    label={t('pneumaticCalculator.pushForce')}
+                  />
+                )}
+                {result.fadPerMin !== null && (
+                  <HeroStat
+                    icon="speedometer"
+                    value={result.fadPerMin}
+                    decimals={2}
+                    unit="NL/min"
+                    label={t('pneumaticCalculator.fadPerMin')}
+                  />
+                )}
+              </HeroRow>
             )}
 
-            {result.fadPerMin !== null && result.power !== null && (
-              <View style={styles.forceWrap}>
-                <Text style={styles.resultLine}>
-                  <Text style={styles.resultLabel}>{t('pneumaticCalculator.fadPerMin')}: </Text>
-                  {result.fadPerMin.toFixed(2)} NL/min
-                </Text>
-                <Text style={styles.resultLine}>
-                  <Text style={styles.resultLabel}>{t('pneumaticCalculator.powerEstimate')}: </Text>
-                  {result.power.toFixed(3)} kW
-                </Text>
-              </View>
-            )}
+            <ResultSection icon="cube-outline" title={t('pneumaticCalculator.airConsumption')}>
+              <DetailRow
+                label={t('pneumaticCalculator.geomPerCycle')}
+                value={`${result.geomCycle.toFixed(4)} L`}
+              />
+              {result.fadCycle !== null && (
+                <DetailRow
+                  label={t('pneumaticCalculator.fadPerCycle')}
+                  value={`${result.fadCycle.toFixed(4)} NL`}
+                />
+              )}
+              {result.fadPerMin !== null && (
+                <DetailRow
+                  label={t('pneumaticCalculator.fadPerMin')}
+                  value={`${result.fadPerMin.toFixed(2)} NL/min`}
+                />
+              )}
+              {result.power !== null && (
+                <DetailRow
+                  label={t('pneumaticCalculator.powerEstimate')}
+                  value={`${result.power.toFixed(3)} kW`}
+                />
+              )}
+            </ResultSection>
 
             {result.pressure !== null && result.pushKg !== null && result.pullKg !== null && (
-              <View style={styles.forceWrap}>
-                <Text style={styles.resultTitle}>
-                  {t('pneumaticCalculator.forceAtPressure', { pressure: result.pressure.toFixed(0) })}
-                </Text>
-                <Text style={styles.resultLine}>
-                  <Text style={styles.resultLabel}>{t('pneumaticCalculator.pushForce')}: </Text>
-                  {result.pushKg.toFixed(2)} kg
-                </Text>
-                <Text style={styles.resultLine}>
-                  <Text style={styles.resultLabel}>{t('pneumaticCalculator.pullForce')}: </Text>
-                  {result.pullKg.toFixed(2)} kg
-                </Text>
-              </View>
+              <ResultSection
+                icon="barbell-outline"
+                title={t('pneumaticCalculator.forceAtPressure', { pressure: result.pressure.toFixed(0) })}
+              >
+                <DetailRow label={t('pneumaticCalculator.pushForce')} value={`${result.pushKg.toFixed(2)} kg`} />
+                <DetailRow label={t('pneumaticCalculator.pullForce')} value={`${result.pullKg.toFixed(2)} kg`} />
+              </ResultSection>
             )}
+
             <CopyResultButton value={copyValue} />
-          </View>
+          </ResultCard>
         )}
       </ScrollView>
     </KeyboardAvoidingView>
@@ -262,32 +302,5 @@ const styles = StyleSheet.create({
   calcButtonText: {
     ...Typography.bodyBold,
     color: '#111111',
-  },
-  resultCard: {
-    backgroundColor: Colors.surface,
-    borderWidth: 1,
-    borderColor: Colors.borderAccent,
-    borderRadius: Radius.md,
-    padding: Spacing.md,
-    gap: 6,
-  },
-  resultTitle: {
-    ...Typography.bodyBold,
-    color: Colors.textPrimary,
-  },
-  resultLine: {
-    ...Typography.body,
-    color: Colors.textSecondary,
-  },
-  resultLabel: {
-    color: Colors.accent,
-    fontWeight: '700',
-  },
-  forceWrap: {
-    marginTop: Spacing.sm,
-    borderTopWidth: 1,
-    borderTopColor: Colors.border,
-    paddingTop: Spacing.sm,
-    gap: 6,
   },
 });

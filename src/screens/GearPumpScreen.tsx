@@ -13,6 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat } from '../components/Result';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 import { GEAR_PUMP_DATA, GearPumpItem } from '../data/gearPumpData';
 import * as FileSystem from 'expo-file-system/legacy';
@@ -177,9 +178,26 @@ export const GearPumpScreen: React.FC = () => {
           </View>
         </View>
 
-        <Text style={styles.countText}>
-          {t('gearPumpGuide.count', { count: filteredData.length, total: GEAR_PUMP_DATA.length })}
-        </Text>
+        <ResultCard
+          title={t('gearPumpGuide.title')}
+          footerNote={t('gearPumpGuide.count', { count: filteredData.length, total: GEAR_PUMP_DATA.length })}
+        >
+          <HeroRow>
+            <HeroStat
+              icon="search"
+              primary
+              value={filteredData.length}
+              decimals={0}
+              label={t('gearPumpGuide.title')}
+            />
+            <HeroStat
+              icon="server"
+              value={GEAR_PUMP_DATA.length}
+              decimals={0}
+              label={t('gearPumpGuide.columns.code')}
+            />
+          </HeroRow>
+        </ResultCard>
 
         <View style={styles.tableWrap}>
           {showHorizontalHint ? (
@@ -318,10 +336,6 @@ const styles = StyleSheet.create({
     ...Typography.caption,
     color: Colors.textSecondary,
     fontWeight: '600',
-  },
-  countText: {
-    ...Typography.caption,
-    color: Colors.textMuted,
   },
   table: {
     borderWidth: 1,

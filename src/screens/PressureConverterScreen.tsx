@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, ResultSection, DetailRow } from '../components/Result';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
 type PressureUnit = 'bar' | 'psi' | 'mpa' | 'kpa' | 'atm' | 'mmhg';
@@ -110,20 +111,23 @@ export const PressureConverterScreen: React.FC = () => {
         </View>
 
         {conversions && (
-          <View style={styles.resultCard}>
-            <Text style={styles.resultTitle}>{t('pressureConverter.resultTitle')}</Text>
-            {conversions.map(c => (
-              <View key={c.key} style={[styles.resultRow, c.key === fromUnit && styles.resultRowActive]}>
-                <Text style={styles.resultLabel}>{c.label}</Text>
-                <Text style={[styles.resultValue, c.key === fromUnit && styles.resultValueActive]}>
-                  {c.value < 0.001 || c.value >= 1e7
-                    ? c.value.toExponential(4)
-                    : c.value.toPrecision(6)}
-                </Text>
-              </View>
-            ))}
+          <ResultCard title={t('pressureConverter.resultTitle')}>
+            <ResultSection icon="swap-horizontal" title={t('pressureConverter.resultTitle')}>
+              {conversions.map(c => (
+                <DetailRow
+                  key={c.key}
+                  label={c.label}
+                  highlight={c.key === fromUnit}
+                  value={
+                    c.value < 0.001 || c.value >= 1e7
+                      ? c.value.toExponential(4)
+                      : c.value.toPrecision(6)
+                  }
+                />
+              ))}
+            </ResultSection>
             <CopyResultButton value={copyValue} />
-          </View>
+          </ResultCard>
         )}
       </ScrollView>
     </KeyboardAvoidingView>
@@ -180,49 +184,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   chipTextActive: {
-    color: Colors.accent,
-  },
-  resultCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
-    borderWidth: 1,
-    borderColor: Colors.borderAccent,
-    padding: Spacing.md,
-    gap: 2,
-  },
-  resultTitle: {
-    ...Typography.bodyBold,
-    color: Colors.textPrimary,
-    marginBottom: Spacing.sm,
-  },
-  resultRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 7,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.border,
-  },
-  resultRowActive: {
-    backgroundColor: Colors.borderAccent,
-    borderRadius: Radius.sm,
-    paddingHorizontal: 8,
-    borderBottomWidth: 0,
-    marginBottom: 1,
-  },
-  resultLabel: {
-    ...Typography.body,
-    color: Colors.textSecondary,
-    width: 60,
-  },
-  resultValue: {
-    ...Typography.body,
-    color: Colors.textPrimary,
-    fontWeight: '700',
-    flex: 1,
-    textAlign: 'right',
-  },
-  resultValueActive: {
     color: Colors.accent,
   },
 });

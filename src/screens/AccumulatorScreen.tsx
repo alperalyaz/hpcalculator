@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CopyResultButton } from '../components/CopyResultButton';
 import { ScreenHeader } from '../components/ScreenHeader';
+import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../components/Result';
 import { Callouts, Colors, Typography, Spacing, Radius } from '../theme';
 
 const parseNum = (v: string) => {
@@ -129,28 +130,31 @@ export const AccumulatorScreen: React.FC = () => {
         </View>
 
         {result && (
-          <View style={styles.resultCard}>
-            <Text style={styles.resultTitle}>{t('accumulator.resultTitle')}</Text>
+          <ResultCard title={t('accumulator.resultTitle')}>
+            <HeroRow>
+              <HeroStat
+                icon="cube"
+                primary
+                value={result.totalVolume}
+                decimals={2}
+                unit="L"
+                label={t('accumulator.resultVolume')}
+              />
+            </HeroRow>
 
-            <View style={styles.resultRow}>
-              <Text style={styles.resultLabel}>{t('accumulator.resultVolume')}</Text>
-              <Text style={styles.bigValue}>{result.totalVolume.toFixed(2)} L</Text>
-            </View>
-
-            <View style={styles.resultRow}>
-              <Text style={styles.resultLabel}>{t('accumulator.precharge')}</Text>
-              <Text style={styles.resultValue}>
-                {result.p0.toFixed(2)} bar
-              </Text>
-            </View>
-
-            <View style={styles.resultRow}>
-              <Text style={styles.resultLabel}>{t('accumulator.usefulRatio')}</Text>
-              <Text style={styles.resultValue}>{result.usefulRatio.toFixed(1)}%</Text>
-            </View>
+            <ResultSection icon="speedometer" title={t('accumulator.resultTitle')}>
+              <DetailRow
+                label={t('accumulator.precharge')}
+                value={`${result.p0.toFixed(2)} bar`}
+              />
+              <DetailRow
+                label={t('accumulator.usefulRatio')}
+                value={`${result.usefulRatio.toFixed(1)}%`}
+              />
+            </ResultSection>
 
             <CopyResultButton value={copyValue} />
-          </View>
+          </ResultCard>
         )}
 
         <View style={Callouts.warning.container}>
@@ -203,28 +207,4 @@ const styles = StyleSheet.create({
   },
   chipText: { color: Colors.textSecondary, fontSize: 12, fontWeight: '700' },
   chipTextActive: { color: Colors.accent },
-  resultCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
-    borderWidth: 1,
-    borderColor: Colors.borderAccent,
-    padding: Spacing.md,
-    gap: 8,
-  },
-  resultTitle: {
-    ...Typography.bodyBold,
-    color: Colors.textPrimary,
-    marginBottom: 4,
-  },
-  resultRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.border,
-    paddingBottom: 8,
-  },
-  resultLabel: { ...Typography.body, color: Colors.textSecondary, flex: 1 },
-  bigValue: { fontSize: 26, fontWeight: '800', color: Colors.accent },
-  resultValue: { ...Typography.bodyBold, color: Colors.textPrimary },
 });
