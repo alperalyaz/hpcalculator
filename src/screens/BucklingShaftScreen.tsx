@@ -27,16 +27,16 @@ export const BucklingShaftScreen: React.FC = () => {
   const [mass, setMass] = useState('1000');
   const [safetyFactor, setSafetyFactor] = useState('8');
   const [length, setLength] = useState('2500');
-  const [coefficient, setCoefficient] = useState(0.5);
+  const [coefficient, setCoefficient] = useState(1.0);
   const [elasticity, setElasticity] = useState(210000);
   const [diameter, setDiameter] = useState<number | null>(null);
 
   const coefficientOptions = useMemo(
     () => [
-      { value: 0.5, label: t('bucklingCalculator.coefficients.fixedFree') },
+      { value: 2.0, label: t('bucklingCalculator.coefficients.fixedFree') },
       { value: 1.0, label: t('bucklingCalculator.coefficients.pinnedPinned') },
-      { value: 2.0, label: t('bucklingCalculator.coefficients.fixedPinned') },
-      { value: 0.7, label: t('bucklingCalculator.coefficients.fixedFixed') },
+      { value: 0.7, label: t('bucklingCalculator.coefficients.fixedPinned') },
+      { value: 0.5, label: t('bucklingCalculator.coefficients.fixedFixed') },
     ],
     [t]
   );

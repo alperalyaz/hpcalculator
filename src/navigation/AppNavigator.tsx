@@ -13,6 +13,9 @@ import { PneumaticCylinderScreen } from '../screens/PneumaticCylinderScreen';
 import { HydraulicMotorScreen } from '../screens/HydraulicMotorScreen';
 import { ThreadPitchScreen } from '../screens/ThreadPitchScreen';
 import { PipeConverterScreen } from '../screens/PipeConverterScreen';
+import { PressureConverterScreen } from '../screens/PressureConverterScreen';
+import { FlowVelocityScreen } from '../screens/FlowVelocityScreen';
+import { AccumulatorScreen } from '../screens/AccumulatorScreen';
 import { AboutScreen } from '../screens/AboutScreen';
 import { PrivacyScreen } from '../screens/PrivacyScreen';
 import { TermsScreen } from '../screens/TermsScreen';
@@ -44,6 +47,9 @@ export const AppNavigator: React.FC = () => {
       <Drawer.Screen name="HydraulicMotor" component={HydraulicMotorScreen} />
       <Drawer.Screen name="ThreadPitch" component={ThreadPitchScreen} />
       <Drawer.Screen name="PipeConverter" component={PipeConverterScreen} />
+      <Drawer.Screen name="PressureConverter" component={PressureConverterScreen} />
+      <Drawer.Screen name="FlowVelocity" component={FlowVelocityScreen} />
+      <Drawer.Screen name="Accumulator" component={AccumulatorScreen} />
       <Drawer.Screen name="About" component={AboutScreen} />
       <Drawer.Screen name="Privacy" component={PrivacyScreen} />
       <Drawer.Screen name="Terms" component={TermsScreen} />

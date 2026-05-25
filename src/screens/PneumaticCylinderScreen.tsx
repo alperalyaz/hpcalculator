@@ -28,10 +28,12 @@ export const PneumaticCylinderScreen: React.FC = () => {
   const [milCap, setMilCap] = useState('');
   const [strok, setStrok] = useState('');
   const [basinc, setBasinc] = useState('');
+  const [cycleRate, setCycleRate] = useState('');
   const [result, setResult] = useState<null | {
-    cycle1: number;
-    cycle50: number;
-    cycle100: number;
+    geomCycle: number;
+    fadCycle: number | null;
+    fadPerMin: number | null;
+    power: number | null;
     pushKg: number | null;
     pullKg: number | null;
     pressure: number | null;
@@ -52,11 +54,14 @@ export const PneumaticCylinderScreen: React.FC = () => {
     const milAlan = (Math.pow(rod, 2) * Math.PI) / 4;
     const itmeHacmi = pistonAlan * stroke;
     const cekmeHacmi = (pistonAlan - milAlan) * stroke;
-    const toplamHacimLitre = (itmeHacmi + cekmeHacmi) / 1_000_000;
+    const geomCycle = (itmeHacmi + cekmeHacmi) / 1_000_000;
 
     let pushKg: number | null = null;
     let pullKg: number | null = null;
     let pBar: number | null = null;
+    let fadCycle: number | null = null;
+    let fadPerMin: number | null = null;
+    let power: number | null = null;
 
     if (!Number.isNaN(pressure) && pressure > 0) {
       const kuvvetItmeN = pistonAlan * pressure * 0.1;
@@ -64,12 +69,22 @@ export const PneumaticCylinderScreen: React.FC = () => {
       pushKg = kuvvetItmeN / 9.81;
       pullKg = kuvvetCekmeN / 9.81;
       pBar = pressure;
+      // FAD = geometric volume × absolute pressure / atmospheric pressure
+      fadCycle = geomCycle * (pressure + 1.013) / 1.013;
+
+      const cr = parseNum(cycleRate);
+      if (!Number.isNaN(cr) && cr > 0) {
+        fadPerMin = fadCycle * cr;
+        // P(kW) = Q_FAD(NL/min) × p_working(bar) / 600
+        power = fadPerMin * pressure / 600;
+      }
     }
 
     setResult({
-      cycle1: toplamHacimLitre,
-      cycle50: toplamHacimLitre * 50,
-      cycle100: toplamHacimLitre * 100,
+      geomCycle,
+      fadCycle,
+      fadPerMin,
+      power,
       pushKg,
       pullKg,
       pressure: pBar,
@@ -83,10 +98,21 @@ export const PneumaticCylinderScreen: React.FC = () => {
 
     const lines = [
       `${t('pneumaticCalculator.airConsumption')}`,
-      `1 Cycle: ${result.cycle1.toFixed(4)} litre`,
-      `50 Cycle: ${result.cycle50.toFixed(2)} litre`,
-      `100 Cycle: ${result.cycle100.toFixed(2)} litre`,
+      `${t('pneumaticCalculator.geomPerCycle')}: ${result.geomCycle.toFixed(4)} L`,
     ];
+
+    if (result.fadCycle !== null) {
+      lines.push(
+        `${t('pneumaticCalculator.fadPerCycle')}: ${result.fadCycle.toFixed(4)} NL`,
+      );
+    }
+
+    if (result.fadPerMin !== null && result.power !== null) {
+      lines.push(
+        `${t('pneumaticCalculator.fadPerMin')}: ${result.fadPerMin.toFixed(2)} NL/min`,
+        `${t('pneumaticCalculator.powerEstimate')}: ${result.power.toFixed(3)} kW`,
+      );
+    }
 
     if (result.pressure !== null && result.pushKg !== null && result.pullKg !== null) {
       lines.push(
@@ -127,6 +153,9 @@ export const PneumaticCylinderScreen: React.FC = () => {
           <Text style={styles.label}>{t('pneumaticCalculator.basinc')}</Text>
           <TextInput style={styles.input} value={basinc} onChangeText={setBasinc} keyboardType="decimal-pad" />
 
+          <Text style={styles.label}>{t('pneumaticCalculator.cycleRate')}</Text>
+          <TextInput style={styles.input} value={cycleRate} onChangeText={setCycleRate} keyboardType="decimal-pad" />
+
           <TouchableOpacity style={styles.calcButton} onPress={hesapla}>
             <Text style={styles.calcButtonText}>{t('pneumaticCalculator.calculate')}</Text>
           </TouchableOpacity>
@@ -136,17 +165,29 @@ export const PneumaticCylinderScreen: React.FC = () => {
           <View style={styles.resultCard}>
             <Text style={styles.resultTitle}>{t('pneumaticCalculator.airConsumption')}</Text>
             <Text style={styles.resultLine}>
-              <Text style={styles.resultLabel}>1 Cycle: </Text>
-              {result.cycle1.toFixed(4)} litre
+              <Text style={styles.resultLabel}>{t('pneumaticCalculator.geomPerCycle')}: </Text>
+              {result.geomCycle.toFixed(4)} L
             </Text>
-            <Text style={styles.resultLine}>
-              <Text style={styles.resultLabel}>50 Cycle: </Text>
-              {result.cycle50.toFixed(2)} litre
-            </Text>
-            <Text style={styles.resultLine}>
-              <Text style={styles.resultLabel}>100 Cycle: </Text>
-              {result.cycle100.toFixed(2)} litre
-            </Text>
+
+            {result.fadCycle !== null && (
+              <Text style={styles.resultLine}>
+                <Text style={styles.resultLabel}>{t('pneumaticCalculator.fadPerCycle')}: </Text>
+                {result.fadCycle.toFixed(4)} NL
+              </Text>
+            )}
+
+            {result.fadPerMin !== null && result.power !== null && (
+              <View style={styles.forceWrap}>
+                <Text style={styles.resultLine}>
+                  <Text style={styles.resultLabel}>{t('pneumaticCalculator.fadPerMin')}: </Text>
+                  {result.fadPerMin.toFixed(2)} NL/min
+                </Text>
+                <Text style={styles.resultLine}>
+                  <Text style={styles.resultLabel}>{t('pneumaticCalculator.powerEstimate')}: </Text>
+                  {result.power.toFixed(3)} kW
+                </Text>
+              </View>
+            )}
 
             {result.pressure !== null && result.pushKg !== null && result.pullKg !== null && (
               <View style={styles.forceWrap}>

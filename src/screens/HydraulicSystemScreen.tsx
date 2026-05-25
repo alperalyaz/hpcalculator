@@ -49,7 +49,7 @@ export const HydraulicSystemScreen: React.FC = () => {
 
     const boreCm = Number.isNaN(b) ? 0 : b / 10;
     const rodCm = Number.isNaN(r) ? 0 : r / 10;
-    const strokeCm = Number.isNaN(s) ? 0 : s;
+    const strokeCm = Number.isNaN(s) ? 0 : s / 10;
 
     const hasRequired = !Number.isNaN(pump) && !Number.isNaN(rpm) && !Number.isNaN(p);
     if (!hasRequired || pump <= 0 || rpm <= 0 || p <= 0) {
@@ -82,8 +82,9 @@ export const HydraulicSystemScreen: React.FC = () => {
       const effectiveArea = pistonArea - rodArea;
       const hasRod = rodCm > 0 && effectiveArea > 0;
 
-      const extForce = pistonArea * p;
-      const retForce = hasRod ? effectiveArea * p : 0;
+      // 1 bar = 10.197 kgf/cm²
+      const extForce = pistonArea * p * 10.197;
+      const retForce = hasRod ? effectiveArea * p * 10.197 : 0;
 
       const extVolume = (pistonArea * strokeCm) / 1000;
       const retVolume = hasRod ? (effectiveArea * strokeCm) / 1000 : 0;

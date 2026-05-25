@@ -32,6 +32,9 @@ const MODULES: ModuleCard[] = [
   { key: 'HydraulicMotor', icon: 'sync-outline' },
   { key: 'ThreadPitch', icon: 'list-outline' },
   { key: 'PipeConverter', icon: 'swap-horizontal-outline' },
+  { key: 'PressureConverter', icon: 'thermometer-outline' },
+  { key: 'FlowVelocity', icon: 'pulse-outline' },
+  { key: 'Accumulator', icon: 'battery-half-outline' },
 ];
 
 type ModuleRoute =
@@ -42,7 +45,10 @@ type ModuleRoute =
   | 'PneumaticCylinder'
   | 'HydraulicMotor'
   | 'ThreadPitch'
-  | 'PipeConverter';
+  | 'PipeConverter'
+  | 'PressureConverter'
+  | 'FlowVelocity'
+  | 'Accumulator';
 
 const NAV_KEY_MAP: Record<ModuleRoute, string> = {
   HydraulicSystem: 'hydraulicSystem',
@@ -53,6 +59,9 @@ const NAV_KEY_MAP: Record<ModuleRoute, string> = {
   HydraulicMotor: 'hydraulicMotor',
   ThreadPitch: 'threadPitch',
   PipeConverter: 'pipeConverter',
+  PressureConverter: 'pressureConverter',
+  FlowVelocity: 'flowVelocity',
+  Accumulator: 'accumulator',
 };
 
 export const HomeScreen: React.FC = () => {

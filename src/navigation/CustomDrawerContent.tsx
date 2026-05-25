@@ -69,6 +69,21 @@ const PRIMARY_ITEMS: DrawerItem[] = [
     icon: 'swap-horizontal-outline',
     i18nKey: 'nav.pipeConverter',
   },
+  {
+    route: 'PressureConverter',
+    icon: 'thermometer-outline',
+    i18nKey: 'nav.pressureConverter',
+  },
+  {
+    route: 'FlowVelocity',
+    icon: 'pulse-outline',
+    i18nKey: 'nav.flowVelocity',
+  },
+  {
+    route: 'Accumulator',
+    icon: 'battery-half-outline',
+    i18nKey: 'nav.accumulator',
+  },
 ];
 
 const INFO_ITEMS: DrawerItem[] = [

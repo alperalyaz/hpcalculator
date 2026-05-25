@@ -14,6 +14,9 @@
     "hydraulicMotor": "Hidrolik Motor",
     "threadPitch": "Vida & Diş Standartları",
     "pipeConverter": "Boru Birim Dönüştürücü",
+    "pressureConverter": "Basınç Dönüştürücü",
+    "flowVelocity": "Akış Hızı",
+    "accumulator": "Akümülatör",
     "about": "Hakkımızda",
     "privacy": "Gizlilik",
     "terms": "Kullanım Şartları",
@@ -68,6 +71,21 @@
       "title": "Boru Birim Dönüştürücü",
       "description": "DN, inç, mm dönüşümleri ve boru tablosu",
       "category": "Dönüştürücü"
+    },
+    "pressureConverter": {
+      "title": "Basınç Dönüştürücü",
+      "description": "bar, psi, MPa, kPa, atm, mmHg dönüşümleri",
+      "category": "Dönüştürücü"
+    },
+    "flowVelocity": {
+      "title": "Akış Hızı",
+      "description": "Önerilen akış hızına göre boru hattı boyutlandırma",
+      "category": "Hidrolik"
+    },
+    "accumulator": {
+      "title": "Akümülatör Boyutlandırma",
+      "description": "Hidrolik akümülatör hacim hesabı (Boyle Yasası)",
+      "category": "Hidrolik"
     }
   },
   "common": {
@@ -124,7 +142,7 @@
     "pressure": "Basınç (bar)",
     "bore": "Silindir İç Çapı (mm)",
     "rod": "Mil Çapı (mm)",
-    "stroke": "Toplam Strok (cm)",
+    "stroke": "Toplam Strok (mm)",
     "optional": "Opsiyonel",
     "placeholder": "Lütfen pompa deplasmanı, motor devri ve basıncı giriniz. Diğer alanlar opsiyoneldir.",
     "sections": {
@@ -257,6 +275,11 @@
     "basinc": "Çalışma Basıncı (bar)",
     "calculate": "Hesapla",
     "airConsumption": "Hava Tüketimi",
+    "geomPerCycle": "Geometrik Hacim / Çevrim",
+    "fadPerCycle": "Serbest Hava (FAD) / Çevrim",
+    "cycleRate": "Çevrim Hızı (çevrim/dak, opsiyonel)",
+    "fadPerMin": "Dakikada FAD",
+    "powerEstimate": "Tahmini Hava Gücü",
     "forceAtPressure": "Üretilen Kuvvet ({{pressure}} bar)",
     "pushForce": "İtme Kuvveti",
     "pullForce": "Çekme Kuvveti"
@@ -375,6 +398,47 @@
       "mm": "Milimetre (Ortalama Dış Çap)"
     },
     "note": "Not: DN (Nominal Çap) değerleri borunun tam iç/dış çapını değil, standartlaştırılmış ölçüsünü temsil eder. Gerçek çaplar boru malzemesine ve basınç sınıfına göre değişiklik gösterebilir."
+  },
+  "pressureConverter": {
+    "title": "Basınç Birim Dönüştürücü",
+    "inputLabel": "Basınç Değeri",
+    "fromUnit": "Kaynak Birim",
+    "resultTitle": "Dönüşümler"
+  },
+  "flowVelocity": {
+    "title": "Boru Akış Hızı",
+    "modeLabel": "Hesaplama Modu",
+    "modeDiameter": "Çap Bul",
+    "modeVelocity": "Hız Bul",
+    "flow": "Debi",
+    "targetVelocity": "Hedef Hız",
+    "pipeDiameter": "Boru İç Çapı",
+    "requiredDiameter": "Gerekli İç Çap",
+    "calculatedVelocity": "Akış Hızı",
+    "roundUpNote": "Bu değerin üzerindeki standart boru çapını seçin.",
+    "velocityTooHigh": "Akış hızı çok yüksek — erozyon ve gürültü riski. Daha büyük boru kullanın.",
+    "recommendations": "Önerilen Akış Hızları",
+    "lineType": "Hat Türü",
+    "range": "Aralık",
+    "recommended": "Tipik",
+    "lines": {
+      "suction": "Emiş Hattı",
+      "return": "Dönüş Hattı",
+      "pressure": "Basınç Hattı"
+    },
+    "note": "Önerilen hızlar, normal viskozitede mineral hidrolik yağı içindir. Yüksek basınçlı hatlar veya servo sistemlerde daha düşük hız gerekebilir."
+  },
+  "accumulator": {
+    "title": "Akümülatör Boyutlandırma",
+    "usableVolume": "Gerekli Kullanılabilir Hacim",
+    "minPressure": "Minimum Sistem Basıncı",
+    "maxPressure": "Maksimum Sistem Basıncı",
+    "prechargeRatio": "N₂ Ön Şarj Basıncı",
+    "resultTitle": "Akümülatör Boyutu",
+    "resultVolume": "Toplam Akümülatör Hacmi",
+    "precharge": "N₂ Ön Şarj (manometrik)",
+    "usefulRatio": "Kullanılabilir Hacim Oranı",
+    "note": "Hesaplama Boyle Yasası'na (izotermik) göre yapılmıştır. Gerçek seçimde %25–30 emniyet payı ekleyin. Ön şarj basıncı genellikle minimum çalışma basıncının %90'ına ayarlanır."
   },
   "legal": {
     "about": {

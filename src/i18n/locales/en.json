@@ -14,6 +14,9 @@
     "hydraulicMotor": "Hydraulic Motor",
     "threadPitch": "Thread & Pitch",
     "pipeConverter": "Pipe Converter",
+    "pressureConverter": "Pressure Converter",
+    "flowVelocity": "Flow Velocity",
+    "accumulator": "Accumulator",
     "about": "About",
     "privacy": "Privacy",
     "terms": "Terms of Use",
@@ -68,6 +71,21 @@
       "title": "Pipe Unit Converter",
       "description": "DN, inch, mm conversions and pipe table",
       "category": "Converter"
+    },
+    "pressureConverter": {
+      "title": "Pressure Converter",
+      "description": "Convert between bar, psi, MPa, kPa, atm, mmHg",
+      "category": "Converter"
+    },
+    "flowVelocity": {
+      "title": "Flow Velocity",
+      "description": "Pipe line sizing by recommended flow velocity",
+      "category": "Hydraulic"
+    },
+    "accumulator": {
+      "title": "Accumulator Sizing",
+      "description": "Hydraulic accumulator volume calculation (Boyle's Law)",
+      "category": "Hydraulic"
     }
   },
   "common": {
@@ -124,7 +142,7 @@
     "pressure": "Pressure (bar)",
     "bore": "Cylinder Bore (mm)",
     "rod": "Rod Diameter (mm)",
-    "stroke": "Total Stroke (cm)",
+    "stroke": "Total Stroke (mm)",
     "optional": "Optional",
     "placeholder": "Please enter pump displacement, motor speed, and pressure. Other fields are optional.",
     "sections": {
@@ -257,6 +275,11 @@
     "basinc": "Working Pressure (bar)",
     "calculate": "Calculate",
     "airConsumption": "Air Consumption",
+    "geomPerCycle": "Geometric Volume / Cycle",
+    "fadPerCycle": "Free Air (FAD) / Cycle",
+    "cycleRate": "Cycle Rate (cycles/min, optional)",
+    "fadPerMin": "FAD per Minute",
+    "powerEstimate": "Estimated Air Power",
     "forceAtPressure": "Generated Force ({{pressure}} bar)",
     "pushForce": "Push Force",
     "pullForce": "Pull Force"
@@ -375,6 +398,47 @@
       "mm": "Millimeter (Average Outer Diameter)"
     },
     "note": "Note: DN (Nominal Diameter) values represent standardized pipe sizes rather than exact inner/outer diameters. Real diameters may vary by pipe material and pressure class."
+  },
+  "pressureConverter": {
+    "title": "Pressure Unit Converter",
+    "inputLabel": "Pressure Value",
+    "fromUnit": "Source Unit",
+    "resultTitle": "Conversions"
+  },
+  "flowVelocity": {
+    "title": "Pipe Flow Velocity",
+    "modeLabel": "Calculation Mode",
+    "modeDiameter": "Find Diameter",
+    "modeVelocity": "Find Velocity",
+    "flow": "Flow Rate",
+    "targetVelocity": "Target Velocity",
+    "pipeDiameter": "Pipe Inner Diameter",
+    "requiredDiameter": "Required Inner Diameter",
+    "calculatedVelocity": "Flow Velocity",
+    "roundUpNote": "Select the next standard pipe size above this value.",
+    "velocityTooHigh": "Velocity is too high — risk of erosion and noise. Use a larger pipe.",
+    "recommendations": "Recommended Velocities",
+    "lineType": "Line Type",
+    "range": "Range",
+    "recommended": "Typical",
+    "lines": {
+      "suction": "Suction Line",
+      "return": "Return Line",
+      "pressure": "Pressure Line"
+    },
+    "note": "Recommended velocities are for mineral hydraulic oil at normal viscosity. High-pressure lines or servo systems may require lower velocities."
+  },
+  "accumulator": {
+    "title": "Accumulator Sizing",
+    "usableVolume": "Required Usable Volume",
+    "minPressure": "Minimum System Pressure",
+    "maxPressure": "Maximum System Pressure",
+    "prechargeRatio": "N₂ Pre-charge Pressure",
+    "resultTitle": "Accumulator Size",
+    "resultVolume": "Total Accumulator Volume",
+    "precharge": "N₂ Pre-charge (gauge)",
+    "usefulRatio": "Useful Volume Ratio",
+    "note": "Calculation based on Boyle's Law (isothermal). Add 25–30% safety margin for actual selection. Pre-charge pressure is typically set to 90% of minimum working pressure."
   },
   "legal": {
     "about": {

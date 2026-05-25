@@ -8,6 +8,9 @@ export type DrawerParamList = {
   HydraulicMotor: undefined;
   ThreadPitch: undefined;
   PipeConverter: undefined;
+  PressureConverter: undefined;
+  FlowVelocity: undefined;
+  Accumulator: undefined;
   About: undefined;
   Privacy: undefined;
   Terms: undefined;
