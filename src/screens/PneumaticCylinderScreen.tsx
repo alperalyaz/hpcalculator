@@ -17,6 +17,8 @@ import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../comp
 import { CylinderDiagram } from '../components/diagrams/CylinderDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_pneumatic.jpg');
+
 type CylDim = 'bore' | 'rod' | 'stroke' | null;
 
 const parseNum = (value: string): number => {
@@ -137,8 +139,8 @@ export const PneumaticCylinderScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('pneumaticCalculator.title')}
-        subtitle={t('modules.pneumaticCylinder.description')}
         category={t('modules.pneumaticCylinder.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}

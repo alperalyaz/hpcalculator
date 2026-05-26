@@ -17,6 +17,8 @@ import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../comp
 import { PipeCrossSectionDiagram } from '../components/diagrams/PipeCrossSectionDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_pipeweight.jpg');
+
 type CalcType = 'pipe' | 'rod';
 type PipeInputMode = 'inner-outer' | 'inner-thickness' | 'outer-thickness';
 type LengthUnit = 'mm' | 'cm' | 'm';
@@ -160,8 +162,8 @@ export const PipeRodWeightScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('pipeWeightCalculator.title')}
-        subtitle={t('modules.pipeRodWeight.description')}
         category={t('modules.pipeRodWeight.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}

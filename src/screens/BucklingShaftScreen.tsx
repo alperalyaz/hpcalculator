@@ -17,6 +17,8 @@ import { ResultCard, HeroRow, HeroStat } from '../components/Result';
 import { BucklingDiagram } from '../components/diagrams/BucklingDiagram';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_buckling.jpg');
+
 const parseNum = (value: string): number => {
   const normalized = value.trim().replace(',', '.');
   if (!normalized) return NaN;
@@ -86,8 +88,8 @@ export const BucklingShaftScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('bucklingCalculator.title')}
-        subtitle={t('modules.bucklingShaft.description')}
         category={t('modules.bucklingShaft.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}

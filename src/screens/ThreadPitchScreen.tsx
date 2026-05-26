@@ -18,6 +18,8 @@ import { ThreadProfileDiagram } from '../components/diagrams/ThreadProfileDiagra
 import { THREAD_DATABASE, ThreadSide, ThreadStandard, ThreadSpec } from '../data/threadDatabase';
 import { Callouts, Colors, Spacing } from '../theme';
 
+const BANNER = require('../../assets/banner_threadpitch.jpg');
+
 type FilterType = 'all' | ThreadStandard;
 
 interface ThreadMatch extends ThreadSpec {
@@ -126,8 +128,8 @@ export const ThreadPitchScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('threadPitchCalc.title')}
-        subtitle={t('modules.threadPitch.description')}
         category={t('modules.threadPitch.category')}
+        bannerImage={BANNER}
       />
       <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]} keyboardShouldPersistTaps="handled">
         <View style={styles.tabs}>

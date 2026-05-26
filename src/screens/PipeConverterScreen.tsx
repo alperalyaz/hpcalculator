@@ -16,6 +16,8 @@ import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, ResultSection, DetailRow } from '../components/Result';
 import { Callouts, Colors, Spacing } from '../theme';
 
+const BANNER = require('../../assets/banner_pipeconverter.jpg');
+
 type ConversionType = 'dnToInch' | 'inchToDn' | 'inchToMm' | 'mmToInch';
 
 const DN_TO_INCH: Record<number, string> = {
@@ -126,8 +128,8 @@ export const PipeConverterScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('pipeConverterCalc.title')}
-        subtitle={t('modules.pipeConverter.description')}
         category={t('modules.pipeConverter.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}

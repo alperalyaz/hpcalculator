@@ -17,6 +17,8 @@ import { ResultCard, HeroRow, HeroStat } from '../components/Result';
 import { PipeFlowDiagram } from '../components/diagrams/PipeFlowDiagram';
 import { Callouts, Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_flowvelocity.jpg');
+
 type CalcMode = 'diameterFromFlow' | 'velocityFromDiameter';
 
 const parseNum = (v: string) => {
@@ -87,8 +89,8 @@ export const FlowVelocityScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('flowVelocity.title')}
-        subtitle={t('modules.flowVelocity.description')}
         category={t('modules.flowVelocity.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}

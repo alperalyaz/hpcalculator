@@ -17,6 +17,8 @@ import { ResultCard, HeroRow, HeroStat, ResultSection, DetailRow } from '../comp
 import { AccumulatorDiagram } from '../components/diagrams/AccumulatorDiagram';
 import { Callouts, Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_accumulator.jpg');
+
 const parseNum = (v: string) => {
   const n = parseFloat(v.trim().replace(',', '.'));
   return Number.isNaN(n) || n <= 0 ? null : n;
@@ -76,8 +78,8 @@ export const AccumulatorScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('accumulator.title')}
-        subtitle={t('modules.accumulator.description')}
         category={t('modules.accumulator.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}

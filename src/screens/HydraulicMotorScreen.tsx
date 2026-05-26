@@ -16,6 +16,8 @@ import { ScreenHeader } from '../components/ScreenHeader';
 import { ResultCard, HeroRow, HeroStat } from '../components/Result';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 
+const BANNER = require('../../assets/banner_hydraulicmotor.jpg');
+
 type ActiveTab = 'torque' | 'speed';
 
 const parseNum = (value: string): number => {
@@ -118,8 +120,8 @@ export const HydraulicMotorScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('hydraulicMotorCalc.title')}
-        subtitle={t('modules.hydraulicMotor.description')}
         category={t('modules.hydraulicMotor.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}

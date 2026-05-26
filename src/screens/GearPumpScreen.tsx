@@ -20,6 +20,8 @@ import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { Ionicons } from '@expo/vector-icons';
 
+const BANNER = require('../../assets/banner_gearpump.jpg');
+
 const parseNum = (value: string): number => {
   const normalized = value.trim().replace(',', '.');
   if (!normalized) return NaN;
@@ -125,8 +127,8 @@ export const GearPumpScreen: React.FC = () => {
     >
       <ScreenHeader
         title={t('gearPumpGuide.title')}
-        subtitle={t('modules.gearPump.description')}
         category={t('modules.gearPump.category')}
+        bannerImage={BANNER}
       />
       <ScrollView
         contentContainerStyle={[styles.content, { paddingBottom: Spacing.xxl + insets.bottom }]}
