@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { ModuleIcon, ModuleIconName } from '../components/ModuleIcon';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors, Typography, Spacing, Radius, Shadows } from '../theme';
@@ -20,22 +21,22 @@ type HomeNavProp = DrawerNavigationProp<DrawerParamList, 'Home'>;
 
 interface ModuleCard {
   key: ModuleRoute;
-  icon: keyof typeof MaterialCommunityIcons.glyphMap;
+  icon: ModuleIconName;
 }
 
 const MODULES: ModuleCard[] = [
-  { key: 'HydraulicSystem',    icon: 'hydraulic-oil-level' },
-  { key: 'AdvancedHydraulic',  icon: 'pipe-valve' },
-  { key: 'BucklingShaft',      icon: 'axis-arrow' },
-  { key: 'GearPump',           icon: 'cog-transfer-outline' },
-  { key: 'PipeRodWeight',      icon: 'pipe' },
-  { key: 'PneumaticCylinder',  icon: 'air-filter' },
-  { key: 'HydraulicMotor',     icon: 'engine-outline' },
-  { key: 'ThreadPitch',        icon: 'screw-machine-flat-top' },
-  { key: 'PipeConverter',      icon: 'pipe-disconnected' },
-  { key: 'PressureConverter',  icon: 'gauge' },
-  { key: 'FlowVelocity',       icon: 'waves-arrow-right' },
-  { key: 'Accumulator',        icon: 'car-turbocharger' },
+  { key: 'HydraulicSystem',    icon: 'hydraulicSystem' },
+  { key: 'AdvancedHydraulic',  icon: 'advancedHydraulic' },
+  { key: 'BucklingShaft',      icon: 'bucklingShaft' },
+  { key: 'GearPump',           icon: 'gearPump' },
+  { key: 'PipeRodWeight',      icon: 'pipeRodWeight' },
+  { key: 'PneumaticCylinder',  icon: 'pneumaticCylinder' },
+  { key: 'HydraulicMotor',     icon: 'hydraulicMotor' },
+  { key: 'ThreadPitch',        icon: 'threadPitch' },
+  { key: 'PipeConverter',      icon: 'pipeConverter' },
+  { key: 'PressureConverter',  icon: 'pressureConverter' },
+  { key: 'FlowVelocity',       icon: 'flowVelocity' },
+  { key: 'Accumulator',        icon: 'accumulator' },
 ];
 
 type ModuleRoute =
@@ -117,7 +118,7 @@ export const HomeScreen: React.FC = () => {
               >
                 <View style={styles.cardBody}>
                   <View style={styles.cardIconBox}>
-                    <MaterialCommunityIcons name={mod.icon} size={24} color={Colors.accent} />
+                    <ModuleIcon name={mod.icon} size={26} color={Colors.accent} />
                   </View>
 
                   <Text style={styles.cardTitle} numberOfLines={2}>

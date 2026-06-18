@@ -15,11 +15,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors, Typography, Spacing, Radius } from '../theme';
+import { ModuleIcon, ModuleIconName } from '../components/ModuleIcon';
 import { APP_VERSION_LABEL } from '../constants/appVersion';
 
 interface DrawerItem {
   route: string;
   icon: keyof typeof Ionicons.glyphMap;
+  moduleIcon?: ModuleIconName;
   i18nKey: string;
 }
 
@@ -32,61 +34,73 @@ const PRIMARY_ITEMS: DrawerItem[] = [
   {
     route: 'HydraulicSystem',
     icon: 'water-outline',
+    moduleIcon: 'hydraulicSystem',
     i18nKey: 'nav.hydraulicSystem',
   },
   {
     route: 'AdvancedHydraulic',
     icon: 'layers-outline',
+    moduleIcon: 'advancedHydraulic',
     i18nKey: 'nav.advancedHydraulic',
   },
   {
     route: 'BucklingShaft',
     icon: 'git-branch-outline',
+    moduleIcon: 'bucklingShaft',
     i18nKey: 'nav.bucklingShaft',
   },
   {
     route: 'GearPump',
     icon: 'settings-outline',
+    moduleIcon: 'gearPump',
     i18nKey: 'nav.gearPump',
   },
   {
     route: 'PipeRodWeight',
     icon: 'reorder-four-outline',
+    moduleIcon: 'pipeRodWeight',
     i18nKey: 'nav.pipeRodWeight',
   },
   {
     route: 'PneumaticCylinder',
     icon: 'speedometer-outline',
+    moduleIcon: 'pneumaticCylinder',
     i18nKey: 'nav.pneumaticCylinder',
   },
   {
     route: 'HydraulicMotor',
     icon: 'sync-outline',
+    moduleIcon: 'hydraulicMotor',
     i18nKey: 'nav.hydraulicMotor',
   },
   {
     route: 'ThreadPitch',
     icon: 'list-outline',
+    moduleIcon: 'threadPitch',
     i18nKey: 'nav.threadPitch',
   },
   {
     route: 'PipeConverter',
     icon: 'swap-horizontal-outline',
+    moduleIcon: 'pipeConverter',
     i18nKey: 'nav.pipeConverter',
   },
   {
     route: 'PressureConverter',
     icon: 'thermometer-outline',
+    moduleIcon: 'pressureConverter',
     i18nKey: 'nav.pressureConverter',
   },
   {
     route: 'FlowVelocity',
     icon: 'pulse-outline',
+    moduleIcon: 'flowVelocity',
     i18nKey: 'nav.flowVelocity',
   },
   {
     route: 'Accumulator',
     icon: 'battery-half-outline',
+    moduleIcon: 'accumulator',
     i18nKey: 'nav.accumulator',
   },
 ];
@@ -170,11 +184,19 @@ export const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props
               activeOpacity={0.7}
             >
               <View style={[styles.iconWrap, isActive && styles.iconWrapActive]}>
-                <Ionicons
-                  name={item.icon}
-                  size={20}
-                  color={isActive ? Colors.background : Colors.textSecondary}
-                />
+                {item.moduleIcon ? (
+                  <ModuleIcon
+                    name={item.moduleIcon}
+                    size={20}
+                    color={isActive ? Colors.background : Colors.textSecondary}
+                  />
+                ) : (
+                  <Ionicons
+                    name={item.icon}
+                    size={20}
+                    color={isActive ? Colors.background : Colors.textSecondary}
+                  />
+                )}
               </View>
               <Text
                 style={[styles.navLabel, isActive && styles.navLabelActive]}
