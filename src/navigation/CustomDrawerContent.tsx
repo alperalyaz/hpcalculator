@@ -6,6 +6,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Platform,
+  Linking,
 } from 'react-native';
 import {
   DrawerContentScrollView,
@@ -17,6 +19,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors, Typography, Spacing, Radius } from '../theme';
 import { ModuleIcon, ModuleIconName } from '../components/ModuleIcon';
 import { APP_VERSION_LABEL } from '../constants/appVersion';
+
+const PLAY_STORE_URL =
+  'https://play.google.com/store/apps/details?id=com.hidroteknik.hydrauliccalculator';
 
 interface DrawerItem {
   route: string;
@@ -247,6 +252,16 @@ export const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props
       {/* Footer: Language Toggle */}
       <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, Spacing.md) }]}>
         <View style={styles.divider} />
+        {Platform.OS === 'web' && (
+          <TouchableOpacity
+            style={styles.androidCta}
+            onPress={() => Linking.openURL(PLAY_STORE_URL)}
+            activeOpacity={0.85}
+          >
+            <Ionicons name="logo-google-playstore" size={18} color={Colors.background} />
+            <Text style={styles.androidCtaText}>{t('drawer.getAndroidApp')}</Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity style={styles.langToggle} onPress={toggleLanguage}>
           <Ionicons name="globe-outline" size={18} color={Colors.textMuted} />
           <Text style={styles.langText}>
@@ -371,6 +386,22 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingBottom: 0,
+  },
+  androidCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.sm,
+    backgroundColor: Colors.accent,
+    borderRadius: Radius.md,
+    paddingVertical: 11,
+    marginHorizontal: Spacing.md,
+    marginTop: Spacing.md,
+  },
+  androidCtaText: {
+    color: Colors.background,
+    fontWeight: '800',
+    fontSize: 13,
   },
   langToggle: {
     flexDirection: 'row',

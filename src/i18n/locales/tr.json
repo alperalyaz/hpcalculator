@@ -117,6 +117,7 @@
   },
   "drawer": {
     "infoSection": "Bilgi",
+    "getAndroidApp": "Android uygulamasını indir",
     "switchToEnglish": "Türkçe → English",
     "switchToTurkish": "English → Türkçe"
   },
