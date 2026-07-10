@@ -15,4 +15,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://hpcalculator-olive.vercel.app/sitemap.xml
+Sitemap: https://hesapla.hidroteknik.com.tr/sitemap.xml

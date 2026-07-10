@@ -10,15 +10,20 @@
     <meta name="keywords" content="hidrolik hesaplama, pnömatik hesaplama, silindir kuvveti hesaplama, pompa debisi hesaplama, hidrolik motor gücü, akümülatör boyutlandırma, boru çapı hesaplama, akış hızı, burkulma hesabı, diş adımı, hidrolik silindir, hidroteknik" />
     <meta name="author" content="Hidroteknik A.Ş." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://hpcalculator-olive.vercel.app/" />
+    <link rel="canonical" href="https://hesapla.hidroteknik.com.tr/" />
+
+    <!-- Language alternates: Turkish on hesapla.*, English on calculate.* -->
+    <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/" />
+    <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/" />
+    <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Hidroteknik Hesaplama" />
     <meta property="og:title" content="Hidrolik & Pnömatik Hesaplama Araçları" />
     <meta property="og:description" content="Silindir kuvveti, pompa debisi, motor gücü, akümülatör ve daha fazlası için ücretsiz online mühendislik hesaplayıcıları." />
-    <meta property="og:url" content="https://hpcalculator-olive.vercel.app/" />
-    <meta property="og:image" content="https://hpcalculator-olive.vercel.app/og-image.jpg" />
+    <meta property="og:url" content="https://hesapla.hidroteknik.com.tr/" />
+    <meta property="og:image" content="https://hesapla.hidroteknik.com.tr/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="tr_TR" />
@@ -27,7 +32,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Hidrolik & Pnömatik Hesaplama Araçları" />
     <meta name="twitter:description" content="Silindir kuvveti, pompa debisi, motor gücü, akümülatör ve daha fazlası için ücretsiz online mühendislik hesaplayıcıları." />
-    <meta name="twitter:image" content="https://hpcalculator-olive.vercel.app/og-image.jpg" />
+    <meta name="twitter:image" content="https://hesapla.hidroteknik.com.tr/og-image.jpg" />
 
     <!-- The `react-native-web` recommended style reset -->
     <style id="expo-reset">
@@ -61,13 +66,26 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#111111" />
 
+    <!-- On the English domain (calculate.*), flip lang + canonical to English -->
+    <script>
+      (function () {
+        try {
+          if (location.hostname.toLowerCase().indexOf('calculate.') === 0) {
+            document.documentElement.lang = 'en';
+            var c = document.querySelector('link[rel="canonical"]');
+            if (c) c.setAttribute('href', 'https://calculate.hidroteknik.com.tr/');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Structured data for search engines and AI assistants -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Hidrolik & Pnömatik Hesaplama",
-      "url": "https://hpcalculator-olive.vercel.app/",
+      "url": "https://hesapla.hidroteknik.com.tr/",
       "applicationCategory": "EngineeringApplication",
       "operatingSystem": "Web, Android, iOS",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
