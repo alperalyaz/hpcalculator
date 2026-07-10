@@ -1,39 +1,138 @@
 <!DOCTYPE html>
-<html lang="%LANG_ISO_CODE%">
+<html lang="tr">
   <head>
     <meta charset="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>%WEB_TITLE%</title>
-    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+
+    <title>Hidrolik & Pnömatik Hesaplama | Hidroteknik</title>
+    <meta name="description" content="Hidrolik ve pnömatik sistemler için ücretsiz online mühendislik hesaplama araçları: silindir kuvveti, pompa debisi, motor gücü, akümülatör boyutlandırma, boru çapı, burkulma, diş standardı ve daha fazlası." />
+    <meta name="keywords" content="hidrolik hesaplama, pnömatik hesaplama, silindir kuvveti hesaplama, pompa debisi hesaplama, hidrolik motor gücü, akümülatör boyutlandırma, boru çapı hesaplama, akış hızı, burkulma hesabı, diş adımı, hidrolik silindir, hidroteknik" />
+    <meta name="author" content="Hidroteknik A.Ş." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://hpcalculator-olive.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hidroteknik Hesaplama" />
+    <meta property="og:title" content="Hidrolik & Pnömatik Hesaplama Araçları" />
+    <meta property="og:description" content="Silindir kuvveti, pompa debisi, motor gücü, akümülatör ve daha fazlası için ücretsiz online mühendislik hesaplayıcıları." />
+    <meta property="og:url" content="https://hpcalculator-olive.vercel.app/" />
+    <meta property="og:image" content="https://hpcalculator-olive.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hidrolik & Pnömatik Hesaplama Araçları" />
+    <meta name="twitter:description" content="Silindir kuvveti, pompa debisi, motor gücü, akümülatör ve daha fazlası için ücretsiz online mühendislik hesaplayıcıları." />
+    <meta name="twitter:image" content="https://hpcalculator-olive.vercel.app/og-image.jpg" />
+
+    <!-- The `react-native-web` recommended style reset -->
     <style id="expo-reset">
-      /* These styles make the body full-height */
       html,
       body {
         height: 100%;
       }
-      /* These styles disable body scrolling if you are using <ScrollView> */
       body {
         overflow: hidden;
       }
-      /* These styles make the root element full-height */
       #root {
         display: flex;
         height: 100%;
         flex: 1;
       }
+      /* Visually hidden SEO content kept in the DOM for crawlers */
+      .seo-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
     </style>
+
     <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#111111" />
+
+    <!-- Structured data for search engines and AI assistants -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Hidrolik & Pnömatik Hesaplama",
+      "url": "https://hpcalculator-olive.vercel.app/",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "Web, Android, iOS",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "inLanguage": ["tr", "en"],
+      "description": "Hidrolik ve pnömatik sistemler için ücretsiz online mühendislik hesaplama araçları: silindir kuvveti, pompa debisi, motor gücü, akümülatör boyutlandırma, boru çapı, akış hızı, burkulma ve diş standardı hesaplamaları.",
+      "featureList": [
+        "Hidrolik sistem hesaplama (silindir kuvveti, debi, güç)",
+        "Gelişmiş çok silindirli hidrolik sistem boyutlandırma",
+        "Pnömatik silindir hava tüketimi",
+        "Akümülatör boyutlandırma (Boyle yasası)",
+        "Dişli pompa seçimi",
+        "Hidrolik motor tork ve güç",
+        "Boru ve mil ağırlığı",
+        "Debi ve akış hızı",
+        "Burkulma ve şaft çapı",
+        "Diş adımı tanımlama",
+        "Basınç ve boru birim dönüştürücü"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hidroteknik A.Ş.",
+        "url": "https://www.hidroteknik.com.tr/"
+      }
+    }
+    </script>
   </head>
 
   <body>
-    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
     <noscript>
-      You need to enable JavaScript to run this app.
+      Bu uygulamayı çalıştırmak için JavaScript'i etkinleştirmeniz gerekir.
     </noscript>
-    <!-- The root element for your Expo app. -->
+
+    <!-- The root element for the Expo app -->
     <div id="root"></div>
+
+    <!-- SEO content: describes the actual tools for crawlers & AI assistants -->
+    <div class="seo-only">
+      <h1>Hidrolik ve Pnömatik Hesaplama Araçları</h1>
+      <p>
+        Hidroteknik hesaplama platformu, hidrolik ve pnömatik sistem mühendisleri,
+        bakım teknisyenleri ve öğrenciler için ücretsiz online hesaplama araçları sunar.
+        Aşağıdaki modüllerin tümü tarayıcıda çalışır ve mobil uygulama olarak da mevcuttur.
+      </p>
+      <h2>Hidrolik Sistem Hesaplama</h2>
+      <p>Pompa debisi, motor gücü, silindir itiş/çekiş kuvveti ve hız hesabı. Kuvvet = Basınç × Alan formülü ile silindir kuvvetini bulun.</p>
+      <h2>Gelişmiş Hidrolik Sistem</h2>
+      <p>Çok silindirli sistemlerde aşama (stage) bazlı pompa, motor ve tank boyutlandırma.</p>
+      <h2>Pnömatik Silindir</h2>
+      <p>Pnömatik silindir kuvveti, hava debisi ve hava tüketimi hesaplama.</p>
+      <h2>Akümülatör Boyutlandırma</h2>
+      <p>Boyle yasasına göre akümülatör toplam hacmi ve azot ön şarj basıncı hesabı.</p>
+      <h2>Dişli Pompa Seçimi</h2>
+      <p>Debiye, basınca ve devire göre uygun dişli pompanın seçilmesi.</p>
+      <h2>Hidrolik Motor</h2>
+      <p>Hidrolik motor tork, güç ve devir hesaplamaları.</p>
+      <h2>Boru ve Mil Ağırlığı</h2>
+      <p>Malzeme ve boyuta göre boru ile milin metre başına ağırlığı.</p>
+      <h2>Debi ve Akış Hızı</h2>
+      <p>Boru çapı veya akış hızı hesabı ve önerilen hidrolik hat hızları tablosu.</p>
+      <h2>Burkulma ve Şaft Çapı</h2>
+      <p>Euler burkulma yükü ve minimum şaft çapı; dört farklı mesnet durumu.</p>
+      <h2>Diş Adımı Tanımlama</h2>
+      <p>Metrik, BSP, NPT, UNF ve UNC diş standartlarını ölçüye göre eşleştirme.</p>
+      <h2>Birim Dönüştürücü</h2>
+      <p>Basınç (bar, psi, MPa) ve boru birimleri arasında dönüştürme.</p>
+    </div>
   </body>
 </html>
