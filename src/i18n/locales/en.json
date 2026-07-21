@@ -121,6 +121,13 @@
     "switchToEnglish": "Türkçe → English",
     "switchToTurkish": "English → Türkçe"
   },
+  "promo": {
+    "tagline": "Your solution partner in industry for over 40 years",
+    "fields": "Hydraulics • Pneumatics • Automation",
+    "desc": "Circuit components, hydraulic hose crimping, unit manufacturing and engineering solutions.",
+    "factory": "Our facility",
+    "cta": "Visit Website"
+  },
   "units": {
     "bar": "bar",
     "mpa": "MPa",

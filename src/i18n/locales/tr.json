@@ -121,6 +121,13 @@
     "switchToEnglish": "Türkçe → English",
     "switchToTurkish": "English → Türkçe"
   },
+  "promo": {
+    "tagline": "40 yılı aşkın süredir endüstrideki çözüm ortağınız",
+    "fields": "Hidrolik • Pnömatik • Otomasyon",
+    "desc": "Devre elemanları, hidrolik hortum presleme, ünite imalatı ve mühendislik çözümleri.",
+    "factory": "Fabrikamız",
+    "cta": "Siteyi Ziyaret Et"
+  },
   "units": {
     "bar": "bar",
     "mpa": "MPa",
