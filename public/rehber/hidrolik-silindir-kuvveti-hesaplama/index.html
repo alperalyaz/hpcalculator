@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <title>Hidrolik Silindir Kuvveti Hesaplama | Formül ve Örnek — Hidroteknik</title>
+  <meta name="description" content="Hidrolik silindir itme ve çekme kuvveti nasıl hesaplanır? F = P × A formülü, piston ve halka alanı, birim tablosu ve çözümlü örnek. Ücretsiz online hesaplayıcı." />
+  <meta name="keywords" content="hidrolik silindir kuvveti hesaplama, silindir itme kuvveti, silindir çekme kuvveti, F=P×A, hidrolik piston kuvveti, silindir kuvvet formülü, hidrolik hesaplama" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Hidrolik Silindir Kuvveti Hesaplama — Formül ve Örnek" />
+  <meta property="og:description" content="F = P × A formülü, piston/halka alanı, birim tablosu ve çözümlü örnekle hidrolik silindir kuvveti hesabı." />
+  <meta property="og:url" content="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/" />
+  <meta property="og:image" content="https://hesapla.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"Hidrolik silindir kuvveti nasıl hesaplanır",
+    "description":"Hidrolik silindirin itme ve çekme kuvvetini F = P × A formülüyle hesaplama.",
+    "step":[
+      {"@type":"HowToStep","name":"Piston alanını bul","text":"A = π × D² / 4 (D: gömlek iç çapı, mm)"},
+      {"@type":"HowToStep","name":"Basıncı N/mm² çevir","text":"1 bar = 0,1 N/mm²"},
+      {"@type":"HowToStep","name":"Kuvveti hesapla","text":"F = P × 0,1 × A (F: Newton)"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Hidrolik silindir kuvveti formülü nedir?","acceptedAnswer":{"@type":"Answer","text":"Kuvvet = Basınç × Alan (F = P × A). İtme kuvvetinde alan piston alanıdır (π×D²/4), çekme kuvvetinde mil kesitini çıkardığımız halka alandır (π×(D²−d²)/4)."}},
+      {"@type":"Question","name":"İtme ve çekme kuvveti neden farklıdır?","acceptedAnswer":{"@type":"Answer","text":"Çekmede (mil tarafı) etkin alan mil kesiti kadar azalır, bu yüzden aynı basınçta çekme kuvveti itme kuvvetinden daima küçüktür."}},
+      {"@type":"Question","name":"Bar cinsinden basıncı nasıl kullanırım?","acceptedAnswer":{"@type":"Answer","text":"1 bar = 0,1 N/mm². Alanı mm² alırsanız F(N) = P(bar) × 0,1 × A(mm²). Pratikte F(kgf) ≈ P(bar) × A(cm²)."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Hesaplama</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://hesapla.hidroteknik.com.tr/">Hesaplayıcı</a> ›
+      Hidrolik Silindir Kuvveti
+    </nav>
+
+    <h1>Hidrolik Silindir Kuvveti Hesaplama</h1>
+    <p class="lead">Bir hidrolik silindirin ürettiği <strong>itme</strong> ve <strong>çekme</strong> kuvveti, sistem basıncı ile pistonun etkin alanına bağlıdır. Bu rehberde formülü, birimleri ve çözümlü bir örneği bulacak; dilerseniz değerleri girip sonucu anında hesaplayabileceksiniz.</p>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">⚙ Hidrolik Hesaplayıcıyı Aç →</a>
+
+    <h2>Temel Formül</h2>
+    <p>Hidrolik silindir kuvvetinin temeli basit bir bağıntıdır: <strong>Kuvvet = Basınç × Alan</strong>.</p>
+    <div class="formula"><b>F</b> = <b>P</b> × <b>A</b></div>
+    <p>Burada etkin alan, kuvvetin yönüne göre değişir:</p>
+
+    <h3>İtme kuvveti (piston tarafı)</h3>
+    <div class="formula">A<sub>piston</sub> = π × D² / 4</div>
+    <p><span class="muted">D = gömlek (silindir) iç çapı</span></p>
+
+    <h3>Çekme kuvveti (mil tarafı)</h3>
+    <div class="formula">A<sub>halka</sub> = π × (D² − d²) / 4</div>
+    <p><span class="muted">d = mil (piston kolu) çapı. Mil kesiti düştüğü için çekme kuvveti daima itmeden küçüktür.</span></p>
+
+    <h2>Birimler</h2>
+    <table>
+      <tr><th>Büyüklük</th><th>Sembol</th><th>Birim</th></tr>
+      <tr><td>Basınç</td><td>P</td><td>bar (1 bar = 0,1 N/mm²)</td></tr>
+      <tr><td>Çap</td><td>D, d</td><td>mm</td></tr>
+      <tr><td>Alan</td><td>A</td><td>mm² (÷100 → cm²)</td></tr>
+      <tr><td>Kuvvet</td><td>F</td><td>N (÷9,81 → kgf)</td></tr>
+    </table>
+    <p>mm ve bar kullanırken pratik bağıntı: <strong>F (N) = P (bar) × 0,1 × A (mm²)</strong>.</p>
+
+    <h2>Çözümlü Örnek</h2>
+    <div class="example">
+      <p><strong>Verilen:</strong> Gömlek iç çapı D = 80 mm, mil çapı d = 45 mm, sistem basıncı P = 160 bar.</p>
+      <p class="step">1) Piston alanı: A = π × 80² / 4 = <strong>5026,5 mm²</strong></p>
+      <p class="step">2) İtme kuvveti: F = 160 × 0,1 × 5026,5 = <span class="result">80.424 N ≈ 80,4 kN ≈ 8,2 ton</span></p>
+      <p class="step">3) Halka alan: A = π × (80² − 45²) / 4 = <strong>3436 mm²</strong></p>
+      <p class="step">4) Çekme kuvveti: F = 160 × 0,1 × 3436 = <span class="result">54.976 N ≈ 55,0 kN ≈ 5,6 ton</span></p>
+    </div>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">Kendi değerlerinizle hesaplayın →</a>
+
+    <h2>Sık Sorulan Sorular</h2>
+    <details><summary>Hidrolik silindir kuvveti formülü nedir?</summary>
+      <p>Kuvvet = Basınç × Alan (F = P × A). İtme kuvvetinde alan piston alanıdır (π×D²/4); çekme kuvvetinde mil kesitini çıkardığımız halka alandır (π×(D²−d²)/4).</p>
+    </details>
+    <details><summary>İtme ve çekme kuvveti neden farklı?</summary>
+      <p>Mil tarafında (çekme) etkin alan, mil kesiti kadar azalır. Bu yüzden aynı basınçta çekme kuvveti itme kuvvetinden daima daha küçüktür.</p>
+    </details>
+    <details><summary>Bar cinsinden basıncı nasıl kullanırım?</summary>
+      <p>1 bar = 0,1 N/mm². Alanı mm² alırsanız F(N) = P(bar) × 0,1 × A(mm²). Pratik kabul: F(kgf) ≈ P(bar) × A(cm²).</p>
+    </details>
+
+    <footer>
+      <p>Bu rehber <a href="https://www.hidroteknik.com.tr">Hidroteknik A.Ş.</a> tarafından hazırlanmıştır — 40 yılı aşkın süredir hidrolik, pnömatik ve otomasyon çözümleri.</p>
+      <p><a href="https://hesapla.hidroteknik.com.tr/">Tüm hesaplama araçları →</a></p>
+    </footer>
+  </div>
+</body>
+</html>
