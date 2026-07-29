@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <title>Hydraulic & Pneumatic Calculation Guides — Hidroteknik</title>
+  <meta name="description" content="Formulas, worked examples and free calculators for hydraulic cylinder force, pump flow, motor power, accumulator sizing, pipe diameter and pneumatic air consumption." />
+  <meta name="keywords" content="hydraulic calculation guides, pneumatic calculation, hydraulic formulas, engineering calculations" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://calculate.hidroteknik.com.tr/guide/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hydraulic &amp; Pneumatic Calculation Guides" />
+  <meta property="og:description" content="Formulas, worked examples and free calculators for hydraulic cylinder force, pump flow, motor power, accumulator sizing, pipe diameter and pneumatic air consumption." />
+  <meta property="og:url" content="https://calculate.hidroteknik.com.tr/guide/" />
+  <meta property="og:image" content="https://calculate.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.6; }
+    .wrap { max-width:900px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 12px; }
+    .lead { font-size:18px; color:#e6e6e6; margin-bottom:8px; }
+    .cta { display:inline-block; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:12px 20px; border-radius:12px; margin:16px 0 28px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; }
+    .card { display:block; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; text-decoration:none; transition:border-color .15s; }
+    .card:hover { border-color:var(--accent); }
+    .card h2 { font-size:17px; margin:0 0 8px; color:var(--text); }
+    .card p { font-size:13px; color:var(--muted); margin:0 0 12px; line-height:1.5; }
+    .card .go { font-size:13px; color:var(--accent); font-weight:700; }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hydraulic Cylinder Force Calculation","url":"https://calculate.hidroteknik.com.tr/guide/hydraulic-cylinder-force-calculation/"},{"@type":"ListItem","position":2,"name":"Hydraulic Pump Flow Rate Calculation","url":"https://calculate.hidroteknik.com.tr/guide/hydraulic-pump-flow-rate-calculation/"},{"@type":"ListItem","position":3,"name":"Hydraulic Motor Power & Torque Calculation","url":"https://calculate.hidroteknik.com.tr/guide/hydraulic-motor-power-calculation/"},{"@type":"ListItem","position":4,"name":"Hydraulic Accumulator Sizing","url":"https://calculate.hidroteknik.com.tr/guide/hydraulic-accumulator-sizing/"},{"@type":"ListItem","position":5,"name":"Pipe Diameter & Flow Velocity Calculation","url":"https://calculate.hidroteknik.com.tr/guide/pipe-diameter-flow-velocity-calculation/"},{"@type":"ListItem","position":6,"name":"Pneumatic Cylinder Air Consumption Calculation","url":"https://calculate.hidroteknik.com.tr/guide/pneumatic-cylinder-air-consumption/"}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Calculators</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://calculate.hidroteknik.com.tr/">Calculator</a> ›
+      Guides
+    </nav>
+
+    <h1>Hydraulic & Pneumatic Calculation Guides</h1>
+    <p class="lead">Each guide gives the formula, units, a worked example and the related free calculator.</p>
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">⚙ Open the Calculator →</a>
+
+    <div class="grid">
+      <a class="card" href="/guide/hydraulic-cylinder-force-calculation/">
+        <h2>Hydraulic Cylinder Force</h2>
+        <p>How to calculate hydraulic cylinder push and pull force. F = P × A formula, piston and annular area, unit table and a worked example.</p>
+        <span class="go">Open guide →</span>
+      </a>
+      <a class="card" href="/guide/hydraulic-pump-flow-rate-calculation/">
+        <h2>Pump Flow Rate</h2>
+        <p>How to calculate hydraulic pump flow rate. Q = Vg × n / 1000 formula, volumetric efficiency, units and a worked example.</p>
+        <span class="go">Open guide →</span>
+      </a>
+      <a class="card" href="/guide/hydraulic-motor-power-calculation/">
+        <h2>Motor Power</h2>
+        <p>How to calculate hydraulic motor power and torque. P = p × Q / 600 and T = Vg × Δp / 62.83 formulas, units and a worked example.</p>
+        <span class="go">Open guide →</span>
+      </a>
+      <a class="card" href="/guide/hydraulic-accumulator-sizing/">
+        <h2>Accumulator Sizing</h2>
+        <p>How to size a hydraulic accumulator. Total volume via Boyle's law, nitrogen pre-charge pressure, units and a worked example.</p>
+        <span class="go">Open guide →</span>
+      </a>
+      <a class="card" href="/guide/pipe-diameter-flow-velocity-calculation/">
+        <h2>Pipe Diameter & Velocity</h2>
+        <p>How to calculate pipe diameter and flow velocity for hydraulic lines. Formula, recommended velocity table, units and a worked example.</p>
+        <span class="go">Open guide →</span>
+      </a>
+      <a class="card" href="/guide/pneumatic-cylinder-air-consumption/">
+        <h2>Pneumatic Air Consumption</h2>
+        <p>How to calculate pneumatic cylinder air consumption. Compression ratio, free air flow (Nl/min), units and a worked example.</p>
+        <span class="go">Open guide →</span>
+      </a>
+    </div>
+
+    <footer>
+      <p>Calculators and guides provided by <a href="https://www.hidroteknik.com.tr">Hidroteknik Inc.</a></p>
+    </footer>
+  </div>
+</body>
+</html>

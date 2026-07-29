@@ -163,6 +163,145 @@ function page(lang, topic) {
 `;
 }
 
+function hubPage(lang, topics) {
+  const isTR = lang === 'tr';
+  const trUrl = `${TR_BASE}/rehber/`;
+  const enUrl = `${EN_BASE}/guide/`;
+  const selfUrl = isTR ? trUrl : enUrl;
+  const calcUrl = isTR ? `${TR_BASE}/` : `${EN_BASE}/`;
+  const t = isTR
+    ? {
+        title: 'Hidrolik ve Pnömatik Hesaplama Rehberleri — Hidroteknik',
+        desc: 'Hidrolik silindir kuvveti, pompa debisi, motor gücü, akümülatör, boru çapı ve pnömatik hava tüketimi için formüller, örnekler ve ücretsiz hesaplayıcılar.',
+        keywords: 'hidrolik hesaplama rehberi, pnömatik hesaplama, hidrolik formüller, mühendislik hesaplamaları',
+        h1: 'Hidrolik & Pnömatik Hesaplama Rehberleri',
+        crumb: 'Rehberler',
+        lead: 'Her rehberde konunun formülü, birimleri, çözümlü bir örneği ve ilgili ücretsiz hesaplayıcıyı bulacaksınız.',
+        calcCrumb: 'Hesaplayıcı',
+        cta: '⚙ Hesaplayıcıyı Aç →',
+      }
+    : {
+        title: 'Hydraulic & Pneumatic Calculation Guides — Hidroteknik',
+        desc: 'Formulas, worked examples and free calculators for hydraulic cylinder force, pump flow, motor power, accumulator sizing, pipe diameter and pneumatic air consumption.',
+        keywords: 'hydraulic calculation guides, pneumatic calculation, hydraulic formulas, engineering calculations',
+        h1: 'Hydraulic & Pneumatic Calculation Guides',
+        crumb: 'Guides',
+        lead: 'Each guide gives the formula, units, a worked example and the related free calculator.',
+        calcCrumb: 'Calculator',
+        cta: '⚙ Open the Calculator →',
+      };
+
+  const cards = topics
+    .map((topic) => {
+      const c = topic[lang];
+      const href = isTR ? `/rehber/${topic.trSlug}/` : `/guide/${topic.enSlug}/`;
+      return `      <a class="card" href="${href}">
+        <h2>${c.crumb}</h2>
+        <p>${esc(c.desc)}</p>
+        <span class="go">${isTR ? 'Rehberi aç →' : 'Open guide →'}</span>
+      </a>`;
+    })
+    .join('\n');
+
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: topics.map((topic, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: topic[lang].h1,
+      url: isTR ? `${TR_BASE}/rehber/${topic.trSlug}/` : `${EN_BASE}/guide/${topic.enSlug}/`,
+    })),
+  };
+
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA}');
+  </script>
+
+  <title>${t.title}</title>
+  <meta name="description" content="${esc(t.desc)}" />
+  <meta name="keywords" content="${esc(t.keywords)}" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="${selfUrl}" />
+  <link rel="alternate" hreflang="tr" href="${trUrl}" />
+  <link rel="alternate" hreflang="en" href="${enUrl}" />
+  <link rel="alternate" hreflang="x-default" href="${trUrl}" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="${esc(t.h1)}" />
+  <meta property="og:description" content="${esc(t.desc)}" />
+  <meta property="og:url" content="${selfUrl}" />
+  <meta property="og:image" content="${(isTR ? TR_BASE : EN_BASE)}/og-image.jpg" />
+  <meta property="og:locale" content="${isTR ? 'tr_TR' : 'en_US'}" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.6; }
+    .wrap { max-width:900px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 12px; }
+    .lead { font-size:18px; color:#e6e6e6; margin-bottom:8px; }
+    .cta { display:inline-block; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:12px 20px; border-radius:12px; margin:16px 0 28px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; }
+    .card { display:block; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; text-decoration:none; transition:border-color .15s; }
+    .card:hover { border-color:var(--accent); }
+    .card h2 { font-size:17px; margin:0 0 8px; color:var(--text); }
+    .card p { font-size:13px; color:var(--muted); margin:0 0 12px; line-height:1.5; }
+    .card .go { font-size:13px; color:var(--accent); font-weight:700; }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+  </style>
+
+  <script type="application/ld+json">${JSON.stringify(itemList)}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik ${isTR ? 'Hesaplama' : 'Calculators'}</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="${calcUrl}">${t.calcCrumb}</a> ›
+      ${t.crumb}
+    </nav>
+
+    <h1>${t.h1}</h1>
+    <p class="lead">${t.lead}</p>
+    <a class="cta" href="${calcUrl}">${t.cta}</a>
+
+    <div class="grid">
+${cards}
+    </div>
+
+    <footer>
+      <p>${isTR
+        ? 'Hesaplama araçları ve rehberler <a href="https://www.hidroteknik.com.tr">Hidroteknik A.Ş.</a> tarafından sunulmaktadır.'
+        : 'Calculators and guides provided by <a href="https://www.hidroteknik.com.tr">Hidroteknik Inc.</a>'}</p>
+    </footer>
+  </div>
+</body>
+</html>
+`;
+}
+
 const topics = require('./guides-data.js');
 
 let count = 0;
@@ -175,6 +314,13 @@ for (const topic of topics) {
   fs.writeFileSync(path.join(enDir, 'index.html'), page('en', topic));
   count += 2;
 }
+
+// Hub (index) pages for each language
+fs.mkdirSync(path.join(PUBLIC, 'rehber'), { recursive: true });
+fs.mkdirSync(path.join(PUBLIC, 'guide'), { recursive: true });
+fs.writeFileSync(path.join(PUBLIC, 'rehber', 'index.html'), hubPage('tr', topics));
+fs.writeFileSync(path.join(PUBLIC, 'guide', 'index.html'), hubPage('en', topics));
+count += 2;
 
 // Regenerate sitemap.xml with all pages + hreflang
 const staticUrls = [
@@ -189,6 +335,9 @@ const alt = (tr, en) =>
 let sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 sm += `  <url>\n    <loc>${TR_BASE}/</loc>\n${alt(TR_BASE + '/', EN_BASE + '/')}    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
 sm += `  <url>\n    <loc>${EN_BASE}/</loc>\n${alt(TR_BASE + '/', EN_BASE + '/')}    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
+// Guide hub pages
+sm += `  <url>\n    <loc>${TR_BASE}/rehber/</loc>\n${alt(TR_BASE + '/rehber/', EN_BASE + '/guide/')}    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
+sm += `  <url>\n    <loc>${EN_BASE}/guide/</loc>\n${alt(TR_BASE + '/rehber/', EN_BASE + '/guide/')}    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
 for (const topic of topics) {
   const tr = `${TR_BASE}/rehber/${topic.trSlug}/`;
   const en = `${EN_BASE}/guide/${topic.enSlug}/`;
