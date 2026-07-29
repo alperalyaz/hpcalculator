@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <title>Hydraulic Pump Flow Rate Calculation | Formula & Example — Hidroteknik</title>
+  <meta name="description" content="How to calculate hydraulic pump flow rate. Q = Vg × n / 1000 formula, volumetric efficiency, units and a worked example." />
+  <meta name="keywords" content="hydraulic pump flow rate calculation, pump flow formula, pump displacement, volumetric efficiency, litres per minute" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-pump-flow-rate-calculation/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-pompa-debisi-hesaplama/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-pump-flow-rate-calculation/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-pompa-debisi-hesaplama/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Hydraulic Pump Flow Rate Calculation" />
+  <meta property="og:description" content="How to calculate hydraulic pump flow rate. Q = Vg × n / 1000 formula, volumetric efficiency, units and a worked example." />
+  <meta property="og:url" content="https://calculate.hidroteknik.com.tr/guide/hydraulic-pump-flow-rate-calculation/" />
+  <meta property="og:image" content="https://calculate.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Hydraulic Pump Flow Rate Calculation","description":"How to calculate hydraulic pump flow rate. Q = Vg × n / 1000 formula, volumetric efficiency, units and a worked example.","step":[{"@type":"HowToStep","name":"Theoretical flow","text":"Q = Vg × n / 1000"},{"@type":"HowToStep","name":"Apply efficiency","text":"Qactual = Q × ηv"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is pump displacement?","acceptedAnswer":{"@type":"Answer","text":"Displacement (Vg) is the oil volume the pump delivers per full revolution (cc/rev). It is the primary driver of flow."}},{"@type":"Question","name":"Why does volumetric efficiency matter?","acceptedAnswer":{"@type":"Answer","text":"Internal leakage makes actual flow lower than theoretical. Volumetric efficiency (0.90–0.97) accounts for this difference."}},{"@type":"Question","name":"How does speed affect flow?","acceptedAnswer":{"@type":"Answer","text":"Flow is directly proportional to speed: doubling the rpm roughly doubles the flow."}}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Calculators</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://calculate.hidroteknik.com.tr/">Calculator</a> ›
+      Pump Flow Rate
+    </nav>
+
+    <h1>Hydraulic Pump Flow Rate Calculation</h1>
+    <p class="lead">A hydraulic pump's flow rate depends on its displacement (volume per revolution) and its speed. Volumetric efficiency brings the actual flow slightly below the theoretical value.</p>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">⚙ Open the Hydraulic Calculator →</a>
+
+    <h2>Flow Formula</h2>
+    <h3>Theoretical flow</h3><div class="formula">Q = V<sub>g</sub> × n / 1000</div><p><span class="muted">V<sub>g</sub>: displacement (cc/rev), n: speed (rpm), Q: L/min</span></p>
+<h3>Actual flow</h3><div class="formula">Q<sub>actual</sub> = Q × η<sub>v</sub></div><p><span class="muted">η<sub>v</sub>: volumetric efficiency (typically 0.90–0.97)</span></p>
+
+    <h2>Units</h2>
+    <table>
+      <tr><th>Quantity</th><th>Symbol</th><th>Unit</th></tr>
+      <tr><td>Displacement</td><td>Vg</td><td>cc/rev</td></tr><tr><td>Speed</td><td>n</td><td>rpm</td></tr><tr><td>Flow</td><td>Q</td><td>L/min</td></tr><tr><td>Volumetric efficiency</td><td>ηv</td><td>– (0.90–0.97)</td></tr>
+    </table>
+
+    <h2>Worked Example</h2>
+    <div class="example">
+      <p><strong>Given:</strong> Displacement Vg = 32 cc/rev, speed n = 1450 rpm, volumetric efficiency ηv = 0.95.</p>
+      <p class="step">1) Theoretical flow: Q = 32 × 1450 / 1000 = <span class='result'>46.4 L/min</span></p>
+<p class="step">2) Actual flow: Q = 46.4 × 0.95 = <span class='result'>44.1 L/min</span></p>
+    </div>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">Calculate with your own values →</a>
+
+    <h2>Frequently Asked Questions</h2>
+    <details><summary>What is pump displacement?</summary><p>Displacement (Vg) is the oil volume the pump delivers per full revolution (cc/rev). It is the primary driver of flow.</p></details>
+<details><summary>Why does volumetric efficiency matter?</summary><p>Internal leakage makes actual flow lower than theoretical. Volumetric efficiency (0.90–0.97) accounts for this difference.</p></details>
+<details><summary>How does speed affect flow?</summary><p>Flow is directly proportional to speed: doubling the rpm roughly doubles the flow.</p></details>
+
+    <footer>
+      <p>This guide is prepared by <a href="https://www.hidroteknik.com.tr">Hidroteknik Inc.</a> — over 40 years of hydraulic, pneumatic and automation solutions.</p>
+      <p><a href="https://calculate.hidroteknik.com.tr/">All calculation tools →</a></p>
+    </footer>
+  </div>
+</body>
+</html>

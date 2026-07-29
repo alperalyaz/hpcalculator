@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <title>Hydraulic Motor Power & Torque Calculation | Formula — Hidroteknik</title>
+  <meta name="description" content="How to calculate hydraulic motor power and torque. P = p × Q / 600 and T = Vg × Δp / 62.83 formulas, units and a worked example." />
+  <meta name="keywords" content="hydraulic motor power calculation, hydraulic motor torque, motor speed calculation, hydraulic power formula" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-motor-power-calculation/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-motor-gucu-hesaplama/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-motor-power-calculation/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-motor-gucu-hesaplama/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Hydraulic Motor Power &amp; Torque Calculation" />
+  <meta property="og:description" content="How to calculate hydraulic motor power and torque. P = p × Q / 600 and T = Vg × Δp / 62.83 formulas, units and a worked example." />
+  <meta property="og:url" content="https://calculate.hidroteknik.com.tr/guide/hydraulic-motor-power-calculation/" />
+  <meta property="og:image" content="https://calculate.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Hydraulic Motor Power & Torque Calculation","description":"How to calculate hydraulic motor power and torque. P = p × Q / 600 and T = Vg × Δp / 62.83 formulas, units and a worked example.","step":[{"@type":"HowToStep","name":"Compute power","text":"P = p × Q / 600"},{"@type":"HowToStep","name":"Compute torque","text":"T = Vg × Δp / 62.83"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the hydraulic power formula?","acceptedAnswer":{"@type":"Answer","text":"P (kW) = p (bar) × Q (L/min) / 600. This is the fluid power from pressure times flow."}},{"@type":"Question","name":"What determines torque?","acceptedAnswer":{"@type":"Answer","text":"Torque depends on motor displacement and pressure drop: T = Vg × Δp / 62.83. Larger displacement gives more torque."}},{"@type":"Question","name":"How is this different from mechanical power?","acceptedAnswer":{"@type":"Answer","text":"The above is hydraulic power. Mechanical output power is found by multiplying by the motor's overall efficiency (typically 0.85–0.92)."}}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Calculators</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://calculate.hidroteknik.com.tr/">Calculator</a> ›
+      Motor Power
+    </nav>
+
+    <h1>Hydraulic Motor Power & Torque Calculation</h1>
+    <p class="lead">The power a hydraulic motor produces depends on system pressure and flow; its torque depends on displacement and the pressure drop across it.</p>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">⚙ Open the Hydraulic Calculator →</a>
+
+    <h2>Power & Torque Formulas</h2>
+    <h3>Hydraulic power</h3><div class="formula">P (kW) = p (bar) × Q (L/min) / 600</div>
+<h3>Torque</h3><div class="formula">T (Nm) = V<sub>g</sub> (cc/rev) × Δp (bar) / 62.83</div>
+<h3>Speed</h3><div class="formula">n (rpm) = Q (L/min) × 1000 / V<sub>g</sub></div>
+
+    <h2>Units</h2>
+    <table>
+      <tr><th>Quantity</th><th>Symbol</th><th>Unit</th></tr>
+      <tr><td>Pressure</td><td>p, Δp</td><td>bar</td></tr><tr><td>Flow</td><td>Q</td><td>L/min</td></tr><tr><td>Displacement</td><td>Vg</td><td>cc/rev</td></tr><tr><td>Power</td><td>P</td><td>kW</td></tr><tr><td>Torque</td><td>T</td><td>Nm</td></tr>
+    </table>
+
+    <h2>Worked Example</h2>
+    <div class="example">
+      <p><strong>Given:</strong> Flow Q = 40 L/min, pressure p = 200 bar; motor displacement Vg = 250 cc/rev, Δp = 180 bar.</p>
+      <p class="step">1) Power: P = 200 × 40 / 600 = <span class='result'>13.3 kW</span></p>
+<p class="step">2) Torque: T = 250 × 180 / 62.83 = <span class='result'>716 Nm</span></p>
+<p class="step">3) Speed: n = 40 × 1000 / 250 = <span class='result'>160 rpm</span></p>
+    </div>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">Calculate with your own values →</a>
+
+    <h2>Frequently Asked Questions</h2>
+    <details><summary>What is the hydraulic power formula?</summary><p>P (kW) = p (bar) × Q (L/min) / 600. This is the fluid power from pressure times flow.</p></details>
+<details><summary>What determines torque?</summary><p>Torque depends on motor displacement and pressure drop: T = Vg × Δp / 62.83. Larger displacement gives more torque.</p></details>
+<details><summary>How is this different from mechanical power?</summary><p>The above is hydraulic power. Mechanical output power is found by multiplying by the motor's overall efficiency (typically 0.85–0.92).</p></details>
+
+    <footer>
+      <p>This guide is prepared by <a href="https://www.hidroteknik.com.tr">Hidroteknik Inc.</a> — over 40 years of hydraulic, pneumatic and automation solutions.</p>
+      <p><a href="https://calculate.hidroteknik.com.tr/">All calculation tools →</a></p>
+    </footer>
+  </div>
+</body>
+</html>

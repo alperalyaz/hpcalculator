@@ -13,15 +13,18 @@
   </script>
 
   <title>Hidrolik Silindir Kuvveti Hesaplama | Formül ve Örnek — Hidroteknik</title>
-  <meta name="description" content="Hidrolik silindir itme ve çekme kuvveti nasıl hesaplanır? F = P × A formülü, piston ve halka alanı, birim tablosu ve çözümlü örnek. Ücretsiz online hesaplayıcı." />
-  <meta name="keywords" content="hidrolik silindir kuvveti hesaplama, silindir itme kuvveti, silindir çekme kuvveti, F=P×A, hidrolik piston kuvveti, silindir kuvvet formülü, hidrolik hesaplama" />
+  <meta name="description" content="Hidrolik silindir itme ve çekme kuvveti nasıl hesaplanır? F = P × A formülü, piston ve halka alanı, birim tablosu ve çözümlü örnek." />
+  <meta name="keywords" content="hidrolik silindir kuvveti hesaplama, silindir itme kuvveti, silindir çekme kuvveti, hidrolik piston kuvveti, silindir kuvvet formülü" />
   <meta name="author" content="Hidroteknik A.Ş." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-cylinder-force-calculation/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Hidrolik Silindir Kuvveti Hesaplama — Formül ve Örnek" />
-  <meta property="og:description" content="F = P × A formülü, piston/halka alanı, birim tablosu ve çözümlü örnekle hidrolik silindir kuvveti hesabı." />
+  <meta property="og:title" content="Hidrolik Silindir Kuvveti Hesaplama" />
+  <meta property="og:description" content="Hidrolik silindir itme ve çekme kuvveti nasıl hesaplanır? F = P × A formülü, piston ve halka alanı, birim tablosu ve çözümlü örnek." />
   <meta property="og:url" content="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/" />
   <meta property="og:image" content="https://hesapla.hidroteknik.com.tr/og-image.jpg" />
   <meta property="og:locale" content="tr_TR" />
@@ -59,30 +62,8 @@
     .muted { color:var(--muted); font-size:14px; }
   </style>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"HowTo",
-    "name":"Hidrolik silindir kuvveti nasıl hesaplanır",
-    "description":"Hidrolik silindirin itme ve çekme kuvvetini F = P × A formülüyle hesaplama.",
-    "step":[
-      {"@type":"HowToStep","name":"Piston alanını bul","text":"A = π × D² / 4 (D: gömlek iç çapı, mm)"},
-      {"@type":"HowToStep","name":"Basıncı N/mm² çevir","text":"1 bar = 0,1 N/mm²"},
-      {"@type":"HowToStep","name":"Kuvveti hesapla","text":"F = P × 0,1 × A (F: Newton)"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Hidrolik silindir kuvveti formülü nedir?","acceptedAnswer":{"@type":"Answer","text":"Kuvvet = Basınç × Alan (F = P × A). İtme kuvvetinde alan piston alanıdır (π×D²/4), çekme kuvvetinde mil kesitini çıkardığımız halka alandır (π×(D²−d²)/4)."}},
-      {"@type":"Question","name":"İtme ve çekme kuvveti neden farklıdır?","acceptedAnswer":{"@type":"Answer","text":"Çekmede (mil tarafı) etkin alan mil kesiti kadar azalır, bu yüzden aynı basınçta çekme kuvveti itme kuvvetinden daima küçüktür."}},
-      {"@type":"Question","name":"Bar cinsinden basıncı nasıl kullanırım?","acceptedAnswer":{"@type":"Answer","text":"1 bar = 0,1 N/mm². Alanı mm² alırsanız F(N) = P(bar) × 0,1 × A(mm²). Pratikte F(kgf) ≈ P(bar) × A(cm²)."}}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Hidrolik Silindir Kuvveti Hesaplama","description":"Hidrolik silindir itme ve çekme kuvveti nasıl hesaplanır? F = P × A formülü, piston ve halka alanı, birim tablosu ve çözümlü örnek.","step":[{"@type":"HowToStep","name":"Piston alanını bul","text":"A = π × D² / 4"},{"@type":"HowToStep","name":"Basıncı çevir","text":"1 bar = 0,1 N/mm²"},{"@type":"HowToStep","name":"Kuvveti hesapla","text":"F = P × 0,1 × A"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hidrolik silindir kuvveti formülü nedir?","acceptedAnswer":{"@type":"Answer","text":"Kuvvet = Basınç × Alan (F = P × A). İtmede alan piston alanıdır (π×D²/4); çekmede mil kesitini çıkardığımız halka alandır (π×(D²−d²)/4)."}},{"@type":"Question","name":"İtme ve çekme kuvveti neden farklı?","acceptedAnswer":{"@type":"Answer","text":"Mil tarafında etkin alan mil kesiti kadar azalır; bu yüzden aynı basınçta çekme kuvveti itmeden daima küçüktür."}},{"@type":"Question","name":"Bar cinsinden basıncı nasıl kullanırım?","acceptedAnswer":{"@type":"Answer","text":"1 bar = 0,1 N/mm². Alanı mm² alırsanız F(N) = P(bar) × 0,1 × A(mm²). Pratik kabul: F(kgf) ≈ P(bar) × A(cm²)."}}]}</script>
 </head>
 <body>
   <div class="wrap">
@@ -98,54 +79,36 @@
     </nav>
 
     <h1>Hidrolik Silindir Kuvveti Hesaplama</h1>
-    <p class="lead">Bir hidrolik silindirin ürettiği <strong>itme</strong> ve <strong>çekme</strong> kuvveti, sistem basıncı ile pistonun etkin alanına bağlıdır. Bu rehberde formülü, birimleri ve çözümlü bir örneği bulacak; dilerseniz değerleri girip sonucu anında hesaplayabileceksiniz.</p>
+    <p class="lead">Bir hidrolik silindirin ürettiği <strong>itme</strong> ve <strong>çekme</strong> kuvveti, sistem basıncı ile pistonun etkin alanına bağlıdır. Aşağıda formülü, birimleri ve çözümlü bir örneği bulacaksınız.</p>
 
     <a class="cta" href="https://hesapla.hidroteknik.com.tr/">⚙ Hidrolik Hesaplayıcıyı Aç →</a>
 
     <h2>Temel Formül</h2>
-    <p>Hidrolik silindir kuvvetinin temeli basit bir bağıntıdır: <strong>Kuvvet = Basınç × Alan</strong>.</p>
     <div class="formula"><b>F</b> = <b>P</b> × <b>A</b></div>
-    <p>Burada etkin alan, kuvvetin yönüne göre değişir:</p>
-
-    <h3>İtme kuvveti (piston tarafı)</h3>
-    <div class="formula">A<sub>piston</sub> = π × D² / 4</div>
-    <p><span class="muted">D = gömlek (silindir) iç çapı</span></p>
-
-    <h3>Çekme kuvveti (mil tarafı)</h3>
-    <div class="formula">A<sub>halka</sub> = π × (D² − d²) / 4</div>
-    <p><span class="muted">d = mil (piston kolu) çapı. Mil kesiti düştüğü için çekme kuvveti daima itmeden küçüktür.</span></p>
+<h3>İtme kuvveti (piston tarafı)</h3><div class="formula">A<sub>piston</sub> = π × D² / 4</div><p><span class="muted">D = gömlek (silindir) iç çapı</span></p>
+<h3>Çekme kuvveti (mil tarafı)</h3><div class="formula">A<sub>halka</sub> = π × (D² − d²) / 4</div><p><span class="muted">d = mil çapı. Mil kesiti düştüğü için çekme kuvveti daima itmeden küçüktür.</span></p>
 
     <h2>Birimler</h2>
     <table>
       <tr><th>Büyüklük</th><th>Sembol</th><th>Birim</th></tr>
-      <tr><td>Basınç</td><td>P</td><td>bar (1 bar = 0,1 N/mm²)</td></tr>
-      <tr><td>Çap</td><td>D, d</td><td>mm</td></tr>
-      <tr><td>Alan</td><td>A</td><td>mm² (÷100 → cm²)</td></tr>
-      <tr><td>Kuvvet</td><td>F</td><td>N (÷9,81 → kgf)</td></tr>
+      <tr><td>Basınç</td><td>P</td><td>bar (1 bar = 0,1 N/mm²)</td></tr><tr><td>Çap</td><td>D, d</td><td>mm</td></tr><tr><td>Alan</td><td>A</td><td>mm² (÷100 → cm²)</td></tr><tr><td>Kuvvet</td><td>F</td><td>N (÷9,81 → kgf)</td></tr>
     </table>
-    <p>mm ve bar kullanırken pratik bağıntı: <strong>F (N) = P (bar) × 0,1 × A (mm²)</strong>.</p>
 
     <h2>Çözümlü Örnek</h2>
     <div class="example">
-      <p><strong>Verilen:</strong> Gömlek iç çapı D = 80 mm, mil çapı d = 45 mm, sistem basıncı P = 160 bar.</p>
+      <p><strong>Verilen:</strong> Gömlek iç çapı D = 80 mm, mil çapı d = 45 mm, basınç P = 160 bar.</p>
       <p class="step">1) Piston alanı: A = π × 80² / 4 = <strong>5026,5 mm²</strong></p>
-      <p class="step">2) İtme kuvveti: F = 160 × 0,1 × 5026,5 = <span class="result">80.424 N ≈ 80,4 kN ≈ 8,2 ton</span></p>
-      <p class="step">3) Halka alan: A = π × (80² − 45²) / 4 = <strong>3436 mm²</strong></p>
-      <p class="step">4) Çekme kuvveti: F = 160 × 0,1 × 3436 = <span class="result">54.976 N ≈ 55,0 kN ≈ 5,6 ton</span></p>
+<p class="step">2) İtme kuvveti: F = 160 × 0,1 × 5026,5 = <span class='result'>80.424 N ≈ 80,4 kN ≈ 8,2 ton</span></p>
+<p class="step">3) Halka alan: A = π × (80² − 45²) / 4 = <strong>3436 mm²</strong></p>
+<p class="step">4) Çekme kuvveti: F = 160 × 0,1 × 3436 = <span class='result'>54.976 N ≈ 55,0 kN ≈ 5,6 ton</span></p>
     </div>
 
     <a class="cta" href="https://hesapla.hidroteknik.com.tr/">Kendi değerlerinizle hesaplayın →</a>
 
     <h2>Sık Sorulan Sorular</h2>
-    <details><summary>Hidrolik silindir kuvveti formülü nedir?</summary>
-      <p>Kuvvet = Basınç × Alan (F = P × A). İtme kuvvetinde alan piston alanıdır (π×D²/4); çekme kuvvetinde mil kesitini çıkardığımız halka alandır (π×(D²−d²)/4).</p>
-    </details>
-    <details><summary>İtme ve çekme kuvveti neden farklı?</summary>
-      <p>Mil tarafında (çekme) etkin alan, mil kesiti kadar azalır. Bu yüzden aynı basınçta çekme kuvveti itme kuvvetinden daima daha küçüktür.</p>
-    </details>
-    <details><summary>Bar cinsinden basıncı nasıl kullanırım?</summary>
-      <p>1 bar = 0,1 N/mm². Alanı mm² alırsanız F(N) = P(bar) × 0,1 × A(mm²). Pratik kabul: F(kgf) ≈ P(bar) × A(cm²).</p>
-    </details>
+    <details><summary>Hidrolik silindir kuvveti formülü nedir?</summary><p>Kuvvet = Basınç × Alan (F = P × A). İtmede alan piston alanıdır (π×D²/4); çekmede mil kesitini çıkardığımız halka alandır (π×(D²−d²)/4).</p></details>
+<details><summary>İtme ve çekme kuvveti neden farklı?</summary><p>Mil tarafında etkin alan mil kesiti kadar azalır; bu yüzden aynı basınçta çekme kuvveti itmeden daima küçüktür.</p></details>
+<details><summary>Bar cinsinden basıncı nasıl kullanırım?</summary><p>1 bar = 0,1 N/mm². Alanı mm² alırsanız F(N) = P(bar) × 0,1 × A(mm²). Pratik kabul: F(kgf) ≈ P(bar) × A(cm²).</p></details>
 
     <footer>
       <p>Bu rehber <a href="https://www.hidroteknik.com.tr">Hidroteknik A.Ş.</a> tarafından hazırlanmıştır — 40 yılı aşkın süredir hidrolik, pnömatik ve otomasyon çözümleri.</p>

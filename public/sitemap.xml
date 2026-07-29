@@ -19,6 +19,97 @@
   </url>
   <url>
     <loc>https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-cylinder-force-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/hydraulic-cylinder-force-calculation/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-cylinder-force-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-silindir-kuvveti-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/hidrolik-pompa-debisi-hesaplama/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-pompa-debisi-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-pump-flow-rate-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-pompa-debisi-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/hydraulic-pump-flow-rate-calculation/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-pompa-debisi-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-pump-flow-rate-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-pompa-debisi-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/hidrolik-motor-gucu-hesaplama/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-motor-gucu-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-motor-power-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-motor-gucu-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/hydraulic-motor-power-calculation/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-motor-gucu-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-motor-power-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-motor-gucu-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/akumulator-boyutlandirma-hesabi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/akumulator-boyutlandirma-hesabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-accumulator-sizing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/akumulator-boyutlandirma-hesabi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/hydraulic-accumulator-sizing/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/akumulator-boyutlandirma-hesabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-accumulator-sizing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/akumulator-boyutlandirma-hesabi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pipe-diameter-flow-velocity-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/pipe-diameter-flow-velocity-calculation/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pipe-diameter-flow-velocity-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/pnomatik-silindir-hava-tuketimi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/pnomatik-silindir-hava-tuketimi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pneumatic-cylinder-air-consumption/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/pnomatik-silindir-hava-tuketimi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/pneumatic-cylinder-air-consumption/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/pnomatik-silindir-hava-tuketimi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pneumatic-cylinder-air-consumption/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/pnomatik-silindir-hava-tuketimi/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

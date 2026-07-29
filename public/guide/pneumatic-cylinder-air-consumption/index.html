@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <title>Pneumatic Cylinder Air Consumption Calculation — Hidroteknik</title>
+  <meta name="description" content="How to calculate pneumatic cylinder air consumption. Compression ratio, free air flow (Nl/min), units and a worked example." />
+  <meta name="keywords" content="pneumatic cylinder air consumption, air flow calculation, compression ratio, free air, pneumatic calculation" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://calculate.hidroteknik.com.tr/guide/pneumatic-cylinder-air-consumption/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/pnomatik-silindir-hava-tuketimi/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pneumatic-cylinder-air-consumption/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/pnomatik-silindir-hava-tuketimi/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Pneumatic Cylinder Air Consumption Calculation" />
+  <meta property="og:description" content="How to calculate pneumatic cylinder air consumption. Compression ratio, free air flow (Nl/min), units and a worked example." />
+  <meta property="og:url" content="https://calculate.hidroteknik.com.tr/guide/pneumatic-cylinder-air-consumption/" />
+  <meta property="og:image" content="https://calculate.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Pneumatic Cylinder Air Consumption Calculation","description":"How to calculate pneumatic cylinder air consumption. Compression ratio, free air flow (Nl/min), units and a worked example.","step":[{"@type":"HowToStep","name":"Compression ratio","text":"r = (P + 1.013) / 1.013"},{"@type":"HowToStep","name":"Flow","text":"Q ≈ 2 × A × s × n × r"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does free air (Nl) mean?","acceptedAnswer":{"@type":"Answer","text":"Normal litres; the volume of air at atmospheric pressure (1.013 bar). Compressor capacity is compared in the same unit."}},{"@type":"Question","name":"What is the compression ratio?","acceptedAnswer":{"@type":"Answer","text":"How many times the air at working pressure is compressed relative to atmosphere: r = (P+1.013)/1.013. For 6 bar it is ≈ 6.9."}},{"@type":"Question","name":"Is the rod volume ignored?","acceptedAnswer":{"@type":"Answer","text":"In practical calculations it is usually ignored; for precise work the rod cross-section is subtracted on the retract stroke."}}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Calculators</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://calculate.hidroteknik.com.tr/">Calculator</a> ›
+      Pneumatic Air Consumption
+    </nav>
+
+    <h1>Pneumatic Cylinder Air Consumption Calculation</h1>
+    <p class="lead">A pneumatic cylinder's air consumption depends on the piston volume, the working pressure (compression ratio) and the cycle rate. The result is given in normal (free) litres.</p>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">⚙ Open the Hydraulic Calculator →</a>
+
+    <h2>Formula</h2>
+    <h3>Compression ratio</h3><div class="formula">r = (P + 1.013) / 1.013</div><p><span class="muted">P: working pressure (bar, gauge)</span></p>
+<h3>Flow (extend + retract)</h3><div class="formula">Q ≈ 2 × A × s × n × r</div><p><span class="muted">A: piston area, s: stroke, n: cycles/min → free air (Nl/min)</span></p>
+
+    <h2>Units</h2>
+    <table>
+      <tr><th>Quantity</th><th>Symbol</th><th>Unit</th></tr>
+      <tr><td>Bore</td><td>D</td><td>mm</td></tr><tr><td>Stroke</td><td>s</td><td>mm</td></tr><tr><td>Pressure</td><td>P</td><td>bar (gauge)</td></tr><tr><td>Cycles</td><td>n</td><td>1/min</td></tr><tr><td>Flow</td><td>Q</td><td>Nl/min</td></tr>
+    </table>
+
+    <h2>Worked Example</h2>
+    <div class="example">
+      <p><strong>Given:</strong> Bore D = 50 mm, stroke s = 200 mm, pressure P = 6 bar, cycles n = 30 /min.</p>
+      <p class="step">1) Piston area: A = π × 50² / 4 = 1963 mm² = 19.63 cm²</p>
+<p class="step">2) Compression ratio: r = (6 + 1.013) / 1.013 = 6.92</p>
+<p class="step">3) Free air per stroke: 19.63 × 20 × 6.92 / 1000 = 2.72 Nl</p>
+<p class="step">4) Flow (extend+retract × cycles): 2 × 2.72 × 30 = <span class='result'>≈ 163 Nl/min</span></p>
+    </div>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">Calculate with your own values →</a>
+
+    <h2>Frequently Asked Questions</h2>
+    <details><summary>What does free air (Nl) mean?</summary><p>Normal litres; the volume of air at atmospheric pressure (1.013 bar). Compressor capacity is compared in the same unit.</p></details>
+<details><summary>What is the compression ratio?</summary><p>How many times the air at working pressure is compressed relative to atmosphere: r = (P+1.013)/1.013. For 6 bar it is ≈ 6.9.</p></details>
+<details><summary>Is the rod volume ignored?</summary><p>In practical calculations it is usually ignored; for precise work the rod cross-section is subtracted on the retract stroke.</p></details>
+
+    <footer>
+      <p>This guide is prepared by <a href="https://www.hidroteknik.com.tr">Hidroteknik Inc.</a> — over 40 years of hydraulic, pneumatic and automation solutions.</p>
+      <p><a href="https://calculate.hidroteknik.com.tr/">All calculation tools →</a></p>
+    </footer>
+  </div>
+</body>
+</html>

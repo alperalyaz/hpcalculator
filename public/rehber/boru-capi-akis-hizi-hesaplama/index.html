@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <title>Boru Çapı ve Akış Hızı Hesaplama | Hidrolik — Hidroteknik</title>
+  <meta name="description" content="Hidrolik hatlarda boru çapı ve akış hızı nasıl hesaplanır? Formül, önerilen hızlar tablosu, birimler ve çözümlü örnek." />
+  <meta name="keywords" content="boru çapı hesaplama, akış hızı hesaplama, hidrolik hat hızı, boru iç çapı hesabı, önerilen akış hızları" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pipe-diameter-flow-velocity-calculation/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Boru Çapı ve Akış Hızı Hesaplama" />
+  <meta property="og:description" content="Hidrolik hatlarda boru çapı ve akış hızı nasıl hesaplanır? Formül, önerilen hızlar tablosu, birimler ve çözümlü örnek." />
+  <meta property="og:url" content="https://hesapla.hidroteknik.com.tr/rehber/boru-capi-akis-hizi-hesaplama/" />
+  <meta property="og:image" content="https://hesapla.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Boru Çapı ve Akış Hızı Hesaplama","description":"Hidrolik hatlarda boru çapı ve akış hızı nasıl hesaplanır? Formül, önerilen hızlar tablosu, birimler ve çözümlü örnek.","step":[{"@type":"HowToStep","name":"Alanı bul","text":"A = Q / (v × 60000)"},{"@type":"HowToStep","name":"Çapı bul","text":"D = √(4A/π) × 1000"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hidrolik hatlarda önerilen hız nedir?","acceptedAnswer":{"@type":"Answer","text":"Emme hattı 0,5–1,5 m/s, basınç hattı 3–6 m/s, dönüş hattı 2–4 m/s aralığında tutulur."}},{"@type":"Question","name":"Hız çok yüksek olursa ne olur?","acceptedAnswer":{"@type":"Answer","text":"Basınç kaybı, türbülans, ısınma ve gürültü artar. Bu yüzden çapı bir üst standarda yuvarlamak iyidir."}},{"@type":"Question","name":"Çapı neden yukarı yuvarlarız?","acceptedAnswer":{"@type":"Answer","text":"Hesaplanan çap ara bir değer çıkar; en yakın büyük standart çap seçilerek hız güvenli tarafta (biraz düşük) tutulur."}}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Hesaplama</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://hesapla.hidroteknik.com.tr/">Hesaplayıcı</a> ›
+      Boru Çapı & Akış Hızı
+    </nav>
+
+    <h1>Boru Çapı ve Akış Hızı Hesaplama</h1>
+    <p class="lead">Hidrolik hatlarda doğru boru çapı, akış hızını önerilen aralıkta tutar. Çok yüksek hız basınç kaybı ve ısınma, çok düşük hız gereksiz maliyet demektir.</p>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">⚙ Hidrolik Hesaplayıcıyı Aç →</a>
+
+    <h2>Formül</h2>
+    <h3>Akış hızı</h3><div class="formula">v = Q / (A × 60000)</div><p><span class="muted">Q: L/dk, A: m², v: m/s</span></p>
+<h3>Gerekli iç çap</h3><div class="formula">D = √(4 × A / π) × 1000</div><p><span class="muted">A = Q / (v × 60000)  [m²],  D: mm</span></p>
+<h3>Önerilen hızlar</h3><div class="formula">Emme: 0,5–1,5 · Basınç: 3–6 · Dönüş: 2–4 m/s</div>
+
+    <h2>Birimler</h2>
+    <table>
+      <tr><th>Büyüklük</th><th>Sembol</th><th>Birim</th></tr>
+      <tr><td>Debi</td><td>Q</td><td>L/dk</td></tr><tr><td>Hız</td><td>v</td><td>m/s</td></tr><tr><td>Alan</td><td>A</td><td>m² (×10⁶ → mm²)</td></tr><tr><td>İç çap</td><td>D</td><td>mm</td></tr>
+    </table>
+
+    <h2>Çözümlü Örnek</h2>
+    <div class="example">
+      <p><strong>Verilen:</strong> Debi Q = 40 L/dk, hedef hız v = 4 m/s (basınç hattı).</p>
+      <p class="step">1) Alan: A = 40 / (4 × 60000) = 1,667×10⁻⁴ m² = <strong>166,7 mm²</strong></p>
+<p class="step">2) İç çap: D = √(4 × 166,7 / π) = <span class='result'>14,6 mm → en yakın üst standart ≥ 16 mm</span></p>
+    </div>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">Kendi değerlerinizle hesaplayın →</a>
+
+    <h2>Sık Sorulan Sorular</h2>
+    <details><summary>Hidrolik hatlarda önerilen hız nedir?</summary><p>Emme hattı 0,5–1,5 m/s, basınç hattı 3–6 m/s, dönüş hattı 2–4 m/s aralığında tutulur.</p></details>
+<details><summary>Hız çok yüksek olursa ne olur?</summary><p>Basınç kaybı, türbülans, ısınma ve gürültü artar. Bu yüzden çapı bir üst standarda yuvarlamak iyidir.</p></details>
+<details><summary>Çapı neden yukarı yuvarlarız?</summary><p>Hesaplanan çap ara bir değer çıkar; en yakın büyük standart çap seçilerek hız güvenli tarafta (biraz düşük) tutulur.</p></details>
+
+    <footer>
+      <p>Bu rehber <a href="https://www.hidroteknik.com.tr">Hidroteknik A.Ş.</a> tarafından hazırlanmıştır — 40 yılı aşkın süredir hidrolik, pnömatik ve otomasyon çözümleri.</p>
+      <p><a href="https://hesapla.hidroteknik.com.tr/">Tüm hesaplama araçları →</a></p>
+    </footer>
+  </div>
+</body>
+</html>
