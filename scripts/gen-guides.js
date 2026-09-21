@@ -62,6 +62,9 @@ function page(lang, topic) {
     gtag('config', '${GA}');
   </script>
 
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
   <title>${c.title}</title>
   <meta name="description" content="${esc(c.desc)}" />
   <meta name="keywords" content="${esc(c.keywords)}" />
@@ -227,6 +230,9 @@ function hubPage(lang, topics) {
     gtag('js', new Date());
     gtag('config', '${GA}');
   </script>
+
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
 
   <title>${t.title}</title>
   <meta name="description" content="${esc(t.desc)}" />
