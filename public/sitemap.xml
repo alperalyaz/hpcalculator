@@ -129,4 +129,100 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/burkulma-hesabi-mil-capi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/burkulma-hesabi-mil-capi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/buckling-load-shaft-diameter-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/burkulma-hesabi-mil-capi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/buckling-load-shaft-diameter-calculation/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/burkulma-hesabi-mil-capi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/buckling-load-shaft-diameter-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/burkulma-hesabi-mil-capi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/boru-mil-agirligi-hesaplama/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/boru-mil-agirligi-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pipe-rod-weight-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/boru-mil-agirligi-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/pipe-rod-weight-calculation/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/boru-mil-agirligi-hesaplama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pipe-rod-weight-calculation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/boru-mil-agirligi-hesaplama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/thread-pitch-size-identification/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/thread-pitch-size-identification/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/thread-pitch-size-identification/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/basinc-birimi-donusturme-bar-psi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/basinc-birimi-donusturme-bar-psi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pressure-unit-conversion-bar-psi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/basinc-birimi-donusturme-bar-psi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/pressure-unit-conversion-bar-psi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/basinc-birimi-donusturme-bar-psi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/pressure-unit-conversion-bar-psi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/basinc-birimi-donusturme-bar-psi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/gear-pump-selection/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/gear-pump-selection/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/gear-pump-selection/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hesapla.hidroteknik.com.tr/rehber/hidrolik-guc-unitesi-boyutlandirma/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-guc-unitesi-boyutlandirma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-power-unit-sizing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-guc-unitesi-boyutlandirma/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculate.hidroteknik.com.tr/guide/hydraulic-power-unit-sizing/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-guc-unitesi-boyutlandirma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/hydraulic-power-unit-sizing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/hidrolik-guc-unitesi-boyutlandirma/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

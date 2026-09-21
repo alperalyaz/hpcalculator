@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <title>Dişli Pompa Seçimi | Deplasman Hesabı — Hidroteknik</title>
+  <meta name="description" content="İhtiyaca göre dişli pompa nasıl seçilir? Gerekli deplasman formülü, devir ve basınç sınıfı, çözümlü örnek." />
+  <meta name="keywords" content="dişli pompa seçimi, pompa deplasman hesabı, dişli pompa hesaplama, pompa seçim kriterleri, hidrolik pompa seçimi" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/gear-pump-selection/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Dişli Pompa Seçimi" />
+  <meta property="og:description" content="İhtiyaca göre dişli pompa nasıl seçilir? Gerekli deplasman formülü, devir ve basınç sınıfı, çözümlü örnek." />
+  <meta property="og:url" content="https://hesapla.hidroteknik.com.tr/rehber/disli-pompa-secimi/" />
+  <meta property="og:image" content="https://hesapla.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Dişli Pompa Seçimi","description":"İhtiyaca göre dişli pompa nasıl seçilir? Gerekli deplasman formülü, devir ve basınç sınıfı, çözümlü örnek.","step":[{"@type":"HowToStep","name":"Deplasmanı hesapla","text":"Vg = Q × 1000 / (n × ηv)"},{"@type":"HowToStep","name":"Standart seç","text":"En yakın büyük deplasman"},{"@type":"HowToStep","name":"Basıncı doğrula","text":"Pompa basınç sınıfı ≥ sistem basıncı"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Pompa deplasmanı nasıl seçilir?","acceptedAnswer":{"@type":"Answer","text":"Gerekli debi ve devirden Vg = Q×1000/(n×ηv) ile hesaplanır, sonra en yakın büyük standart deplasman seçilir."}},{"@type":"Question","name":"Basınç sınıfı neden önemli?","acceptedAnswer":{"@type":"Answer","text":"Her pompanın maksimum sürekli/aralıklı çalışma basıncı vardır. Sisteminizin basıncı bu sınırın altında kalmalıdır."}},{"@type":"Question","name":"Devir pompayı nasıl etkiler?","acceptedAnswer":{"@type":"Answer","text":"Debi devirle doğru orantılıdır. Aynı deplasmanlı pompa daha yüksek devirde daha çok debi verir, ama üretici min/max devir sınırlarına uyulmalıdır."}}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Hesaplama</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://hesapla.hidroteknik.com.tr/">Hesaplayıcı</a> ›
+      Dişli Pompa Seçimi
+    </nav>
+
+    <h1>Dişli Pompa Seçimi</h1>
+    <p class="lead">Doğru dişli pompayı seçmek için üç şeyi bilmelisiniz: gerekli <strong>debi</strong>, motor <strong>devri</strong> ve çalışma <strong>basıncı</strong>. Bunlardan gerekli deplasman hesaplanır.</p>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">⚙ Hidrolik Hesaplayıcıyı Aç →</a>
+
+    <h2>Gerekli Deplasman</h2>
+    <div class="formula">V<sub>g</sub> = Q × 1000 / (n × η<sub>v</sub>)</div><p><span class="muted">Q: gerekli debi (L/dk), n: devir (rpm), η<sub>v</sub>: volumetrik verim (≈0,90–0,95), V<sub>g</sub>: cc/dev</span></p>
+
+    <h2>Birimler</h2>
+    <table>
+      <tr><th>Büyüklük</th><th>Sembol</th><th>Birim</th></tr>
+      <tr><td>Debi</td><td>Q</td><td>L/dk</td></tr><tr><td>Devir</td><td>n</td><td>rpm</td></tr><tr><td>Volumetrik verim</td><td>ηv</td><td>– (0,90–0,95)</td></tr><tr><td>Deplasman</td><td>Vg</td><td>cc/dev</td></tr>
+    </table>
+
+    <h2>Çözümlü Örnek</h2>
+    <div class="example">
+      <p><strong>Verilen:</strong> Gerekli debi Q = 40 L/dk, motor devri n = 1450 rpm, volumetrik verim ηv = 0,92.</p>
+      <p class="step">1) Deplasman: Vg = 40 × 1000 / (1450 × 0,92) = <span class='result'>≈ 30 cc/dev</span></p>
+<p class="step">2) En yakın standart deplasmanı seç (ör. 30 cc/dev)</p>
+<p class="step">3) Pompanın basınç sınıfının çalışma basıncını karşıladığını doğrula</p>
+    </div>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">Kendi değerlerinizle hesaplayın →</a>
+
+    <h2>Sık Sorulan Sorular</h2>
+    <details><summary>Pompa deplasmanı nasıl seçilir?</summary><p>Gerekli debi ve devirden Vg = Q×1000/(n×ηv) ile hesaplanır, sonra en yakın büyük standart deplasman seçilir.</p></details>
+<details><summary>Basınç sınıfı neden önemli?</summary><p>Her pompanın maksimum sürekli/aralıklı çalışma basıncı vardır. Sisteminizin basıncı bu sınırın altında kalmalıdır.</p></details>
+<details><summary>Devir pompayı nasıl etkiler?</summary><p>Debi devirle doğru orantılıdır. Aynı deplasmanlı pompa daha yüksek devirde daha çok debi verir, ama üretici min/max devir sınırlarına uyulmalıdır.</p></details>
+
+    <footer>
+      <p>Bu rehber <a href="https://www.hidroteknik.com.tr">Hidroteknik A.Ş.</a> tarafından hazırlanmıştır — 40 yılı aşkın süredir hidrolik, pnömatik ve otomasyon çözümleri.</p>
+      <p><a href="https://hesapla.hidroteknik.com.tr/">Tüm hesaplama araçları →</a></p>
+    </footer>
+  </div>
+</body>
+</html>

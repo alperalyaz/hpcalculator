@@ -380,4 +380,378 @@ module.exports = [
       ctaTop: CTA_EN_TOP, ctaBottom: CTA_EN_BOT,
     },
   },
+
+  // 7 — Buckling load & shaft diameter
+  {
+    trSlug: 'burkulma-hesabi-mil-capi',
+    enSlug: 'buckling-load-shaft-diameter-calculation',
+    tr: {
+      title: 'Burkulma Hesabı ve Minimum Şaft Çapı | Euler — Hidroteknik',
+      desc: 'Basınç altındaki mil/kolon burkulma yükü nasıl hesaplanır? Euler formülü, mesnet katsayıları, birimler ve çözümlü örnek.',
+      keywords: 'burkulma hesabı, euler burkulma yükü, kritik burkulma yükü, minimum şaft çapı, mil burkulma, kolon burkulma',
+      h1: 'Burkulma Hesabı ve Minimum Şaft Çapı', crumb: 'Burkulma & Şaft Çapı',
+      lead: 'Uzun ve ince bir mil eksenel basınç altında, kırılmadan önce yanal olarak <strong>burkulur</strong>. Euler formülü, milin taşıyabileceği kritik yükü verir.',
+      formulaTitle: 'Euler Formülü',
+      formulas: [
+        { label: 'Kritik burkulma yükü', html: 'P<sub>kr</sub> = π² × E × I / (K × L)²' },
+        { label: 'Atalet momenti (dolu mil)', html: 'I = π × d⁴ / 64' },
+        { label: 'Mesnet katsayısı K', html: 'İki ucu mafsallı: 1 · Ankastre-serbest: 2 · Ankastre-mafsallı: 0,7 · İki ucu ankastre: 0,5' },
+      ],
+      units: [['Elastisite modülü', 'E', 'N/mm² (çelik ≈ 210.000)'], ['Atalet momenti', 'I', 'mm⁴'], ['Boy', 'L', 'mm'], ['Kritik yük', 'Pkr', 'N']],
+      example: {
+        given: 'Dolu mil d = 40 mm, boy L = 1000 mm, iki ucu mafsallı (K = 1), E = 210.000 N/mm².',
+        steps: [
+          '1) Atalet momenti: I = π × 40⁴ / 64 = <strong>125.664 mm⁴</strong>',
+          "2) Kritik yük: P<sub>kr</sub> = π² × 210000 × 125664 / (1 × 1000)² = <span class='result'>≈ 260 kN</span>",
+          "3) Emniyet katsayısı S = 3,5 → emniyetli yük: <span class='result'>≈ 74 kN</span>",
+        ],
+      },
+      faq: [
+        { q: 'Mesnet katsayısı (K) nedir?', a: 'Milin uçlarının nasıl bağlandığını ifade eder. İki ucu mafsallı K=1, ankastre-serbest K=2, ankastre-mafsallı K=0,7, iki ucu ankastre K=0,5. K büyüdükçe burkulma yükü düşer.' },
+        { q: 'Emniyet katsayısı ne kadar olmalı?', a: 'Burkulma ani ve tehlikeli olduğu için genelde 3–5 arası emniyet katsayısı seçilir; kritik yük bu katsayıya bölünerek çalışma yükü bulunur.' },
+        { q: 'Kısa millerde Euler geçerli mi?', a: 'Hayır. Euler sadece narin (uzun/ince) çubuklarda geçerlidir. Kısa/kalın millerde akma (ezilme) baskındır, farklı kontrol gerekir.' },
+      ],
+      howto: [{ name: 'Atalet momenti', text: 'I = π × d⁴ / 64' }, { name: 'Kritik yük', text: 'Pkr = π² × E × I / (K × L)²' }],
+      ctaTop: CTA_TR_TOP, ctaBottom: CTA_TR_BOT,
+    },
+    en: {
+      title: 'Buckling Load & Minimum Shaft Diameter | Euler — Hidroteknik',
+      desc: 'How to calculate the buckling load of a shaft/column under compression. Euler formula, end-fixity factors, units and a worked example.',
+      keywords: 'buckling calculation, euler buckling load, critical buckling load, minimum shaft diameter, column buckling, rod buckling',
+      h1: 'Buckling Load & Minimum Shaft Diameter', crumb: 'Buckling & Shaft Diameter',
+      lead: 'A long, slender shaft under axial compression <strong>buckles</strong> sideways before it crushes. Euler\'s formula gives the critical load the shaft can carry.',
+      formulaTitle: 'Euler Formula',
+      formulas: [
+        { label: 'Critical buckling load', html: 'P<sub>cr</sub> = π² × E × I / (K × L)²' },
+        { label: 'Second moment of area (solid shaft)', html: 'I = π × d⁴ / 64' },
+        { label: 'End-fixity factor K', html: 'Pinned-pinned: 1 · Fixed-free: 2 · Fixed-pinned: 0.7 · Fixed-fixed: 0.5' },
+      ],
+      units: [['Elastic modulus', 'E', 'N/mm² (steel ≈ 210,000)'], ['Second moment of area', 'I', 'mm⁴'], ['Length', 'L', 'mm'], ['Critical load', 'Pcr', 'N']],
+      example: {
+        given: 'Solid shaft d = 40 mm, length L = 1000 mm, pinned-pinned (K = 1), E = 210,000 N/mm².',
+        steps: [
+          '1) Second moment: I = π × 40⁴ / 64 = <strong>125,664 mm⁴</strong>',
+          "2) Critical load: P<sub>cr</sub> = π² × 210000 × 125664 / (1 × 1000)² = <span class='result'>≈ 260 kN</span>",
+          "3) Safety factor S = 3.5 → allowable load: <span class='result'>≈ 74 kN</span>",
+        ],
+      },
+      faq: [
+        { q: 'What is the end-fixity factor (K)?', a: 'It captures how the shaft ends are supported. Pinned-pinned K=1, fixed-free K=2, fixed-pinned K=0.7, fixed-fixed K=0.5. A larger K lowers the buckling load.' },
+        { q: 'What safety factor should I use?', a: 'Because buckling is sudden and dangerous, a factor of 3–5 is common; the critical load is divided by this to get the working load.' },
+        { q: 'Does Euler apply to short shafts?', a: 'No. Euler applies only to slender (long/thin) members. Short/thick shafts are governed by yielding (crushing) and need a different check.' },
+      ],
+      howto: [{ name: 'Second moment', text: 'I = π × d⁴ / 64' }, { name: 'Critical load', text: 'Pcr = π² × E × I / (K × L)²' }],
+      ctaTop: CTA_EN_TOP, ctaBottom: CTA_EN_BOT,
+    },
+  },
+
+  // 8 — Pipe & rod weight
+  {
+    trSlug: 'boru-mil-agirligi-hesaplama',
+    enSlug: 'pipe-rod-weight-calculation',
+    tr: {
+      title: 'Boru ve Mil Ağırlığı Hesaplama | kg/m — Hidroteknik',
+      desc: 'Boru ve dolu milin metre başına ağırlığı nasıl hesaplanır? Formül, çelik yoğunluğu, birimler ve çözümlü örnek.',
+      keywords: 'boru ağırlığı hesaplama, mil ağırlığı hesaplama, kg/m hesabı, çelik boru ağırlığı, metre ağırlık',
+      h1: 'Boru ve Mil Ağırlığı Hesaplama', crumb: 'Boru & Mil Ağırlığı',
+      lead: 'Bir çubuğun ağırlığı, kesit alanı ile boyunun ve malzeme yoğunluğunun çarpımıdır. Dolu milde tam kesit, boruda halka kesit kullanılır.',
+      formulaTitle: 'Ağırlık Formülü',
+      formulas: [
+        { label: 'Kütle', html: 'm = ρ × A × L' },
+        { label: 'Dolu mil kesiti', html: 'A = π × d² / 4' },
+        { label: 'Boru kesiti', html: 'A = π × (D² − d²) / 4', note: 'D: dış çap, d: iç çap. Çelik yoğunluğu ρ ≈ 7,85 kg/dm³.' },
+      ],
+      units: [['Yoğunluk', 'ρ', 'kg/dm³ (çelik 7,85)'], ['Çap', 'D, d', 'mm'], ['Boy', 'L', 'm'], ['Kütle', 'm', 'kg']],
+      example: {
+        given: 'Çelik dolu mil Ø40 mm ve çelik boru Ø60/Ø50 mm için metre ağırlığı.',
+        steps: [
+          "1) Dolu mil Ø40: A = π×40²/4 = 12,57 cm² → m = <span class='result'>9,86 kg/m</span>",
+          "2) Boru Ø60/Ø50: A = π×(60²−50²)/4 = 8,64 cm² → m = <span class='result'>6,78 kg/m</span>",
+        ],
+      },
+      faq: [
+        { q: 'Çelik yoğunluğu kaçtır?', a: 'Yaklaşık 7,85 kg/dm³ (7850 kg/m³). Alüminyum ≈ 2,70; paslanmaz çelik ≈ 8,00 kg/dm³.' },
+        { q: 'Boru ile dolu mil farkı nedir?', a: 'Dolu milde tam daire kesiti (π×d²/4), boruda ise iç boşluğu çıkardığımız halka kesit (π×(D²−d²)/4) kullanılır.' },
+        { q: 'Toplam ağırlığı nasıl bulurum?', a: 'Metre ağırlığını (kg/m) parçanın boyu (m) ile çarparsınız.' },
+      ],
+      howto: [{ name: 'Kesiti bul', text: 'Dolu: π×d²/4 · Boru: π×(D²−d²)/4' }, { name: 'Kütleyi hesapla', text: 'm = ρ × A × L' }],
+      ctaTop: CTA_TR_TOP, ctaBottom: CTA_TR_BOT,
+    },
+    en: {
+      title: 'Pipe & Rod Weight Calculation | kg/m — Hidroteknik',
+      desc: 'How to calculate the weight per metre of pipe and solid rod. Formula, steel density, units and a worked example.',
+      keywords: 'pipe weight calculation, rod weight calculation, kg/m calculation, steel pipe weight, weight per metre',
+      h1: 'Pipe & Rod Weight Calculation', crumb: 'Pipe & Rod Weight',
+      lead: 'The weight of a bar is its cross-sectional area times its length and material density. A solid rod uses the full section; a pipe uses the annular section.',
+      formulaTitle: 'Weight Formula',
+      formulas: [
+        { label: 'Mass', html: 'm = ρ × A × L' },
+        { label: 'Solid rod section', html: 'A = π × d² / 4' },
+        { label: 'Pipe section', html: 'A = π × (D² − d²) / 4', note: 'D: outer diameter, d: inner diameter. Steel density ρ ≈ 7.85 kg/dm³.' },
+      ],
+      units: [['Density', 'ρ', 'kg/dm³ (steel 7.85)'], ['Diameter', 'D, d', 'mm'], ['Length', 'L', 'm'], ['Mass', 'm', 'kg']],
+      example: {
+        given: 'Weight per metre for a steel solid rod Ø40 mm and a steel pipe Ø60/Ø50 mm.',
+        steps: [
+          "1) Solid rod Ø40: A = π×40²/4 = 12.57 cm² → m = <span class='result'>9.86 kg/m</span>",
+          "2) Pipe Ø60/Ø50: A = π×(60²−50²)/4 = 8.64 cm² → m = <span class='result'>6.78 kg/m</span>",
+        ],
+      },
+      faq: [
+        { q: 'What is the density of steel?', a: 'About 7.85 kg/dm³ (7850 kg/m³). Aluminium ≈ 2.70; stainless steel ≈ 8.00 kg/dm³.' },
+        { q: 'What is the difference between pipe and solid rod?', a: 'A solid rod uses the full circular section (π×d²/4); a pipe uses the annular section with the bore removed (π×(D²−d²)/4).' },
+        { q: 'How do I get the total weight?', a: 'Multiply the weight per metre (kg/m) by the length of the part (m).' },
+      ],
+      howto: [{ name: 'Find the section', text: 'Solid: π×d²/4 · Pipe: π×(D²−d²)/4' }, { name: 'Compute mass', text: 'm = ρ × A × L' }],
+      ctaTop: CTA_EN_TOP, ctaBottom: CTA_EN_BOT,
+    },
+  },
+
+  // 9 — Thread pitch / identification
+  {
+    trSlug: 'dis-adimi-olcusu-tanimlama',
+    enSlug: 'thread-pitch-size-identification',
+    tr: {
+      title: 'Diş Adımı ve Ölçüsü Tanımlama | Metrik, BSP, NPT — Hidroteknik',
+      desc: 'Bir dişin ölçüsü ve adımı nasıl bulunur? Büyük çap ve adım ölçümü, metrik/BSP/NPT ayrımı ve pratik örnek.',
+      keywords: 'diş adımı ölçme, diş ölçüsü tanımlama, metrik diş, bsp npt farkı, diş tanımlama, vida ölçüsü',
+      h1: 'Diş Adımı ve Ölçüsü Tanımlama', crumb: 'Diş Adımı Tanımlama',
+      lead: 'Bilinmeyen bir dişi tanımlamak için iki ölçü yeterlidir: <strong>büyük çap</strong> (kumpasla) ve <strong>adım</strong> (diş tarağı ile). Bu ikisi standart tablolarla eşleştirilir.',
+      formulaTitle: 'Temel İlişki',
+      formulas: [
+        { label: 'Metrik diş (60°) diş dibi çapı', html: 'd<sub>dip</sub> ≈ D − 1,0825 × P' },
+        { label: 'İnç dişte adım', html: 'P = 25,4 / (inç başına diş sayısı)', note: 'D: büyük çap (mm), P: adım (mm)' },
+      ],
+      units: [['Büyük çap', 'D', 'mm'], ['Adım', 'P', 'mm'], ['Diş sayısı', 'TPI', 'inç başına diş']],
+      example: {
+        given: 'Kumpasla dış çap ≈ 20,0 mm ölçüldü, diş tarağı adımı P = 2,5 mm gösterdi.',
+        steps: [
+          "1) 20 mm + 2,5 mm adım → standart eşleşme: <span class='result'>M20 × 2,5 (metrik kaba diş)</span>",
+          '2) Diş dibi çapı ≈ 20 − 1,0825×2,5 = 17,3 mm (kontrol için)',
+        ],
+      },
+      faq: [
+        { q: 'Adımı nasıl ölçerim?', a: 'En kolayı diş tarağı (pitch gauge) ile: dişe uyan lamayı bulursunuz, üzerinde adım (mm) veya TPI yazar. Alternatif olarak 10 diş arasını ölçüp 10\'a bölersiniz.' },
+        { q: 'Metrik mi inç mi olduğunu nasıl anlarım?', a: 'Adım mm cinsinden tam/yuvarlak değerse (1,5; 2; 2,5) genelde metriktir. Adım "inç başına diş" (ör. 19 TPI) olarak oturuyorsa BSP/NPT/UN dişidir.' },
+        { q: 'BSP ile NPT farkı nedir?', a: 'BSP silindirik veya konik olabilir ve 55° diş açısına sahiptir; NPT konik ve 60°\'dir. Karıştırılırsa sızdırma yapar.' },
+      ],
+      howto: [{ name: 'Büyük çapı ölç', text: 'Kumpasla dış çap (mm)' }, { name: 'Adımı ölç', text: 'Diş tarağı ile P (mm) veya TPI' }, { name: 'Tabloyla eşleştir', text: 'Metrik / BSP / NPT / UN' }],
+      ctaTop: CTA_TR_TOP, ctaBottom: CTA_TR_BOT,
+    },
+    en: {
+      title: 'Thread Pitch & Size Identification | Metric, BSP, NPT — Hidroteknik',
+      desc: 'How to identify a thread\'s size and pitch. Measuring major diameter and pitch, telling metric/BSP/NPT apart, and a practical example.',
+      keywords: 'thread pitch measurement, thread size identification, metric thread, bsp vs npt, thread identification, screw size',
+      h1: 'Thread Pitch & Size Identification', crumb: 'Thread Identification',
+      lead: 'Two measurements are enough to identify an unknown thread: the <strong>major diameter</strong> (with calipers) and the <strong>pitch</strong> (with a pitch gauge). These are matched against standard tables.',
+      formulaTitle: 'Basic Relationship',
+      formulas: [
+        { label: 'Metric (60°) minor diameter', html: 'd<sub>minor</sub> ≈ D − 1.0825 × P' },
+        { label: 'Pitch of an inch thread', html: 'P = 25.4 / (threads per inch)', note: 'D: major diameter (mm), P: pitch (mm)' },
+      ],
+      units: [['Major diameter', 'D', 'mm'], ['Pitch', 'P', 'mm'], ['Thread count', 'TPI', 'threads per inch']],
+      example: {
+        given: 'Calipers read an outer diameter ≈ 20.0 mm; the pitch gauge shows P = 2.5 mm.',
+        steps: [
+          "1) 20 mm + 2.5 mm pitch → standard match: <span class='result'>M20 × 2.5 (metric coarse)</span>",
+          '2) Minor diameter ≈ 20 − 1.0825×2.5 = 17.3 mm (as a check)',
+        ],
+      },
+      faq: [
+        { q: 'How do I measure the pitch?', a: 'The easiest way is a pitch (thread) gauge: find the blade that fits, and it is stamped with the pitch (mm) or TPI. Alternatively, measure across 10 threads and divide by 10.' },
+        { q: 'How do I tell metric from inch?', a: 'If the pitch is a round mm value (1.5, 2, 2.5) it is usually metric. If it fits a "threads per inch" value (e.g. 19 TPI) it is a BSP/NPT/UN thread.' },
+        { q: 'What is the difference between BSP and NPT?', a: 'BSP can be parallel or tapered and has a 55° thread angle; NPT is tapered and 60°. Mixing them causes leaks.' },
+      ],
+      howto: [{ name: 'Measure major diameter', text: 'Outer diameter with calipers (mm)' }, { name: 'Measure pitch', text: 'Pitch gauge: P (mm) or TPI' }, { name: 'Match to table', text: 'Metric / BSP / NPT / UN' }],
+      ctaTop: CTA_EN_TOP, ctaBottom: CTA_EN_BOT,
+    },
+  },
+
+  // 10 — Pressure unit conversion
+  {
+    trSlug: 'basinc-birimi-donusturme-bar-psi',
+    enSlug: 'pressure-unit-conversion-bar-psi',
+    tr: {
+      title: 'Basınç Birimi Dönüştürme | bar, psi, MPa, kgf/cm² — Hidroteknik',
+      desc: 'bar, psi, MPa, kPa ve kgf/cm² arasında basınç dönüştürme. Dönüşüm katsayıları tablosu ve çözümlü örnekler.',
+      keywords: 'bar psi çevirme, basınç birimi dönüştürme, bar mpa, kgf/cm2 bar, psi bar hesaplama, basınç çevirici',
+      h1: 'Basınç Birimi Dönüştürme (bar · psi · MPa)', crumb: 'Basınç Dönüştürme',
+      lead: 'Hidrolikte basınç bar, psi, MPa ve kgf/cm² olarak karşımıza çıkar. Aşağıdaki katsayılarla hepsini birbirine çevirebilirsiniz.',
+      formulaTitle: 'Dönüşüm Katsayıları (1 bar)',
+      formulas: [
+        { html: '1 bar = 100.000 Pa = 100 kPa = <b>0,1 MPa</b>' },
+        { html: '1 bar = <b>14,5038 psi</b>' },
+        { html: '1 bar = <b>1,01972 kgf/cm²</b> ≈ 0,987 atm' },
+      ],
+      units: [['bar', '→ psi', '× 14,5038'], ['psi', '→ bar', '÷ 14,5038'], ['bar', '→ MPa', '× 0,1'], ['bar', '→ kgf/cm²', '× 1,0197']],
+      example: {
+        given: 'Sık kullanılan iki dönüşüm.',
+        steps: [
+          "1) 250 bar kaç psi? → 250 × 14,5038 = <span class='result'>3.626 psi</span>",
+          "2) 3000 psi kaç bar? → 3000 ÷ 14,5038 = <span class='result'>206,8 bar</span>",
+          '3) 250 bar = 25 MPa = 254,9 kgf/cm²',
+        ],
+      },
+      faq: [
+        { q: 'bar ile psi arasındaki oran nedir?', a: '1 bar = 14,5038 psi. bar\'dan psi\'ye çarparak, psi\'den bar\'a bölerek geçilir.' },
+        { q: 'bar ile MPa ilişkisi?', a: '1 bar = 0,1 MPa. Yani 10 bar = 1 MPa. MPa, SI birimidir ve mühendislik hesaplarında sık kullanılır.' },
+        { q: 'kgf/cm² neredeyse bar mı?', a: 'Evet, çok yakındır: 1 bar = 1,0197 kgf/cm². Pratikte çoğu zaman eşit kabul edilir ama hassas hesapta katsayı kullanılmalıdır.' },
+      ],
+      howto: [{ name: 'bar → psi', text: '× 14,5038' }, { name: 'bar → MPa', text: '× 0,1' }, { name: 'bar → kgf/cm²', text: '× 1,0197' }],
+      ctaTop: CTA_TR_TOP, ctaBottom: CTA_TR_BOT,
+    },
+    en: {
+      title: 'Pressure Unit Conversion | bar, psi, MPa, kgf/cm² — Hidroteknik',
+      desc: 'Convert pressure between bar, psi, MPa, kPa and kgf/cm². Conversion factor table and worked examples.',
+      keywords: 'bar to psi, pressure unit conversion, bar to mpa, kgf/cm2 to bar, psi to bar, pressure converter',
+      h1: 'Pressure Unit Conversion (bar · psi · MPa)', crumb: 'Pressure Conversion',
+      lead: 'In hydraulics, pressure appears as bar, psi, MPa and kgf/cm². The factors below let you convert between all of them.',
+      formulaTitle: 'Conversion Factors (1 bar)',
+      formulas: [
+        { html: '1 bar = 100,000 Pa = 100 kPa = <b>0.1 MPa</b>' },
+        { html: '1 bar = <b>14.5038 psi</b>' },
+        { html: '1 bar = <b>1.01972 kgf/cm²</b> ≈ 0.987 atm' },
+      ],
+      units: [['bar', '→ psi', '× 14.5038'], ['psi', '→ bar', '÷ 14.5038'], ['bar', '→ MPa', '× 0.1'], ['bar', '→ kgf/cm²', '× 1.0197']],
+      example: {
+        given: 'Two common conversions.',
+        steps: [
+          "1) 250 bar in psi → 250 × 14.5038 = <span class='result'>3,626 psi</span>",
+          "2) 3000 psi in bar → 3000 ÷ 14.5038 = <span class='result'>206.8 bar</span>",
+          '3) 250 bar = 25 MPa = 254.9 kgf/cm²',
+        ],
+      },
+      faq: [
+        { q: 'What is the ratio between bar and psi?', a: '1 bar = 14.5038 psi. Multiply to go from bar to psi, divide to go from psi to bar.' },
+        { q: 'How does bar relate to MPa?', a: '1 bar = 0.1 MPa, so 10 bar = 1 MPa. MPa is the SI unit and is common in engineering calculations.' },
+        { q: 'Is kgf/cm² almost the same as bar?', a: 'Yes, very close: 1 bar = 1.0197 kgf/cm². In practice they are often treated as equal, but a precise calculation should use the factor.' },
+      ],
+      howto: [{ name: 'bar → psi', text: '× 14.5038' }, { name: 'bar → MPa', text: '× 0.1' }, { name: 'bar → kgf/cm²', text: '× 1.0197' }],
+      ctaTop: CTA_EN_TOP, ctaBottom: CTA_EN_BOT,
+    },
+  },
+
+  // 11 — Gear pump selection
+  {
+    trSlug: 'disli-pompa-secimi',
+    enSlug: 'gear-pump-selection',
+    tr: {
+      title: 'Dişli Pompa Seçimi | Deplasman Hesabı — Hidroteknik',
+      desc: 'İhtiyaca göre dişli pompa nasıl seçilir? Gerekli deplasman formülü, devir ve basınç sınıfı, çözümlü örnek.',
+      keywords: 'dişli pompa seçimi, pompa deplasman hesabı, dişli pompa hesaplama, pompa seçim kriterleri, hidrolik pompa seçimi',
+      h1: 'Dişli Pompa Seçimi', crumb: 'Dişli Pompa Seçimi',
+      lead: 'Doğru dişli pompayı seçmek için üç şeyi bilmelisiniz: gerekli <strong>debi</strong>, motor <strong>devri</strong> ve çalışma <strong>basıncı</strong>. Bunlardan gerekli deplasman hesaplanır.',
+      formulaTitle: 'Gerekli Deplasman',
+      formulas: [
+        { html: 'V<sub>g</sub> = Q × 1000 / (n × η<sub>v</sub>)', note: 'Q: gerekli debi (L/dk), n: devir (rpm), η<sub>v</sub>: volumetrik verim (≈0,90–0,95), V<sub>g</sub>: cc/dev' },
+      ],
+      units: [['Debi', 'Q', 'L/dk'], ['Devir', 'n', 'rpm'], ['Volumetrik verim', 'ηv', '– (0,90–0,95)'], ['Deplasman', 'Vg', 'cc/dev']],
+      example: {
+        given: 'Gerekli debi Q = 40 L/dk, motor devri n = 1450 rpm, volumetrik verim ηv = 0,92.',
+        steps: [
+          "1) Deplasman: Vg = 40 × 1000 / (1450 × 0,92) = <span class='result'>≈ 30 cc/dev</span>",
+          '2) En yakın standart deplasmanı seç (ör. 30 cc/dev)',
+          '3) Pompanın basınç sınıfının çalışma basıncını karşıladığını doğrula',
+        ],
+      },
+      faq: [
+        { q: 'Pompa deplasmanı nasıl seçilir?', a: 'Gerekli debi ve devirden Vg = Q×1000/(n×ηv) ile hesaplanır, sonra en yakın büyük standart deplasman seçilir.' },
+        { q: 'Basınç sınıfı neden önemli?', a: 'Her pompanın maksimum sürekli/aralıklı çalışma basıncı vardır. Sisteminizin basıncı bu sınırın altında kalmalıdır.' },
+        { q: 'Devir pompayı nasıl etkiler?', a: 'Debi devirle doğru orantılıdır. Aynı deplasmanlı pompa daha yüksek devirde daha çok debi verir, ama üretici min/max devir sınırlarına uyulmalıdır.' },
+      ],
+      howto: [{ name: 'Deplasmanı hesapla', text: 'Vg = Q × 1000 / (n × ηv)' }, { name: 'Standart seç', text: 'En yakın büyük deplasman' }, { name: 'Basıncı doğrula', text: 'Pompa basınç sınıfı ≥ sistem basıncı' }],
+      ctaTop: CTA_TR_TOP, ctaBottom: CTA_TR_BOT,
+    },
+    en: {
+      title: 'Gear Pump Selection | Displacement Calculation — Hidroteknik',
+      desc: 'How to select a gear pump for your needs. Required displacement formula, speed and pressure class, and a worked example.',
+      keywords: 'gear pump selection, pump displacement calculation, gear pump sizing, pump selection criteria, hydraulic pump selection',
+      h1: 'Gear Pump Selection', crumb: 'Gear Pump Selection',
+      lead: 'To pick the right gear pump you need three things: the required <strong>flow</strong>, the motor <strong>speed</strong>, and the working <strong>pressure</strong>. From these the required displacement is found.',
+      formulaTitle: 'Required Displacement',
+      formulas: [
+        { html: 'V<sub>g</sub> = Q × 1000 / (n × η<sub>v</sub>)', note: 'Q: required flow (L/min), n: speed (rpm), η<sub>v</sub>: volumetric efficiency (≈0.90–0.95), V<sub>g</sub>: cc/rev' },
+      ],
+      units: [['Flow', 'Q', 'L/min'], ['Speed', 'n', 'rpm'], ['Volumetric efficiency', 'ηv', '– (0.90–0.95)'], ['Displacement', 'Vg', 'cc/rev']],
+      example: {
+        given: 'Required flow Q = 40 L/min, motor speed n = 1450 rpm, volumetric efficiency ηv = 0.92.',
+        steps: [
+          "1) Displacement: Vg = 40 × 1000 / (1450 × 0.92) = <span class='result'>≈ 30 cc/rev</span>",
+          '2) Choose the nearest standard displacement (e.g. 30 cc/rev)',
+          '3) Verify the pump\'s pressure class covers the working pressure',
+        ],
+      },
+      faq: [
+        { q: 'How is pump displacement selected?', a: 'From the required flow and speed via Vg = Q×1000/(n×ηv), then round up to the nearest standard displacement.' },
+        { q: 'Why does the pressure class matter?', a: 'Every pump has a maximum continuous/intermittent working pressure. Your system pressure must stay below that limit.' },
+        { q: 'How does speed affect the pump?', a: 'Flow is proportional to speed. The same displacement gives more flow at higher rpm, but you must respect the manufacturer\'s min/max speed limits.' },
+      ],
+      howto: [{ name: 'Compute displacement', text: 'Vg = Q × 1000 / (n × ηv)' }, { name: 'Pick a standard', text: 'Nearest larger displacement' }, { name: 'Verify pressure', text: 'Pump class ≥ system pressure' }],
+      ctaTop: CTA_EN_TOP, ctaBottom: CTA_EN_BOT,
+    },
+  },
+
+  // 12 — Hydraulic power unit sizing
+  {
+    trSlug: 'hidrolik-guc-unitesi-boyutlandirma',
+    enSlug: 'hydraulic-power-unit-sizing',
+    tr: {
+      title: 'Hidrolik Güç Ünitesi Boyutlandırma | Power Pack — Hidroteknik',
+      desc: 'Hidrolik güç ünitesi (power pack) nasıl boyutlandırılır? Motor gücü, pompa deplasmanı ve tank hacmi formülleri ile çözümlü örnek.',
+      keywords: 'hidrolik güç ünitesi, power pack boyutlandırma, hidrolik ünite hesabı, tank hacmi hesabı, elektrik motoru gücü hidrolik',
+      h1: 'Hidrolik Güç Ünitesi Boyutlandırma', crumb: 'Güç Ünitesi Boyutlandırma',
+      lead: 'Bir hidrolik güç ünitesi; pompa, elektrik motoru ve tanktan oluşur. Debi ve basınç hedefinden motor gücü, pompa deplasmanı ve tank hacmi belirlenir.',
+      formulaTitle: 'Boyutlandırma Formülleri',
+      formulas: [
+        { label: 'Elektrik motoru gücü', html: 'P (kW) = p (bar) × Q (L/dk) / (600 × η)', note: 'η: toplam verim ≈ 0,85' },
+        { label: 'Pompa deplasmanı', html: 'V<sub>g</sub> = Q × 1000 / n' },
+        { label: 'Tank hacmi', html: 'V<sub>tank</sub> ≈ 3–5 × Q' },
+      ],
+      units: [['Debi', 'Q', 'L/dk'], ['Basınç', 'p', 'bar'], ['Devir', 'n', 'rpm'], ['Güç', 'P', 'kW'], ['Tank', 'Vtank', 'L']],
+      example: {
+        given: 'Debi Q = 30 L/dk, basınç p = 180 bar, motor devri n = 1450 rpm, verim η = 0,85.',
+        steps: [
+          "1) Motor gücü: P = 180 × 30 / (600 × 0,85) = 10,6 kW → <span class='result'>11 kW standart motor</span>",
+          "2) Pompa deplasmanı: Vg = 30 × 1000 / 1450 = <span class='result'>≈ 20,7 cc/dev</span>",
+          "3) Tank hacmi: 3 × 30 = <span class='result'>≈ 90 L</span>",
+        ],
+      },
+      faq: [
+        { q: 'Tank neden debinin 3–5 katı seçilir?', a: 'Yağın soğuması, havadan/su buharından arınması ve dinlenmesi için zaman gerekir. 3–5 katı hacim, ısı dengesi ve köpük ayrışması için yeterli bekleme sağlar.' },
+        { q: 'Motor gücünü neden verime böleriz?', a: 'Hidrolik güç teorik değerdir; pompadaki kayıplar nedeniyle elektrik motorunun bundan fazlasını vermesi gerekir. η≈0,85 bunu hesaba katar.' },
+        { q: 'Motoru bir üst standarda mı seçmeliyim?', a: 'Evet. Hesaplanan gücün üzerindeki en yakın standart motor (ör. 10,6 kW → 11 kW) seçilir; sürekli tam yükte çalışmada emniyet payı bırakılır.' },
+      ],
+      howto: [{ name: 'Motor gücü', text: 'P = p × Q / (600 × η)' }, { name: 'Pompa deplasmanı', text: 'Vg = Q × 1000 / n' }, { name: 'Tank hacmi', text: '3–5 × Q' }],
+      ctaTop: CTA_TR_TOP, ctaBottom: CTA_TR_BOT,
+    },
+    en: {
+      title: 'Hydraulic Power Unit Sizing | Power Pack — Hidroteknik',
+      desc: 'How to size a hydraulic power unit (power pack). Motor power, pump displacement and tank volume formulas with a worked example.',
+      keywords: 'hydraulic power unit, power pack sizing, hydraulic unit calculation, tank volume calculation, electric motor power hydraulic',
+      h1: 'Hydraulic Power Unit Sizing', crumb: 'Power Unit Sizing',
+      lead: 'A hydraulic power unit consists of a pump, an electric motor and a tank. From the target flow and pressure you determine the motor power, pump displacement and tank volume.',
+      formulaTitle: 'Sizing Formulas',
+      formulas: [
+        { label: 'Electric motor power', html: 'P (kW) = p (bar) × Q (L/min) / (600 × η)', note: 'η: overall efficiency ≈ 0.85' },
+        { label: 'Pump displacement', html: 'V<sub>g</sub> = Q × 1000 / n' },
+        { label: 'Tank volume', html: 'V<sub>tank</sub> ≈ 3–5 × Q' },
+      ],
+      units: [['Flow', 'Q', 'L/min'], ['Pressure', 'p', 'bar'], ['Speed', 'n', 'rpm'], ['Power', 'P', 'kW'], ['Tank', 'Vtank', 'L']],
+      example: {
+        given: 'Flow Q = 30 L/min, pressure p = 180 bar, motor speed n = 1450 rpm, efficiency η = 0.85.',
+        steps: [
+          "1) Motor power: P = 180 × 30 / (600 × 0.85) = 10.6 kW → <span class='result'>11 kW standard motor</span>",
+          "2) Pump displacement: Vg = 30 × 1000 / 1450 = <span class='result'>≈ 20.7 cc/rev</span>",
+          "3) Tank volume: 3 × 30 = <span class='result'>≈ 90 L</span>",
+        ],
+      },
+      faq: [
+        { q: 'Why is the tank 3–5× the flow?', a: 'The oil needs time to cool, release air/moisture and settle. A volume of 3–5× the flow gives enough dwell time for heat balance and foam separation.' },
+        { q: 'Why divide motor power by efficiency?', a: 'Hydraulic power is the theoretical value; because of pump losses the electric motor must supply more. η≈0.85 accounts for this.' },
+        { q: 'Should I pick the next standard motor up?', a: 'Yes. Choose the nearest standard motor above the calculated power (e.g. 10.6 kW → 11 kW) to leave a safety margin for continuous full-load operation.' },
+      ],
+      howto: [{ name: 'Motor power', text: 'P = p × Q / (600 × η)' }, { name: 'Pump displacement', text: 'Vg = Q × 1000 / n' }, { name: 'Tank volume', text: '3–5 × Q' }],
+      ctaTop: CTA_EN_TOP, ctaBottom: CTA_EN_BOT,
+    },
+  },
 ];

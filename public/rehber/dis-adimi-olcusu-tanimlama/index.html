@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <title>Diş Adımı ve Ölçüsü Tanımlama | Metrik, BSP, NPT — Hidroteknik</title>
+  <meta name="description" content="Bir dişin ölçüsü ve adımı nasıl bulunur? Büyük çap ve adım ölçümü, metrik/BSP/NPT ayrımı ve pratik örnek." />
+  <meta name="keywords" content="diş adımı ölçme, diş ölçüsü tanımlama, metrik diş, bsp npt farkı, diş tanımlama, vida ölçüsü" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/thread-pitch-size-identification/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Diş Adımı ve Ölçüsü Tanımlama" />
+  <meta property="og:description" content="Bir dişin ölçüsü ve adımı nasıl bulunur? Büyük çap ve adım ölçümü, metrik/BSP/NPT ayrımı ve pratik örnek." />
+  <meta property="og:url" content="https://hesapla.hidroteknik.com.tr/rehber/dis-adimi-olcusu-tanimlama/" />
+  <meta property="og:image" content="https://hesapla.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Diş Adımı ve Ölçüsü Tanımlama","description":"Bir dişin ölçüsü ve adımı nasıl bulunur? Büyük çap ve adım ölçümü, metrik/BSP/NPT ayrımı ve pratik örnek.","step":[{"@type":"HowToStep","name":"Büyük çapı ölç","text":"Kumpasla dış çap (mm)"},{"@type":"HowToStep","name":"Adımı ölç","text":"Diş tarağı ile P (mm) veya TPI"},{"@type":"HowToStep","name":"Tabloyla eşleştir","text":"Metrik / BSP / NPT / UN"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Adımı nasıl ölçerim?","acceptedAnswer":{"@type":"Answer","text":"En kolayı diş tarağı (pitch gauge) ile: dişe uyan lamayı bulursunuz, üzerinde adım (mm) veya TPI yazar. Alternatif olarak 10 diş arasını ölçüp 10'a bölersiniz."}},{"@type":"Question","name":"Metrik mi inç mi olduğunu nasıl anlarım?","acceptedAnswer":{"@type":"Answer","text":"Adım mm cinsinden tam/yuvarlak değerse (1,5; 2; 2,5) genelde metriktir. Adım \"inç başına diş\" (ör. 19 TPI) olarak oturuyorsa BSP/NPT/UN dişidir."}},{"@type":"Question","name":"BSP ile NPT farkı nedir?","acceptedAnswer":{"@type":"Answer","text":"BSP silindirik veya konik olabilir ve 55° diş açısına sahiptir; NPT konik ve 60°'dir. Karıştırılırsa sızdırma yapar."}}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Hesaplama</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://hesapla.hidroteknik.com.tr/">Hesaplayıcı</a> ›
+      Diş Adımı Tanımlama
+    </nav>
+
+    <h1>Diş Adımı ve Ölçüsü Tanımlama</h1>
+    <p class="lead">Bilinmeyen bir dişi tanımlamak için iki ölçü yeterlidir: <strong>büyük çap</strong> (kumpasla) ve <strong>adım</strong> (diş tarağı ile). Bu ikisi standart tablolarla eşleştirilir.</p>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">⚙ Hidrolik Hesaplayıcıyı Aç →</a>
+
+    <h2>Temel İlişki</h2>
+    <h3>Metrik diş (60°) diş dibi çapı</h3><div class="formula">d<sub>dip</sub> ≈ D − 1,0825 × P</div>
+<h3>İnç dişte adım</h3><div class="formula">P = 25,4 / (inç başına diş sayısı)</div><p><span class="muted">D: büyük çap (mm), P: adım (mm)</span></p>
+
+    <h2>Birimler</h2>
+    <table>
+      <tr><th>Büyüklük</th><th>Sembol</th><th>Birim</th></tr>
+      <tr><td>Büyük çap</td><td>D</td><td>mm</td></tr><tr><td>Adım</td><td>P</td><td>mm</td></tr><tr><td>Diş sayısı</td><td>TPI</td><td>inç başına diş</td></tr>
+    </table>
+
+    <h2>Çözümlü Örnek</h2>
+    <div class="example">
+      <p><strong>Verilen:</strong> Kumpasla dış çap ≈ 20,0 mm ölçüldü, diş tarağı adımı P = 2,5 mm gösterdi.</p>
+      <p class="step">1) 20 mm + 2,5 mm adım → standart eşleşme: <span class='result'>M20 × 2,5 (metrik kaba diş)</span></p>
+<p class="step">2) Diş dibi çapı ≈ 20 − 1,0825×2,5 = 17,3 mm (kontrol için)</p>
+    </div>
+
+    <a class="cta" href="https://hesapla.hidroteknik.com.tr/">Kendi değerlerinizle hesaplayın →</a>
+
+    <h2>Sık Sorulan Sorular</h2>
+    <details><summary>Adımı nasıl ölçerim?</summary><p>En kolayı diş tarağı (pitch gauge) ile: dişe uyan lamayı bulursunuz, üzerinde adım (mm) veya TPI yazar. Alternatif olarak 10 diş arasını ölçüp 10'a bölersiniz.</p></details>
+<details><summary>Metrik mi inç mi olduğunu nasıl anlarım?</summary><p>Adım mm cinsinden tam/yuvarlak değerse (1,5; 2; 2,5) genelde metriktir. Adım "inç başına diş" (ör. 19 TPI) olarak oturuyorsa BSP/NPT/UN dişidir.</p></details>
+<details><summary>BSP ile NPT farkı nedir?</summary><p>BSP silindirik veya konik olabilir ve 55° diş açısına sahiptir; NPT konik ve 60°'dir. Karıştırılırsa sızdırma yapar.</p></details>
+
+    <footer>
+      <p>Bu rehber <a href="https://www.hidroteknik.com.tr">Hidroteknik A.Ş.</a> tarafından hazırlanmıştır — 40 yılı aşkın süredir hidrolik, pnömatik ve otomasyon çözümleri.</p>
+      <p><a href="https://hesapla.hidroteknik.com.tr/">Tüm hesaplama araçları →</a></p>
+    </footer>
+  </div>
+</body>
+</html>

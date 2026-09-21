@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DR9LJ8TF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E5DR9LJ8TF');
+  </script>
+
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <title>Buckling Load & Minimum Shaft Diameter | Euler — Hidroteknik</title>
+  <meta name="description" content="How to calculate the buckling load of a shaft/column under compression. Euler formula, end-fixity factors, units and a worked example." />
+  <meta name="keywords" content="buckling calculation, euler buckling load, critical buckling load, minimum shaft diameter, column buckling, rod buckling" />
+  <meta name="author" content="Hidroteknik A.Ş." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://calculate.hidroteknik.com.tr/guide/buckling-load-shaft-diameter-calculation/" />
+  <link rel="alternate" hreflang="tr" href="https://hesapla.hidroteknik.com.tr/rehber/burkulma-hesabi-mil-capi/" />
+  <link rel="alternate" hreflang="en" href="https://calculate.hidroteknik.com.tr/guide/buckling-load-shaft-diameter-calculation/" />
+  <link rel="alternate" hreflang="x-default" href="https://hesapla.hidroteknik.com.tr/rehber/burkulma-hesabi-mil-capi/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Buckling Load &amp; Minimum Shaft Diameter" />
+  <meta property="og:description" content="How to calculate the buckling load of a shaft/column under compression. Euler formula, end-fixity factors, units and a worked example." />
+  <meta property="og:url" content="https://calculate.hidroteknik.com.tr/guide/buckling-load-shaft-diameter-calculation/" />
+  <meta property="og:image" content="https://calculate.hidroteknik.com.tr/og-image.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <style>
+    :root { --bg:#111; --surface:#1b1b1b; --border:#2a2a2a; --text:#f2f2f2; --muted:#9a9a9a; --accent:#F5C400; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.65; }
+    .wrap { max-width:820px; margin:0 auto; padding:24px 20px 64px; }
+    header.site { display:flex; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+    header.site img { height:30px; background:#fff; padding:6px 10px; border-radius:8px; }
+    nav.crumb { font-size:13px; color:var(--muted); margin-bottom:16px; }
+    nav.crumb a { color:var(--muted); text-decoration:none; }
+    nav.crumb a:hover { color:var(--accent); }
+    h1 { font-size:30px; line-height:1.25; margin:8px 0 16px; }
+    h2 { font-size:22px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+    h3 { font-size:17px; margin:24px 0 8px; color:var(--accent); }
+    p { margin:12px 0; }
+    a { color:var(--accent); }
+    .lead { font-size:18px; color:#e6e6e6; }
+    .formula { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:16px 0; font-size:19px; text-align:center; }
+    .formula b { color:var(--accent); }
+    table { width:100%; border-collapse:collapse; margin:16px 0; background:var(--surface); border-radius:12px; overflow:hidden; }
+    th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    th { background:#000; color:var(--accent); font-weight:700; }
+    .example { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:16px 0; }
+    .example .step { margin:8px 0; }
+    .result { color:var(--accent); font-weight:800; font-size:18px; }
+    .cta { display:block; text-align:center; background:var(--accent); color:#111; font-weight:800; text-decoration:none; padding:16px; border-radius:12px; margin:28px 0; font-size:16px; }
+    details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:4px 16px; margin:10px 0; }
+    summary { cursor:pointer; font-weight:700; padding:12px 0; }
+    details p { color:var(--muted); }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:13px; color:var(--muted); }
+    footer a { color:var(--accent); }
+    .muted { color:var(--muted); font-size:14px; }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Buckling Load & Minimum Shaft Diameter","description":"How to calculate the buckling load of a shaft/column under compression. Euler formula, end-fixity factors, units and a worked example.","step":[{"@type":"HowToStep","name":"Second moment","text":"I = π × d⁴ / 64"},{"@type":"HowToStep","name":"Critical load","text":"Pcr = π² × E × I / (K × L)²"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the end-fixity factor (K)?","acceptedAnswer":{"@type":"Answer","text":"It captures how the shaft ends are supported. Pinned-pinned K=1, fixed-free K=2, fixed-pinned K=0.7, fixed-fixed K=0.5. A larger K lowers the buckling load."}},{"@type":"Question","name":"What safety factor should I use?","acceptedAnswer":{"@type":"Answer","text":"Because buckling is sudden and dangerous, a factor of 3–5 is common; the critical load is divided by this to get the working load."}},{"@type":"Question","name":"Does Euler apply to short shafts?","acceptedAnswer":{"@type":"Answer","text":"No. Euler applies only to slender (long/thin) members. Short/thick shafts are governed by yielding (crushing) and need a different check."}}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <img src="/apple-touch-icon.png" alt="Hidroteknik" onerror="this.style.display='none'" />
+      <strong>Hidroteknik Calculators</strong>
+    </header>
+
+    <nav class="crumb">
+      <a href="https://www.hidroteknik.com.tr">Hidroteknik</a> ›
+      <a href="https://calculate.hidroteknik.com.tr/">Calculator</a> ›
+      Buckling & Shaft Diameter
+    </nav>
+
+    <h1>Buckling Load & Minimum Shaft Diameter</h1>
+    <p class="lead">A long, slender shaft under axial compression <strong>buckles</strong> sideways before it crushes. Euler's formula gives the critical load the shaft can carry.</p>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">⚙ Open the Hydraulic Calculator →</a>
+
+    <h2>Euler Formula</h2>
+    <h3>Critical buckling load</h3><div class="formula">P<sub>cr</sub> = π² × E × I / (K × L)²</div>
+<h3>Second moment of area (solid shaft)</h3><div class="formula">I = π × d⁴ / 64</div>
+<h3>End-fixity factor K</h3><div class="formula">Pinned-pinned: 1 · Fixed-free: 2 · Fixed-pinned: 0.7 · Fixed-fixed: 0.5</div>
+
+    <h2>Units</h2>
+    <table>
+      <tr><th>Quantity</th><th>Symbol</th><th>Unit</th></tr>
+      <tr><td>Elastic modulus</td><td>E</td><td>N/mm² (steel ≈ 210,000)</td></tr><tr><td>Second moment of area</td><td>I</td><td>mm⁴</td></tr><tr><td>Length</td><td>L</td><td>mm</td></tr><tr><td>Critical load</td><td>Pcr</td><td>N</td></tr>
+    </table>
+
+    <h2>Worked Example</h2>
+    <div class="example">
+      <p><strong>Given:</strong> Solid shaft d = 40 mm, length L = 1000 mm, pinned-pinned (K = 1), E = 210,000 N/mm².</p>
+      <p class="step">1) Second moment: I = π × 40⁴ / 64 = <strong>125,664 mm⁴</strong></p>
+<p class="step">2) Critical load: P<sub>cr</sub> = π² × 210000 × 125664 / (1 × 1000)² = <span class='result'>≈ 260 kN</span></p>
+<p class="step">3) Safety factor S = 3.5 → allowable load: <span class='result'>≈ 74 kN</span></p>
+    </div>
+
+    <a class="cta" href="https://calculate.hidroteknik.com.tr/">Calculate with your own values →</a>
+
+    <h2>Frequently Asked Questions</h2>
+    <details><summary>What is the end-fixity factor (K)?</summary><p>It captures how the shaft ends are supported. Pinned-pinned K=1, fixed-free K=2, fixed-pinned K=0.7, fixed-fixed K=0.5. A larger K lowers the buckling load.</p></details>
+<details><summary>What safety factor should I use?</summary><p>Because buckling is sudden and dangerous, a factor of 3–5 is common; the critical load is divided by this to get the working load.</p></details>
+<details><summary>Does Euler apply to short shafts?</summary><p>No. Euler applies only to slender (long/thin) members. Short/thick shafts are governed by yielding (crushing) and need a different check.</p></details>
+
+    <footer>
+      <p>This guide is prepared by <a href="https://www.hidroteknik.com.tr">Hidroteknik Inc.</a> — over 40 years of hydraulic, pneumatic and automation solutions.</p>
+      <p><a href="https://calculate.hidroteknik.com.tr/">All calculation tools →</a></p>
+    </footer>
+  </div>
+</body>
+</html>
