@@ -14,6 +14,8 @@ Kullanıcı: *"sayfa patlasa da çatlasa da ben deploy demeden deploy yapmasın.
 - **Canlı kırıksa boş durma:** düzelt, dene, `bekleyen/<konu>` dalına koy, kullanıcıya TEK mesaj yaz:
   `🔴 CANLI KIRIK: <ne bozuk> — <kimi etkiliyor> — düzeltme hazır (<dal>) — "deploy" dersen canlıya çıkar.`
 - **"Deploy edeyim mi?" diye ısrar etme.** İş bitince bittiğini söyle ve bekle; yayını kullanıcı ister.
+- **Kullanıcıya görev verme.** Betikle, MCP ile ya da tarayıcı ajanına verilecek hazır talimatla yapılabilen işi
+  kendin yap; kullanıcıdan yalnız onun yapabileceğini iste (2FA, şifre, ödeme onayı, karar).
 - Veritabanı işleri (migration, veri düzeltme) bu kuralın konusu değil; onların kendi kuralları geçerli.
 
 ## 🗂️ BEKLEYEN DAL — biten iş burada birikir (kullanıcı kararı 2026-10-02)
@@ -21,6 +23,7 @@ Kullanıcı: *"sayfa patlasa da çatlasa da ben deploy demeden deploy yapmasın.
 Kullanıcı: *"bekleyen diye dal yapsın, tüm repolar commitleri orada biriktirsin; ben demeden asla deploy istemiyorum."*
 
 - Biten ve denenmiş iş **`bekleyen/<konu>`** dalına itilir: `git push origin HEAD:bekleyen/<konu>`.
+  Dal, canlı dalın GÜNCEL hâlinden kurulur (`git fetch origin <canlı dal>`), GitHub varsayılan dalından değil.
   Her iş KENDİ dalında — aynı anda çalışan oturumlar birbirinin işini ezmesin. Yarım iş konmaz:
   bekleyen dal "hazır, deploy bekliyor" demektir. Aynı dalı güncellerken üstüne yeni commit ekle; düz
   `bekleyen` adlı dal AÇMA (`bekleyen/*` ile çakışır).
